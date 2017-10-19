@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8Cg1zJUEs2bxE7RwfeibUW9dn8YFEzrgRUn5ZPJxghtZtoTicxnYZNVWQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8OL46IMZjco3MibibBb1ZHQkLibIhpryUtssj6hwvAngxMaiaSqNjBUtjrA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8HmoFicWNkZ8GO2O5p5zFVmHE9QFVeyuAy7AdDL8T6iavSxqpx16fG6JA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-10-19T06:15:43.995Z">
+<meta property="og:updated_time" content="2017-10-19T06:48:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Web缓存">
 <meta name="twitter:description" content="序言在开发当中，性能至关重要，然而判断一个网站的性能最直观的就是看到网页打开的速度。其中提高网页反应速度的一个方式就是使用缓存。一个优秀的缓存策略可以缩短网页请求的距离，减少延迟，使缓存文件得到重复利用，减少冠带，降低网络负荷。">
@@ -326,7 +326,8 @@
 <li>浏览器缓存</li>
 </ul>
 <h3 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h3><p>页面的缓存状态是由header决定的，header的参数有四种。</p>
-<h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><ul>
+<h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><p>其优先级要比Expires高</p>
+<ul>
 <li><p>max-age</p>
 <p>  单位为s，指定设置缓存最大的有效时间，定义时间的长短。当浏览器向服务器发送请求过后，在max-age这段时间里浏览器就不会再向服务器发送请求了。</p>
 <p>  example</p>
@@ -379,6 +380,12 @@ server.listen(port, host, () =&gt; {
 <p>  绝对禁止缓存，一看就知道如果用了这个命令当然就是不会进行缓存，每次请求资源都要从服务器重新获取</p>
 </li>
 </ul>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>单位为毫秒ms，缓存过期时间，用来指定资源到期的时间，是服务器端的具体的时间点。也就是说，Expires=max-age + 请求时间，需要和Last-modified结合使用。Expires是Web服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据，而无需再次请求。</p>
+<pre><code>res.setHeader(&apos;Expires&apos;, `${new Date(Date.now() + 60 * 2 * 1000).toUTCString()}`);
+//设置过期时间为两分钟后
+</code></pre><p>在控制台上输出的结果如cache-control的一样</p>
+<h4 id="Last-modified"><a href="#Last-modified" class="headerlink" title="Last-modified"></a>Last-modified</h4><p>服务器端文件的最后修改时间，需要和cache-control共同使用，是检查服务器端资源是否更新的一种方式。当浏览器再次进行请求时，会向服务器传送If-Modified-Since报头，询问Last-Modified时间点之后资源是否被修改过。如果没有修改，则返回码为304，使用缓存；如果修改过，则再次去服务器请求资源，返回码和首次请求相同为200，资源为服务器最新资源。</p>
+<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>根据实体内容生成一段hash字符串，标识资源的状态，由服务端产生。浏览器会将这串字符串传回服务器，验证资源是否已经修改，如果没有修改，过程如下</p>
 
       
     </div>
@@ -390,7 +397,7 @@ server.listen(port, host, () =&gt; {
         <p><span>本文标题:</span><a  href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月19日 - 08时48分</p>
-        <p><span>最后更新:</span>2017年10月19日 - 14时15分</p>
+        <p><span>最后更新:</span>2017年10月19日 - 14时48分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/19/浅谈Web缓存/" title="浅谈Web缓存">http://qinyongli.cn/2017/10/19/浅谈Web缓存/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/19/浅谈Web缓存/　　作者: 覃永利" title=""></span>
@@ -418,7 +425,7 @@ server.listen(port, host, () =&gt; {
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存分类"><span class="toc-number">2.</span> <span class="toc-text">缓存分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器缓存"><span class="toc-number">2.1.</span> <span class="toc-text">浏览器缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cache-Control"><span class="toc-number">2.1.1.</span> <span class="toc-text">Cache-Control</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存分类"><span class="toc-number">2.</span> <span class="toc-text">缓存分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器缓存"><span class="toc-number">2.1.</span> <span class="toc-text">浏览器缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cache-Control"><span class="toc-number">2.1.1.</span> <span class="toc-text">Cache-Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Expires"><span class="toc-number">2.1.2.</span> <span class="toc-text">Expires</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Last-modified"><span class="toc-number">2.1.3.</span> <span class="toc-text">Last-modified</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ETag"><span class="toc-number">2.1.4.</span> <span class="toc-text">ETag</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
