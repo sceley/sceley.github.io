@@ -11,3 +11,4 @@ Disallow: /vendors/
 Disallow: /fancybox/
 
 Sitemap: http://qinyongli.cn/baidusitemap.xml
+Sitemap: http://qinyongli.cn/sitemap.xml
