@@ -299,68 +299,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在开发当中，性能至关重要，然而判断一个网站的性能最直观的就是看到网页打开的速度。其中提高网页反应速度的一个方式就是使用缓存。一个优秀的缓存策略可以缩短网页请求的距离，减少延迟，使缓存文件得到重复利用，减少冠带，降低网络负荷。</p>
-<h2 id="缓存分类"><a href="#缓存分类" class="headerlink" title="缓存分类"></a>缓存分类</h2><ul>
-<li>数据库缓存</li>
-<li>代理服务器缓存</li>
-<li>CDN缓存</li>
-<li>浏览器缓存</li>
-</ul>
-<h3 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h3><p>页面的缓存状态是由header决定的，header的参数有四种。</p>
-<h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><ul>
-<li><p>max-age</p>
-<p>  单位为s，指定设置缓存最大的有效时间，定义时间的长短。当浏览器向服务器发送请求过后，在max-age这段时间里浏览器就不会再向服务器发送请求了。</p>
-<p>  example</p>
-<pre><code>const http = require(&apos;http&apos;);
-const fs = require(&apos;fs&apos;);
-const port = 3000;
-const host = &apos;127.0.0.1&apos;;
-const server = http.createServer();
-server.on(&apos;request&apos;, (req, res) =&gt; {
-    if(req.url == &apos;/&apos;) {
-        console.log(req.url);
-        fs.readFile(&apos;./index.html&apos;, (err, data) =&gt; {
-            res.statusCode = 200;
-            res.setHeader(&apos;Content-Type&apos;, &apos;text/html&apos;);
-            //设置Cache-Control缓存
-            res.setHeader(&apos;Cache-Control&apos;, &apos;max-age=60&apos;);
-            res.end(data);
-        });
-    }
-});
-server.listen(port, host, () =&gt; {
-    console.log(`server serve at http://${host}:${port}`);
-});
-</code></pre><p>  在firefox输入网址后回车，然后在地址栏再次回车。控制台输入的结果如图</p>
-<p>  <img src="/img/cache-control1.png" alt=""></p>
-<p>  一次请求</p>
-<p>  不设置缓存，控制输入的结果如图</p>
-<p>  <img src="/img/cache-control2.png" alt=""></p>
-<p>  两次请求</p>
-</li>
-<li><p>s-maxage</p>
-<p>  单位为s，同max-age，只是用于共享缓存(比如CDN缓存)</p>
-<p>  比如，当s-maxage=60时，在这60秒中，即使更新了CDN的内容，浏览器也不会进行请求。也就是说max-age用于普通的缓存，而s-maxage用于代理缓存。<br>  如果存在s-maxage，则会覆盖掉max-age和Expires header</p>
-</li>
-<li><p>public</p>
-<p>  指定响应会被缓存，并且在多用户间共享。也就是下图的意思。如果没有指定public还是private，则默认为public</p>
-<p>  <img src="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8Cg1zJUEs2bxE7RwfeibUW9dn8YFEzrgRUn5ZPJxghtZtoTicxnYZNVWQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
-</li>
-<li><p>private</p>
-<p>  响应只作为私有的缓存（见下图），不能在用户间共享。如果要求HTTP认证，响应会自动设置为private</p>
-<p>  <img src="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8OL46IMZjco3MibibBb1ZHQkLibIhpryUtssj6hwvAngxMaiaSqNjBUtjrA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
-</li>
-<li><p>no-cache</p>
-<p>  指定不缓存响应</p>
-<pre><code>res.setHeader(&apos;Cache-Control&apos;, &apos;no-cache&apos;);
-</code></pre><p>  <img src="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8HmoFicWNkZ8GO2O5p5zFVmHE9QFVeyuAy7AdDL8T6iavSxqpx16fG6JA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
-<p>  设置了no-cache之后并不代表浏览器不缓存，而是在缓存前要向服务器确认资源是否被更改。因此有的时候只设置no-cache防止缓存还是不够保险，还可以加上private指令，将过期时间设为过去的时间</p>
-</li>
-<li><p>no-store</p>
-<p>  绝对禁止缓存，一看就知道如果用了这个命令当然就是不会进行缓存，每次请求资源都要从服务器重新获取</p>
-</li>
-</ul>
-
+              <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在开发当中，性能至关重要，然而判断一个网站的性能最直观的就是看到网页打开的速度。其中提高网页反应速度的一个方式就是使用缓存。一个优秀的缓存策略可以缩短网页请求的距离，减少延迟，使缓存文件得到重复利用，减少冠带，降低网络负荷。</p>
+          
       
     </div>
     
@@ -377,6 +317,10 @@ server.listen(port, host, () =&gt; {
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web缓存/">Web缓存</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a   href="/2017/10/19/浅谈Web缓存/#more">查看更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
