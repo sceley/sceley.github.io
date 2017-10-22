@@ -28,8 +28,10 @@
 <meta property="og:image" content="http://qinyongli.cn/img/packet2.png">
 <meta property="og:image" content="http://qinyongli.cn/img/tcpipstream.png">
 <meta property="og:image" content="http://qinyongli.cn/img/threeshakehands.gif">
+<meta property="og:image" content="http://qinyongli.cn/img/threeshakehands.png">
 <meta property="og:image" content="http://qinyongli.cn/img/waved.jpg">
-<meta property="og:updated_time" content="2017-10-22T06:01:41.000Z">
+<meta property="og:image" content="http://qinyongli.cn/img/waved2.jpg">
+<meta property="og:updated_time" content="2017-10-22T06:17:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈TCP&#x2F;IP HTTP HTTPS HTTP2">
 <meta name="twitter:description" content="序言作为一名计算机科学与技术的工科生，了解网络基础是必须的。只要涉及到网络通讯、B/S交互，必会有网络协议。从本博客开始，开启我在网络协议上的系统学习。">
@@ -367,22 +369,24 @@
 <p>建立连接(三次握手)</p>
 <p>握手过程中使用了TCP的标志：SYN和ACK。<br>发送端首先发送一个带SYN标志的数据包给对方。接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息。 最后，发送端再回传一个带ACK标志的数据包，代表“握手”结束。</p>
 <p><img src="/img/threeshakehands.gif" alt="三次握手"></p>
+<p><img src="/img/threeshakehands.png" alt="三次握手"></p>
 <p>中断连接(四次挥手)</p>
 <ul>
 <li><p>第一次挥手</p>
-<p>  主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送</p>
+<p>  主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。</p>
 </li>
 <li><p>第二次挥手</p>
 <p>  被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）</p>
 </li>
 <li><p>第三次挥手</p>
-<p>  被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送</p>
+<p>  被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了</p>
 </li>
 <li><p>第四次挥手</p>
 <p>  主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。</p>
 </li>
 </ul>
 <p><img src="/img/waved.jpg" alt="四次挥手图片"></p>
+<p><img src="/img/waved2.jpg" alt="四次挥手图片"></p>
 
       
     </div>
@@ -394,7 +398,7 @@
         <p><span>本文标题:</span><a  href="/浅谈TCP-IP-HTTP-HTTPS-HTTP2.html">浅谈TCP/IP HTTP HTTPS HTTP2</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月21日 - 22时46分</p>
-        <p><span>最后更新:</span>2017年10月22日 - 14时01分</p>
+        <p><span>最后更新:</span>2017年10月22日 - 14时17分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/浅谈TCP-IP-HTTP-HTTPS-HTTP2.html" title="浅谈TCP/IP HTTP HTTPS HTTP2">http://qinyongli.cn/浅谈TCP-IP-HTTP-HTTPS-HTTP2.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/浅谈TCP-IP-HTTP-HTTPS-HTTP2.html　　作者: 覃永利" title=""></span>
