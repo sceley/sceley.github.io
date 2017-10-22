@@ -43,14 +43,13 @@
     <link href="http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88MVX/"/>
     <id>http://qinyongli.cn/2017/10/21/浅谈MVX/</id>
     <published>2017-10-21T05:06:30.000Z</published>
-    <updated>2017-10-21T16:10:55.913Z</updated>
+    <updated>2017-10-22T14:27:45.753Z</updated>
     
-    <content type="html"><![CDATA[<p>##　序言</p><p>MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM</p><a id="more"></a><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>是应用最广泛的软件架构之一，一般MVC分为: Model(模型)、Controller(控制器)和View(视图)。这主要是基于分层的目的，让彼此的职责分开。</p><p>控制器（Controller），一组行为的集合。</p><p>模型（Model），数据相关的操作和封装。</p><p>视图（View），视图的渲染。</p><p>View一般通过Controler来和Model进行联系的。Controller是Model和View的协调者，View和Model不直接联系。基本联系都是单项的。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM</p><a id="more"></a><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>是应用最广泛的软件架构之一，一般MVC分为: Model(模型)、Controller(控制器)和View(视图)。这主要是基于分层的目的，让彼此的职责分开。</p><p>控制器（Controller），一组行为的集合。</p><p>模型（Model），数据相关的操作和封装。</p><p>视图（View），视图的渲染。</p><p>View一般通过Controler来和Model进行联系的。Controller是Model和View的协调者，View和Model不直接联系。基本联系都是单项的。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;##　序言&lt;/p&gt;
-&lt;p&gt;MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM&lt;/p&gt;
+      &lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;p&gt;MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM&lt;/p&gt;
     
     </summary>
     
