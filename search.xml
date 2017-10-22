@@ -4,7 +4,7 @@
     
     <entry>
       <title><![CDATA[浅谈TCP/IP HTTP HTTPS HTTP2]]></title>
-      <url>/%E6%B5%85%E8%B0%88TCP-IP-HTTP-HTTPS-HTTP2.html</url>
+      <url>/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP-HTTP-HTTPS-HTTP2/</url>
       <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>作为一名计算机科学与技术的工科生，了解网络基础是必须的。只要涉及到网络通讯、B/S交互，必会有网络协议。从本博客开始，开启我在网络协议上的系统学习。</p>
 <a id="more"></a>
 <h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><p>OSI 模型(Open System Interconnection model)是一个由国际标准化组织提出概念模型,试图提供一个使各种不同的计算机和网络在世界范围内实现互联的标准框架。OSI是传统的开放式系统互连参考模型，是一种通信协议的7层抽象的参考模型，其中每一层执行某一特定任务。该模型的目的是使各种硬件在相同的层次上相互通信。</p>
@@ -85,7 +85,7 @@
     
     <entry>
       <title><![CDATA[浅谈MVX]]></title>
-      <url>/%E6%B5%85%E8%B0%88MVX.html</url>
+      <url>/2017/10/21/%E6%B5%85%E8%B0%88MVX/</url>
       <content type="html"><![CDATA[<p>##　序言</p>
 <p>MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM</p>
 <a id="more"></a>
@@ -113,7 +113,7 @@
     
     <entry>
       <title><![CDATA[浅谈Web缓存]]></title>
-      <url>/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98.html</url>
+      <url>/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/</url>
       <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在开发当中，性能至关重要，然而判断一个网站的性能最直观的就是看到网页打开的速度。其中提高网页反应速度的一个方式就是使用缓存。一个优秀的缓存策略可以缩短网页请求的距离，减少延迟，使缓存文件得到重复利用，减少冠带，降低网络负荷。</p>
 <a id="more"></a>
 <h2 id="缓存分类"><a href="#缓存分类" class="headerlink" title="缓存分类"></a>缓存分类</h2><ul>
@@ -202,7 +202,7 @@ server.listen(port, host, () =&gt; {
     
     <entry>
       <title><![CDATA[新的hexo]]></title>
-      <url>/%E6%96%B0%E7%9A%84hexo.html</url>
+      <url>/2017/10/18/%E6%96%B0%E7%9A%84hexo/</url>
       <content type="html"><![CDATA[<h1 id="新的博客"><a href="#新的博客" class="headerlink" title="新的博客"></a>新的博客</h1><p>哎，前段时间为了装Ubuntu系统，在备份中不小心丢失了那些以前写的原生的博客资源。从本站开始，我要重新启航自己的博客生活，希望能和大家一起分享自己的技术心得，我们一起学习成长。一步一步提高自己的技能点，早日实现自己的技术之梦。</p>
 ]]></content>
       
