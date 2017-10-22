@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8Cg1zJUEs2bxE7RwfeibUW9dn8YFEzrgRUn5ZPJxghtZtoTicxnYZNVWQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8OL46IMZjco3MibibBb1ZHQkLibIhpryUtssj6hwvAngxMaiaSqNjBUtjrA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8HmoFicWNkZ8GO2O5p5zFVmHE9QFVeyuAy7AdDL8T6iavSxqpx16fG6JA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-10-22T14:12:42.220Z">
+<meta property="og:updated_time" content="2017-10-22T14:14:59.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Web缓存">
 <meta name="twitter:description" content="序言在开发当中，性能至关重要，然而判断一个网站的性能最直观的就是看到网页打开的速度。其中提高网页反应速度的一个方式就是使用缓存。一个优秀的缓存策略可以缩短网页请求的距离，减少延迟，使缓存文件得到重复利用，减少冠带，降低网络负荷。">
@@ -401,8 +401,7 @@ server.listen(port, host, () =&gt; {
 </code></pre><p>在控制台上输出的结果如cache-control的一样</p>
 <h4 id="Last-modified"><a href="#Last-modified" class="headerlink" title="Last-modified"></a>Last-modified</h4><p>服务器端文件的最后修改时间，需要和cache-control共同使用，是检查服务器端资源是否更新的一种方式。当浏览器再次进行请求时，会向服务器传送If-Modified-Since报头，询问Last-Modified时间点之后资源是否被修改过。如果没有修改，则返回码为304，使用缓存；如果修改过，则再次去服务器请求资源，返回码和首次请求相同为200，资源为服务器最新资源。</p>
 <h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>根据实体内容生成一段hash字符串，标识资源的状态，由服务端产生。浏览器会将这串字符串传回服务器，验证资源是否已经修改，如果没有修改，过程如下</p>
-<pre><code>{% codeblock %}
-</code></pre>
+
       
     </div>
     
@@ -413,7 +412,7 @@ server.listen(port, host, () =&gt; {
         <p><span>本文标题:</span><a  href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月19日 - 08时48分</p>
-        <p><span>最后更新:</span>2017年10月22日 - 22时12分</p>
+        <p><span>最后更新:</span>2017年10月22日 - 22时14分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/19/浅谈Web缓存/" title="浅谈Web缓存">http://qinyongli.cn/2017/10/19/浅谈Web缓存/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/19/浅谈Web缓存/　　作者: 覃永利" title=""></span>
