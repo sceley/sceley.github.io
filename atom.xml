@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qinyongli.cn/"/>
-  <updated>2017-10-22T14:16:04.873Z</updated>
+  <updated>2017-10-23T13:26:38.000Z</updated>
   <id>http://qinyongli.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP-HTTP-HTTPS-HTTP2/"/>
     <id>http://qinyongli.cn/2017/10/21/浅谈TCP-IP-HTTP-HTTPS-HTTP2/</id>
     <published>2017-10-21T14:46:48.000Z</published>
-    <updated>2017-10-22T14:16:04.873Z</updated>
+    <updated>2017-10-23T13:26:38.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>作为一名计算机科学与技术的工科生，了解网络基础是必须的。只要涉及到网络通讯、B/S交互，必会有网络协议。从本博客开始，开启我在网络协议上的系统学习。</p><a id="more"></a><h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><p>OSI 模型(Open System Interconnection model)是一个由国际标准化组织提出概念模型,试图提供一个使各种不同的计算机和网络在世界范围内实现互联的标准框架。OSI是传统的开放式系统互连参考模型，是一种通信协议的7层抽象的参考模型，其中每一层执行某一特定任务。该模型的目的是使各种硬件在相同的层次上相互通信。</p><p>它将计算机网络体系结构划分为七层,每层都可以提供抽象良好的接口。了解 OSI 模型有助于理解实际上互联网络的工业标准——TCP/IP 协议。</p><p>七层协议，从下往上</p><ol><li>物理层(网络物理硬件)</li><li>链路层(网络特有的链路接口)</li><li>网络层(IP)</li><li>传输层(TCP/UDP)</li><li>会话层(通信连接/维持会话)</li><li>表示层(加密/解密等)</li><li>应用层(HTTP、SMTP、IMAP等)</li></ol><p>附上三个图促进理解</p><p><img src="/img/OSI1.jpg" alt="OSI图片"></p><p><img src="/img/OSI2.gif" alt="OSI图片"></p><p><img src="/img/OSI3.png" alt="OSI图片"></p><h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p>百度百科定义：TCP(Transmission Control Protocol 传输控制协议)是一种面向连接的、可靠的、基于字节流的传输层通信协议，由IETF的RFC 793定义。在因特网协议族(Internet protocol suite)中，TCP层是位于IP层之上，应用层之下的中间层。</p><p>百度百科定义: 网络之间互连的协议外文是Internet Protocol的外语缩写，中文缩写为“网协”。缩写为IP。</p><p>百度百科定义：TCP/IP模型也被称作DoD模型(Department of Defense Model)。TCP/IP字面上代表了两个协议：TCP（传输控制协议）和IP（网际协议）。但TCP/IP协议不是TCP和IP这两个协议的合称，而是指因特网整个TCP/IP协议族。从协议分层模型方面来讲，TCP/IP由四个层次组成:网络接口层、网络层、传输层、应用层。TCP/IP通讯协议采用了4层的层级结构，每一层都呼叫它的下一层所提供的网络来完成自己的需求。</p><p>OSI模型所分的七层,在实际应用中,往往有一些层被整合,或者功能分散到其他层去。TCP/IP没有照搬OSI模型,也没有 一个公认的TCP/IP层级模型,一般划分为三层到五层模型来描述TCP/IP协议。</p><ul><li>在此描述用一个通用的四层模型来描述,每一层都和 OSI 模型有较强的相关性但是又可能会有交叉</li><li>TCP/IP 的设计,是吸取了分层模型的精华思想——封装。每层对上一层提供服务的时候,上一层的数据结构是黑盒,直接作为本层的数据,而不需要关心上一层协议的任何细节</li></ul><p><img src="/img/tipcip&amp;osi.png" alt="tcp/ip四层模型图"></p><p>TCP/IP 分层模型的分层以以太网上传输 UDP 数据包如图所示</p><p><img src="/img/TCPIP.png" alt="tcp/ip图片"></p><p><img src="/img/application.png" alt="tcp/ip图片"></p><h3 id="数据包"><a href="#数据包" class="headerlink" title="数据包"></a>数据包</h3><p>以太网数据包(packet)的大小是固定的，最初是1518字节，后来增加到1522字节。其中，1500字节是负载(pyload)，22字节是头部信息(head)。</p><p>IP数据包在以太网数据包的负载里面，它也有自己的头信息，最少需要20字节，所以IP数据包的负载最多为1480字节。</p><p><img src="/img/packet.png" alt="paket数据包"></p><p>（图片说明：IP 数据包在以太网数据包里面，TCP 数据包在 IP 数据包里面。）</p><p>TCP 数据包在 IP 数据包的负载里面。它的头信息最少也需要20字节，因此 TCP 数据包的最大负载是 1480 - 20 = 1460 字节。由于 IP 和 TCP 协议往往有额外的头信息，所以 TCP 负载实际为1400字节左右。</p><p>因此，一条1500字节的信息需要两个 TCP 数据包。HTTP/2 协议的一大改进， 就是压缩 HTTP 协议的头信息，使得一个 HTTP 请求可以放在一个 TCP 数据包里面，而不是分成多个，这样就提高了速度。</p><p><img src="/img/packet2.png" alt="packet数据包"></p><p>（图片说明：以太网数据包的负载是1500字节，TCP 数据包的负载在1400字节左右。）</p><p>TCP/IP通信数据流</p><p><img src="/img/tcpipstream.jpg" alt="tcpip通讯流"></p><p>建立连接(三次握手)</p><p>握手过程中使用了TCP的标志：SYN和ACK。<br>发送端首先发送一个带SYN标志的数据包给对方。接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息。 最后，发送端再回传一个带ACK标志的数据包，代表“握手”结束。</p><p><img src="/img/threeshakehands.gif" alt="三次握手"></p><p><img src="/img/threeshakehands.png" alt="三次握手"></p><p>中断连接(四次挥手)</p><ul><li><p>第一次挥手</p><p>  主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。</p></li><li><p>第二次挥手</p><p>  被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）</p></li><li><p>第三次挥手</p><p>  被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了</p></li><li><p>第四次挥手</p><p>  主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。</p></li></ul><p><img src="/img/waved.jpg" alt="四次挥手图片"></p>]]></content>
     
@@ -31,10 +31,10 @@
     
     </summary>
     
-      <category term="计算机网络知识" scheme="http://qinyongli.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/"/>
+      <category term="internet" scheme="http://qinyongli.cn/categories/internet/"/>
     
     
-      <category term="协议" scheme="http://qinyongli.cn/tags/%E5%8D%8F%E8%AE%AE/"/>
+      <category term="tcp/ip" scheme="http://qinyongli.cn/tags/tcp-ip/"/>
     
   </entry>
   
