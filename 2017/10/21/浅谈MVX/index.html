@@ -18,10 +18,16 @@
 <meta property="og:url" content="http://qinyongli.cn/2017/10/21/浅谈MVX/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
-<meta property="og:updated_time" content="2017-10-22T14:29:50.000Z">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020106.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020107.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
+<meta property="og:updated_time" content="2017-10-23T13:23:21.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈MVX">
 <meta name="twitter:description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
+<meta name="twitter:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -310,7 +316,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/MVX框架/">MVX框架</a>
+    <a class="article-category-link" href="/categories/Architecture/">Architecture</a>
     </div>
 
 
@@ -328,11 +334,31 @@
           
         <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM</p>
 <a id="more"></a>
-<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>是应用最广泛的软件架构之一，一般MVC分为: Model(模型)、Controller(控制器)和View(视图)。这主要是基于分层的目的，让彼此的职责分开。</p>
-<p>控制器（Controller），一组行为的集合。</p>
-<p>模型（Model），数据相关的操作和封装。</p>
-<p>视图（View），视图的渲染。</p>
+<h2 id="MVX"><a href="#MVX" class="headerlink" title="MVX"></a>MVX</h2><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC（Model-View-Controller）是应用最广泛的软件架构之一，一般MVC分为: Model(模型)、Controller(控制器)和View(视图)。这主要是基于分层的目的，让彼此的职责分开。</p>
+<p>控制器（Controller），一组行为的集合。(业务逻辑)</p>
+<p>模型（Model），数据相关的操作和封装。(数据保存)</p>
+<p>视图（View），视图的渲染。(用户界面)</p>
 <p>View一般通过Controler来和Model进行联系的。Controller是Model和View的协调者，View和Model不直接联系。基本联系都是单项的。</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt=""></p>
+<ol>
+<li>View 传送指令到Controler</li>
+<li>Controller 完成业务逻辑，要求 Model 改变状态</li>
+<li>Model 将新的数据发送到　View，用户得到反馈</li>
+</ol>
+<p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020106.png" alt=""></p>
+<p>另一种是直接通过controller接受指令。</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020107.png" alt=""></p>
+<h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><p>MVP模式将 Controller改名为Persenter,　同时改变了通信方向。</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt=""></p>
+<ol>
+<li>各部分之间的通信，都是双向的。</li>
+<li>View 与 Model不发生联系。都通过Persenter传递。</li>
+<li>View 非常薄, 不部署任何业务逻辑，称为”被动视图”，即没有任何主动性，而Persenter非常厚，所有逻辑都部署在那里。</li>
+</ol>
+<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>MVVM模式将Persenter改名为ViewModel，基本上与MVP完全一致</p>
+<p><img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt=""></p>
+<p>唯一的区别是，它采用双向绑定(data-binding): View的变动，自动反映在ViewModel，反之亦然。Angular和Vue采用这种模式。</p>
 
       
     </div>
@@ -344,7 +370,7 @@
         <p><span>本文标题:</span><a  href="/2017/10/21/浅谈MVX/">浅谈MVX</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月21日 - 13时06分</p>
-        <p><span>最后更新:</span>2017年10月22日 - 22时29分</p>
+        <p><span>最后更新:</span>2017年10月23日 - 21时23分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/21/浅谈MVX/" title="浅谈MVX">http://qinyongli.cn/2017/10/21/浅谈MVX/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/21/浅谈MVX/　　作者: 覃永利" title=""></span>
@@ -381,7 +407,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC"><span class="toc-number">2.</span> <span class="toc-text">MVC</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVX"><span class="toc-number">2.</span> <span class="toc-text">MVX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC"><span class="toc-number">2.1.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVP"><span class="toc-number">2.2.</span> <span class="toc-text">MVP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVVM"><span class="toc-number">2.3.</span> <span class="toc-text">MVVM</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
