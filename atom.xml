@@ -39,28 +39,6 @@
   </entry>
   
   <entry>
-    <title>浅谈MVX</title>
-    <link href="http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88MVX/"/>
-    <id>http://qinyongli.cn/2017/10/21/浅谈MVX/</id>
-    <published>2017-10-21T05:06:30.000Z</published>
-    <updated>2017-10-22T14:29:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM</p><a id="more"></a><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>是应用最广泛的软件架构之一，一般MVC分为: Model(模型)、Controller(控制器)和View(视图)。这主要是基于分层的目的，让彼此的职责分开。</p><p>控制器（Controller），一组行为的集合。</p><p>模型（Model），数据相关的操作和封装。</p><p>视图（View），视图的渲染。</p><p>View一般通过Controler来和Model进行联系的。Controller是Model和View的协调者，View和Model不直接联系。基本联系都是单项的。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;p&gt;MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="MVX框架" scheme="http://qinyongli.cn/categories/MVX%E6%A1%86%E6%9E%B6/"/>
-    
-    
-      <category term="MVX" scheme="http://qinyongli.cn/tags/MVX/"/>
-    
-  </entry>
-  
-  <entry>
     <title>浅谈Web缓存</title>
     <link href="http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/"/>
     <id>http://qinyongli.cn/2017/10/19/浅谈Web缓存/</id>
