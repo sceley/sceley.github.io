@@ -11,18 +11,18 @@
   
   <title>浅谈curry化 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。 curry化的概念curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。 你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用 curry化的实现代码let sub_curry = function(fn) {     let args">
+  <meta name="description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。">
 <meta name="keywords" content="FP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈curry化">
 <meta property="og:url" content="http://qinyongli.cn/2017/10/25/浅谈curry化/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。 curry化的概念curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。 你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用 curry化的实现代码let sub_curry = function(fn) {     let args">
+<meta property="og:description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。">
 <meta property="og:image" content="http://qinyongli.cn/img/closure.png">
-<meta property="og:updated_time" content="2017-10-25T14:25:05.000Z">
+<meta property="og:updated_time" content="2017-10-25T14:34:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈curry化">
-<meta name="twitter:description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。 curry化的概念curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。 你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用 curry化的实现代码let sub_curry = function(fn) {     let args">
+<meta name="twitter:description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。">
 <meta name="twitter:image" content="http://qinyongli.cn/img/closure.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -329,6 +329,7 @@
       
           
         <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。</p>
+<a id="more"></a>
 <h2 id="curry化的概念"><a href="#curry化的概念" class="headerlink" title="curry化的概念"></a>curry化的概念</h2><p>curry 的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。</p>
 <p>你可以一次性地调用 curry 函数，也可以每次只传一个参数分多次调用</p>
 <h2 id="curry化的实现代码"><a href="#curry化的实现代码" class="headerlink" title="curry化的实现代码"></a>curry化的实现代码</h2><pre><code>let sub_curry = function(fn) {
@@ -378,7 +379,7 @@ console.log(multiplyCurry(3)(2)(4));
         <p><span>本文标题:</span><a  href="/2017/10/25/浅谈curry化/">浅谈curry化</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月25日 - 20时12分</p>
-        <p><span>最后更新:</span>2017年10月25日 - 22时25分</p>
+        <p><span>最后更新:</span>2017年10月25日 - 22时34分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/25/浅谈curry化/" title="浅谈curry化">http://qinyongli.cn/2017/10/25/浅谈curry化/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/25/浅谈curry化/　　作者: 覃永利" title=""></span>
