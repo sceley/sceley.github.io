@@ -43,16 +43,13 @@
     <link href="http://qinyongli.cn/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/"/>
     <id>http://qinyongli.cn/2017/10/25/FP-Pointfree编程指南/</id>
     <published>2017-10-25T05:55:32.000Z</published>
-    <updated>2017-10-25T06:58:59.687Z</updated>
+    <updated>2017-10-25T14:46:15.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><h2 id="Pointfree"><a href="#Pointfree" class="headerlink" title="Pointfree"></a>Pointfree</h2><h3 id="Pointfree概念"><a href="#Pointfree概念" class="headerlink" title="Pointfree概念"></a>Pointfree概念</h3><p>pointfree 模式指的是，永远不必说出你的数据</p><p>不使用所要处理的值，只合成运算过程。</p><p>example</p><pre><code>let compose = function (f, g) {    return function (x) {        return f(g(x));    };};let addOne = x =&gt; x + 1;let square = x =&gt; x * x;let addOneSquare = compose(square, addOne);addOneSquare(2);//=&gt;9</code></pre><p>上面一个栗子，把两个函数组合，然后求值。</p><p>addOneThenSquare是一个合成函数。定义它的时候，根本不需要提到要处理的值，这就是 Pointfree。</p><h3 id="Pointfree的本质"><a href="#Pointfree的本质" class="headerlink" title="Pointfree的本质"></a>Pointfree的本质</h3><p>Pointfree 的本质就是使用一些通用的函数，组合出各种复杂运算。上层运算不要直接操作数据，而是通过底层函数去处理。这就要求，将一些常用的操作封装成函数。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><a id="more"></a><h2 id="Pointfree"><a href="#Pointfree" class="headerlink" title="Pointfree"></a>Pointfree</h2><h3 id="Pointfree概念"><a href="#Pointfree概念" class="headerlink" title="Pointfree概念"></a>Pointfree概念</h3><p>pointfree 模式指的是，永远不必说出你的数据</p><p>不使用所要处理的值，只合成运算过程。</p><p>example</p><pre><code>let compose = function (f, g) {    return function (x) {        return f(g(x));    };};let addOne = x =&gt; x + 1;let square = x =&gt; x * x;let addOneSquare = compose(square, addOne);addOneSquare(2);//=&gt;9</code></pre><p>上面一个栗子，把两个函数组合，然后求值。</p><p>addOneThenSquare是一个合成函数。定义它的时候，根本不需要提到要处理的值，这就是 Pointfree。</p><h3 id="Pointfree的本质"><a href="#Pointfree的本质" class="headerlink" title="Pointfree的本质"></a>Pointfree的本质</h3><p>Pointfree 的本质就是使用一些通用的函数，组合出各种复杂运算。上层运算不要直接操作数据，而是通过底层函数去处理。这就要求，将一些常用的操作封装成函数。</p><p>example: 读取对象的role属性，不要直接写成obj.role, 而是要把这个操作封装成函数。</p><pre><code>let prop = (p, obj) =&gt; obj[p];let propRole = curry(prop)(&apos;role&apos;);</code></pre>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;h2 id=&quot;Pointfree&quot;&gt;&lt;a href=&quot;#Pointfree&quot; class=&quot;headerlink&quot; title=&quot;Pointfr
-      
+      &lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;
     
     </summary>
     
