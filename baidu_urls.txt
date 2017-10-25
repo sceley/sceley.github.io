@@ -1,1 +1,1 @@
-http://qinyongli.cn/2017/10/21/浅谈TCP-IP-HTTP-HTTPS-HTTP2/
+http://qinyongli.cn/2017/10/25/浅谈curry化/
