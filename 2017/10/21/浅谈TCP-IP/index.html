@@ -9,25 +9,32 @@
   
   
   
-  <title>浅谈MVX | Hexo</title>
+  <title>浅谈TCP/IP | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
-<meta name="keywords" content="MVX">
+  <meta name="description" content="序言作为一名计算机科学与技术的工科生，了解计算机网络基础是必须的。网络通讯遍布在我们身边，从本博客开始，将启航我在计算机网络上的系列学习。">
+<meta name="keywords" content="TCP&#x2F;IP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈MVX">
-<meta property="og:url" content="http://qinyongli.cn/2017/10/21/浅谈MVX/index.html">
+<meta property="og:title" content="浅谈TCP&#x2F;IP">
+<meta property="og:url" content="http://qinyongli.cn/2017/10/21/浅谈TCP-IP/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020106.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020107.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
-<meta property="og:updated_time" content="2017-10-23T13:34:59.000Z">
+<meta property="og:description" content="序言作为一名计算机科学与技术的工科生，了解计算机网络基础是必须的。网络通讯遍布在我们身边，从本博客开始，将启航我在计算机网络上的系列学习。">
+<meta property="og:image" content="http://qinyongli.cn/img/OSI1.jpg">
+<meta property="og:image" content="http://qinyongli.cn/img/OSI2.gif">
+<meta property="og:image" content="http://qinyongli.cn/img/OSI3.png">
+<meta property="og:image" content="http://qinyongli.cn/img/tipcip&osi.png">
+<meta property="og:image" content="http://qinyongli.cn/img/TCPIP.png">
+<meta property="og:image" content="http://qinyongli.cn/img/application.png">
+<meta property="og:image" content="http://qinyongli.cn/img/packet.png">
+<meta property="og:image" content="http://qinyongli.cn/img/packet2.png">
+<meta property="og:image" content="http://qinyongli.cn/img/tcpipstream.jpg">
+<meta property="og:image" content="http://qinyongli.cn/img/threeshakehands.gif">
+<meta property="og:image" content="http://qinyongli.cn/img/threeshakehands.png">
+<meta property="og:image" content="http://qinyongli.cn/img/waved.jpg">
+<meta property="og:updated_time" content="2017-10-26T04:14:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈MVX">
-<meta name="twitter:description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
-<meta name="twitter:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+<meta name="twitter:title" content="浅谈TCP&#x2F;IP">
+<meta name="twitter:description" content="序言作为一名计算机科学与技术的工科生，了解计算机网络基础是必须的。网络通讯遍布在我们身边，从本博客开始，将启航我在计算机网络上的系列学习。">
+<meta name="twitter:image" content="http://qinyongli.cn/img/OSI1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -288,11 +295,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-浅谈MVX" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-浅谈TCP-IP" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/10/21/浅谈MVX/" class="article-date">
-      <time datetime="2017-10-21T05:06:30.000Z" itemprop="datePublished">2017-10-21</time>
+      <a  href="/2017/10/21/浅谈TCP-IP/" class="article-date">
+      <time datetime="2017-10-21T14:46:48.000Z" itemprop="datePublished">2017-10-21</time>
 </a>
 
     </div>
@@ -306,7 +313,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浅谈MVX
+      浅谈TCP/IP
     </h1>
   
 
@@ -316,13 +323,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Architecture/">Architecture</a>
+    <a class="article-category-link" href="/categories/Internet/">Internet</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVX/">MVX</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP-IP/">TCP/IP</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -332,33 +339,66 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM</p>
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>作为一名计算机科学与技术的工科生，了解计算机网络基础是必须的。网络通讯遍布在我们身边，从本博客开始，将启航我在计算机网络上的系列学习。</p>
 <a id="more"></a>
-<h2 id="MVX"><a href="#MVX" class="headerlink" title="MVX"></a>MVX</h2><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC（Model-View-Controller）是应用最广泛的软件架构之一，一般MVC分为: Model(模型)、Controller(控制器)和View(视图)。这主要是基于分层的目的，让彼此的职责分开。</p>
-<p>控制器（Controller），一组行为的集合。(业务逻辑)</p>
-<p>模型（Model），数据相关的操作和封装。(数据保存)</p>
-<p>视图（View），视图的渲染。(用户界面)</p>
-<p>View一般通过Controler来和Model进行联系的。Controller是Model和View的协调者，View和Model不直接联系。基本联系都是单项的。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt=""></p>
+<h2 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h2><p>OSI 模型(Open System Interconnection model)是一个由国际标准化组织提出概念模型,试图提供一个使各种不同的计算机和网络在世界范围内实现互联的标准框架。</p>
+<p>OSI将计算机网络体系结构划分为七层,每层都可以提供抽象良好的接口。了解 OSI 模型有助于理解实际上互联网络的工业标准——TCP/IP 协议。</p>
+<p>七层协议，从下往上</p>
 <ol>
-<li>View 传送指令到Controler</li>
-<li>Controller 完成业务逻辑，要求 Model 改变状态</li>
-<li>Model 将新的数据发送到　View，用户得到反馈</li>
+<li>物理层(网络物理硬件)</li>
+<li>链路层(网络特有的链路接口)</li>
+<li>网络层(IP)</li>
+<li>传输层(TCP/UDP)</li>
+<li>会话层(通信连接/维持会话)</li>
+<li>表示层(加密/解密等)</li>
+<li>应用层(HTTP、SMTP、IMAP等)</li>
 </ol>
-<p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020106.png" alt=""></p>
-<p>另一种是直接通过controller接受指令。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020107.png" alt=""></p>
-<h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><p>MVP模式将 Controller改名为Persenter,　同时改变了通信方向。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt=""></p>
-<ol>
-<li>各部分之间的通信，都是双向的。</li>
-<li>View 与 Model不发生联系。都通过Persenter传递。</li>
-<li>View 非常薄, 不部署任何业务逻辑，称为”被动视图”，即没有任何主动性，而Persenter非常厚，所有逻辑都部署在那里。</li>
-</ol>
-<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>MVVM模式将Persenter改名为ViewModel，基本上与MVP完全一致</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt=""></p>
-<p>唯一的区别是，它采用双向绑定(data-binding): View的变动，自动反映在ViewModel，反之亦然。Angular和Vue采用这种模式。</p>
+<p>附上三个图促进理解</p>
+<p><img src="/img/OSI1.jpg" alt="OSI图片"></p>
+<p><img src="/img/OSI2.gif" alt="OSI图片"></p>
+<p><img src="/img/OSI3.png" alt="OSI图片"></p>
+<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>TCP/IP模型也被称作DoD模型(Department of Defense Model)。TCP/IP字面上代表了两个协议：TCP（传输控制协议）和IP（网际协议）。但TCP/IP协议不是TCP和IP这两个协议的合称，而是指因特网整个TCP/IP协议族。从协议分层模型方面来讲，TCP/IP由四个层次组成:网络接口层、网络层、传输层、应用层。TCP/IP通讯协议采用了4层的层级结构，每一层都呼叫它的下一层所提供的网络来完成自己的需求。</p>
+<blockquote>
+<p>OSI模型所分的七层,在实际应用中,往往有一些层被整合,或者功能分散到其他层去。</p>
+<p>TCP是一种面向连接的、可靠的、基于字节流的传输层通信协议。</p>
+<p>TCP/IP 的设计,是吸取了分层模型的精华思想——封装。每层对上一层提供服务的时候,上一层的数据结构是黑盒,直接作为本层的数据,而不需要关心上一层协议的任何细节</p>
+</blockquote>
+<p><img src="/img/tipcip&amp;osi.png" alt="tcp/ip四层模型图"></p>
+<p>TCP/IP 分层模型的分层以以太网上传输 UDP 数据包如图所示</p>
+<p><img src="/img/TCPIP.png" alt="tcp/ip图片"></p>
+<p><img src="/img/application.png" alt="tcp/ip图片"></p>
+<!-- ==ddd== -->
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sequenceDiagram</div><div class="line">A-&gt;&gt;B: How are you?</div><div class="line">B-&gt;&gt;A: Great!</div></pre></td></tr></table></figure>
+<h3 id="数据包"><a href="#数据包" class="headerlink" title="数据包"></a>数据包</h3><p>以太网数据包(packet)的大小是固定的，最初是1518字节，后来增加到1522字节。其中，1500字节是负载(pyload)，22字节是头部信息(head)。</p>
+<p>IP数据包在以太网数据包的负载里面，它也有自己的头信息，最少需要20字节，所以IP数据包的负载最多为1480字节。</p>
+<p><img src="/img/packet.png" alt="paket数据包"></p>
+<p>（图片说明：IP 数据包在以太网数据包里面，TCP 数据包在 IP 数据包里面。）</p>
+<p>TCP 数据包在 IP 数据包的负载里面。它的头信息最少也需要20字节，因此 TCP 数据包的最大负载是 1480 - 20 = 1460 字节。由于 IP 和 TCP 协议往往有额外的头信息，所以 TCP 负载实际为1400字节左右。</p>
+<p>因此，一条1500字节的信息需要两个 TCP 数据包。HTTP/2 协议的一大改进， 就是压缩 HTTP 协议的头信息，使得一个 HTTP 请求可以放在一个 TCP 数据包里面，而不是分成多个，这样就提高了速度。</p>
+<p><img src="/img/packet2.png" alt="packet数据包"></p>
+<p>（图片说明：以太网数据包的负载是1500字节，TCP 数据包的负载在1400字节左右。）</p>
+<p>TCP/IP通信数据流</p>
+<p><img src="/img/tcpipstream.jpg" alt="tcpip通讯流"></p>
+<p>建立连接(三次握手)</p>
+<p>握手过程中使用了TCP的标志：SYN和ACK。<br>发送端首先发送一个带SYN标志的数据包给对方。接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息。 最后，发送端再回传一个带ACK标志的数据包，代表“握手”结束。</p>
+<p><img src="/img/threeshakehands.gif" alt="三次握手"></p>
+<p><img src="/img/threeshakehands.png" alt="三次握手"></p>
+<p>中断连接(四次挥手)</p>
+<ul>
+<li><p>第一次挥手</p>
+<p>  主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。</p>
+</li>
+<li><p>第二次挥手</p>
+<p>  被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）</p>
+</li>
+<li><p>第三次挥手</p>
+<p>  被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了</p>
+</li>
+<li><p>第四次挥手</p>
+<p>  主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。</p>
+</li>
+</ul>
+<p><img src="/img/waved.jpg" alt="四次挥手图片"></p>
 
       
     </div>
@@ -367,13 +407,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/10/21/浅谈MVX/">浅谈MVX</a></p>
+        <p><span>本文标题:</span><a  href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
-        <p><span>发布时间:</span>2017年10月21日 - 13时06分</p>
-        <p><span>最后更新:</span>2017年10月23日 - 21时34分</p>
+        <p><span>发布时间:</span>2017年10月21日 - 22时46分</p>
+        <p><span>最后更新:</span>2017年10月26日 - 12时14分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/21/浅谈MVX/" title="浅谈MVX">http://qinyongli.cn/2017/10/21/浅谈MVX/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/21/浅谈MVX/　　作者: 覃永利" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/21/浅谈TCP-IP/" title="浅谈TCP/IP">http://qinyongli.cn/2017/10/21/浅谈TCP-IP/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/21/浅谈TCP-IP/　　作者: 覃永利" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -384,18 +424,18 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/10/21/浅谈TCP-IP/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2017/10/25/FP-Pointfree编程指南/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          浅谈TCP/IP
+          FP-Pointfree编程指南
         
       </div>
     </a>
   
   
-    <a  href="/2017/10/19/浅谈Web缓存/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈Web缓存</div>
+    <a  href="/2017/10/21/浅谈MVX/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈MVX</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -407,7 +447,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVX"><span class="toc-number">2.</span> <span class="toc-text">MVX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC"><span class="toc-number">2.1.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVP"><span class="toc-number">2.2.</span> <span class="toc-text">MVP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVVM"><span class="toc-number">2.3.</span> <span class="toc-text">MVVM</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI七层模型"><span class="toc-number">2.</span> <span class="toc-text">OSI七层模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-IP"><span class="toc-number">3.</span> <span class="toc-text">TCP/IP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据包"><span class="toc-number">3.2.</span> <span class="toc-text">数据包</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -466,13 +506,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/10/21/浅谈TCP-IP/" title="上一篇: 浅谈TCP/IP">
+            <a  href="/2017/10/25/FP-Pointfree编程指南/" title="上一篇: FP-Pointfree编程指南">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/10/19/浅谈Web缓存/" title="下一篇: 浅谈Web缓存">
+            <a  href="/2017/10/21/浅谈MVX/" title="下一篇: 浅谈MVX">
                 <i class="fa fa-angle-right"></i>
             </a>
         
