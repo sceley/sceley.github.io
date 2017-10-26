@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。">
 <meta property="og:image" content="http://qinyongli.cn/img/closure.png">
-<meta property="og:updated_time" content="2017-10-26T04:35:40.720Z">
+<meta property="og:updated_time" content="2017-10-26T04:39:11.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈curry化">
 <meta name="twitter:description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。">
@@ -345,7 +345,7 @@
 <p><img src="/img/closure.png" alt=""></p>
 <p>这个最终的目的就是把所有的参数传递给fn调用</p>
 <p>附上演示的栗子:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> multiply = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a * b * c;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> multiplyCurry = curry(multiply);</div><div class="line"><span class="built_in">console</span>.log(multiplyCurry(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">4</span>));</div><div class="line"><span class="comment">//=&gt;24</span></div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let multiply = function (a, b, c) &#123;</div><div class="line">    <span class="keyword">return</span> a * b * c;</div><div class="line">&#125;;</div><div class="line">let multiplyCurry = curry(multiply);</div><div class="line">console.<span class="built_in">log</span>(multiplyCurry(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">4</span>));</div><div class="line"><span class="comment">//=&gt;24</span></div></pre></td></tr></table></figure>
       
     </div>
     
@@ -356,7 +356,7 @@
         <p><span>本文标题:</span><a  href="/2017/10/25/浅谈curry化/">浅谈curry化</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月25日 - 20时12分</p>
-        <p><span>最后更新:</span>2017年10月26日 - 12时35分</p>
+        <p><span>最后更新:</span>2017年10月26日 - 12时39分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/25/浅谈curry化/" title="浅谈curry化">http://qinyongli.cn/2017/10/25/浅谈curry化/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/25/浅谈curry化/　　作者: 覃永利" title=""></span>
