@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://qinyongli.cn/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2017-10-26T14:04:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>FP-Pointfree编程指南</title>
+        <pubTime>2017-10-25T05:55:32.000Z</pubTime>
+        
+        <tag>FP</tag>
+         
+         
+           
+             
+              <breadCrumb title="JS" url="http://qinyongli.cn/categories/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qinyongli.cn/2017/10/25/%E6%B5%85%E8%B0%88curry%E5%8C%96/</loc>
-    <lastmod>2017-10-26T04:41:33.428Z</lastmod>
+    <lastmod>2017-10-26T14:02:26.000Z</lastmod>
     <data>
         <display>
         <title>浅谈curry化</title>
@@ -17,6 +37,46 @@
            
              
               <breadCrumb title="JS" url="http://qinyongli.cn/categories/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/</loc>
+    <lastmod>2017-10-26T14:00:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈Web缓存</title>
+        <pubTime>2017-10-19T00:48:57.000Z</pubTime>
+        
+        <tag>Web缓存</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web" url="http://qinyongli.cn/categories/Web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qinyongli.cn/2017/10/26/%E6%B5%85%E8%B0%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
+    <lastmod>2017-10-26T11:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈内存泄漏</title>
+        <pubTime>2017-10-26T11:48:34.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+             
+              <breadCrumb title="后端" url="http://qinyongli.cn/categories/%E5%90%8E%E7%AB%AF/"/>
           
         </display>
     </data>
@@ -44,26 +104,6 @@
 
     
   <url>
-    <loc>http://qinyongli.cn/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2017-10-25T14:46:15.000Z</lastmod>
-    <data>
-        <display>
-        <title>FP-Pointfree编程指南</title>
-        <pubTime>2017-10-25T05:55:32.000Z</pubTime>
-        
-        <tag>FP</tag>
-         
-         
-           
-             
-              <breadCrumb title="JS" url="http://qinyongli.cn/categories/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88MVX/</loc>
     <lastmod>2017-10-23T13:34:59.000Z</lastmod>
     <data>
@@ -77,26 +117,6 @@
            
              
               <breadCrumb title="Architecture" url="http://qinyongli.cn/categories/Architecture/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/</loc>
-    <lastmod>2017-10-22T14:14:59.577Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈Web缓存</title>
-        <pubTime>2017-10-19T00:48:57.000Z</pubTime>
-        
-        <tag>Web缓存</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web" url="http://qinyongli.cn/categories/Web/"/>
           
         </display>
     </data>

@@ -21,10 +21,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://qinyongli.cn/img/cache-control1.png">
 <meta property="og:image" content="http://qinyongli.cn/img/cache-control2.png">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8Cg1zJUEs2bxE7RwfeibUW9dn8YFEzrgRUn5ZPJxghtZtoTicxnYZNVWQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8OL46IMZjco3MibibBb1ZHQkLibIhpryUtssj6hwvAngxMaiaSqNjBUtjrA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8HmoFicWNkZ8GO2O5p5zFVmHE9QFVeyuAy7AdDL8T6iavSxqpx16fG6JA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-10-22T14:14:59.577Z">
+<meta property="og:updated_time" content="2017-10-26T14:00:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Web缓存">
 <meta name="twitter:description" content="序言在开发当中，性能至关重要，然而判断一个网站的性能最直观的就是看到网页打开的速度。其中提高网页反应速度的一个方式就是使用缓存。一个优秀的缓存策略可以缩短网页请求的距离，减少延迟，使缓存文件得到重复利用，减少冠带，降低网络负荷。">
@@ -214,7 +211,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/FP/" style="font-size: 20px;">FP</a> <a href="/tags/MVX/" style="font-size: 10px;">MVX</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Web缓存/" style="font-size: 10px;">Web缓存</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+                        <a href="/tags/FP/" style="font-size: 20px;">FP</a> <a href="/tags/MVX/" style="font-size: 10px;">MVX</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Web缓存/" style="font-size: 10px;">Web缓存</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a>
                     </div>
                 </section>
                 
@@ -347,27 +344,8 @@
 <li><p>max-age</p>
 <p>  单位为s，指定设置缓存最大的有效时间，定义时间的长短。当浏览器向服务器发送请求过后，在max-age这段时间里浏览器就不会再向服务器发送请求了。</p>
 <p>  example</p>
-<pre><code>const http = require(&apos;http&apos;);
-const fs = require(&apos;fs&apos;);
-const port = 3000;
-const host = &apos;127.0.0.1&apos;;
-const server = http.createServer();
-server.on(&apos;request&apos;, (req, res) =&gt; {
-    if(req.url == &apos;/&apos;) {
-        console.log(req.url);
-        fs.readFile(&apos;./index.html&apos;, (err, data) =&gt; {
-            res.statusCode = 200;
-            res.setHeader(&apos;Content-Type&apos;, &apos;text/html&apos;);
-            //设置Cache-Control缓存
-            res.setHeader(&apos;Cache-Control&apos;, &apos;max-age=60&apos;);
-            res.end(data);
-        });
-    }
-});
-server.listen(port, host, () =&gt; {
-    console.log(`server serve at http://${host}:${port}`);
-});
-</code></pre><p>  在firefox输入网址后回车，然后在地址栏再次回车。控制台输入的结果如图</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">const</span> port = <span class="number">3000</span>;</div><div class="line"><span class="keyword">const</span> host = <span class="string">'127.0.0.1'</span>;</div><div class="line"><span class="keyword">const</span> server = http.createServer();</div><div class="line">server.on(<span class="string">'request'</span>, (req, res) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span>(req.url == <span class="string">'/'</span>) &#123;</div><div class="line">        <span class="built_in">console</span>.log(req.url);</div><div class="line">        fs.readFile(<span class="string">'./index.html'</span>, (err, data) =&gt; &#123;</div><div class="line">            res.statusCode = <span class="number">200</span>;</div><div class="line">            res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/html'</span>);</div><div class="line">            <span class="comment">//设置Cache-Control缓存</span></div><div class="line">            res.setHeader(<span class="string">'Cache-Control'</span>, <span class="string">'max-age=60'</span>);</div><div class="line">            res.end(data);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">server.listen(port, host, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`server serve at http://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span>`</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>  在firefox输入网址后回车，然后在地址栏再次回车。控制台输入的结果如图</p>
 <p>  <img src="/img/cache-control1.png" alt=""></p>
 <p>  一次请求</p>
 <p>  不设置缓存，控制输入的结果如图</p>
@@ -380,16 +358,13 @@ server.listen(port, host, () =&gt; {
 </li>
 <li><p>public</p>
 <p>  指定响应会被缓存，并且在多用户间共享。也就是下图的意思。如果没有指定public还是private，则默认为public</p>
-<p>  <img src="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8Cg1zJUEs2bxE7RwfeibUW9dn8YFEzrgRUn5ZPJxghtZtoTicxnYZNVWQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 </li>
 <li><p>private</p>
-<p>  响应只作为私有的缓存（见下图），不能在用户间共享。如果要求HTTP认证，响应会自动设置为private</p>
-<p>  <img src="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8OL46IMZjco3MibibBb1ZHQkLibIhpryUtssj6hwvAngxMaiaSqNjBUtjrA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>  响应只作为私有的缓存，不能在用户间共享。如果要求HTTP认证，响应会自动设置为private</p>
 </li>
 <li><p>no-cache</p>
 <p>  指定不缓存响应</p>
-<pre><code>res.setHeader(&apos;Cache-Control&apos;, &apos;no-cache&apos;);
-</code></pre><p>  <img src="http://mmbiz.qpic.cn/mmbiz/zPh0erYjkib2D4WtKTwFjia6LOoTP8ZGh8HmoFicWNkZ8GO2O5p5zFVmHE9QFVeyuAy7AdDL8T6iavSxqpx16fG6JA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">res.setHeader(<span class="string">'Cache-Control'</span>, <span class="string">'no-cache'</span>);</div></pre></td></tr></table></figure>
 <p>  设置了no-cache之后并不代表浏览器不缓存，而是在缓存前要向服务器确认资源是否被更改。因此有的时候只设置no-cache防止缓存还是不够保险，还可以加上private指令，将过期时间设为过去的时间</p>
 </li>
 <li><p>no-store</p>
@@ -397,9 +372,8 @@ server.listen(port, host, () =&gt; {
 </li>
 </ul>
 <h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>单位为毫秒ms，缓存过期时间，用来指定资源到期的时间，是服务器端的具体的时间点。也就是说，Expires=max-age + 请求时间，需要和Last-modified结合使用。Expires是Web服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据，而无需再次请求。</p>
-<pre><code>res.setHeader(&apos;Expires&apos;, `${new Date(Date.now() + 60 * 2 * 1000).toUTCString()}`);
-//设置过期时间为两分钟后
-</code></pre><p>在控制台上输出的结果如cache-control的一样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">res.setHeader(<span class="string">'Expires'</span>, <span class="string">`<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.now() + <span class="number">60</span> * <span class="number">2</span> * <span class="number">1000</span>).toUTCString()&#125;</span>`</span>);</div><div class="line"><span class="comment">//设置过期时间为两分钟后</span></div></pre></td></tr></table></figure>
+<p>在控制台上输出的结果如cache-control的一样</p>
 <h4 id="Last-modified"><a href="#Last-modified" class="headerlink" title="Last-modified"></a>Last-modified</h4><p>服务器端文件的最后修改时间，需要和cache-control共同使用，是检查服务器端资源是否更新的一种方式。当浏览器再次进行请求时，会向服务器传送If-Modified-Since报头，询问Last-Modified时间点之后资源是否被修改过。如果没有修改，则返回码为304，使用缓存；如果修改过，则再次去服务器请求资源，返回码和首次请求相同为200，资源为服务器最新资源。</p>
 <h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>根据实体内容生成一段hash字符串，标识资源的状态，由服务端产生。浏览器会将这串字符串传回服务器，验证资源是否已经修改，如果没有修改，过程如下</p>
 
@@ -413,7 +387,7 @@ server.listen(port, host, () =&gt; {
         <p><span>本文标题:</span><a  href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月19日 - 08时48分</p>
-        <p><span>最后更新:</span>2017年10月22日 - 22时14分</p>
+        <p><span>最后更新:</span>2017年10月26日 - 22时00分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/19/浅谈Web缓存/" title="浅谈Web缓存">http://qinyongli.cn/2017/10/19/浅谈Web缓存/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/19/浅谈Web缓存/　　作者: 覃永利" title=""></span>
@@ -520,7 +494,7 @@ server.listen(port, host, () =&gt; {
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/浅谈内存泄漏/">浅谈内存泄漏</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
