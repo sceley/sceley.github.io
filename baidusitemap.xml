@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/</loc>
+    <lastmod>2017-10-26T15:58:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈TCP/IP</title>
+        <pubTime>2017-10-21T14:46:48.000Z</pubTime>
+        
+        <tag>TCP/IP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Internet" url="http://qinyongli.cn/categories/Internet/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qinyongli.cn/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2017-10-26T14:04:01.000Z</lastmod>
     <data>
@@ -77,26 +97,6 @@
            
              
               <breadCrumb title="后端" url="http://qinyongli.cn/categories/%E5%90%8E%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/</loc>
-    <lastmod>2017-10-26T04:18:25.000Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈TCP/IP</title>
-        <pubTime>2017-10-21T14:46:48.000Z</pubTime>
-        
-        <tag>TCP/IP</tag>
-         
-         
-           
-             
-              <breadCrumb title="Internet" url="http://qinyongli.cn/categories/Internet/"/>
           
         </display>
     </data>
