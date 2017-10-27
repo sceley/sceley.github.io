@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qinyongli.cn/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/</loc>
+    
+    <lastmod>2017-10-27T05:47:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/</loc>
     
-    <lastmod>2017-10-27T05:42:09.000Z</lastmod>
+    <lastmod>2017-10-27T05:45:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://qinyongli.cn/2017/10/18/%E6%96%B0%E7%9A%84hexo/</loc>
+    
+    <lastmod>2017-10-27T05:44:48.000Z</lastmod>
     
   </url>
   
@@ -23,13 +37,6 @@
   </url>
   
   <url>
-    <loc>http://qinyongli.cn/2017/10/26/%E6%B5%85%E8%B0%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
-    
-    <lastmod>2017-10-27T01:53:00.853Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/</loc>
     
     <lastmod>2017-10-26T16:03:41.000Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88MVX/</loc>
     
     <lastmod>2017-10-23T13:34:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://qinyongli.cn/2017/10/18/%E6%96%B0%E7%9A%84hexo/</loc>
-    
-    <lastmod>2017-10-18T13:47:43.193Z</lastmod>
     
   </url>
   

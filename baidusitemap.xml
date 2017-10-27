@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://qinyongli.cn/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/</loc>
+    <lastmod>2017-10-27T05:47:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈JS内存</title>
+        <pubTime>2017-10-26T11:48:34.000Z</pubTime>
+        
+        <tag>memory</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://qinyongli.cn/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/</loc>
-    <lastmod>2017-10-27T05:42:09.000Z</lastmod>
+    <lastmod>2017-10-27T05:45:58.000Z</lastmod>
     <data>
         <display>
         <title>浅谈Web缓存</title>
@@ -16,7 +36,27 @@
          
            
              
-              <breadCrumb title="Web缓存" url="http://qinyongli.cn/categories/Web%E7%BC%93%E5%AD%98/"/>
+              <breadCrumb title="Performance" url="http://qinyongli.cn/categories/Performance/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qinyongli.cn/2017/10/18/%E6%96%B0%E7%9A%84hexo/</loc>
+    <lastmod>2017-10-27T05:44:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>新的hexo</title>
+        <pubTime>2017-10-18T13:40:52.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="life" url="http://qinyongli.cn/categories/life/"/>
           
         </display>
     </data>
@@ -64,26 +104,6 @@
 
     
   <url>
-    <loc>http://qinyongli.cn/2017/10/26/%E6%B5%85%E8%B0%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
-    <lastmod>2017-10-27T01:53:00.853Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈内存泄漏</title>
-        <pubTime>2017-10-26T11:48:34.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-         
-           
-             
-              <breadCrumb title="后端" url="http://qinyongli.cn/categories/%E5%90%8E%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/</loc>
     <lastmod>2017-10-26T16:03:41.000Z</lastmod>
     <data>
@@ -117,26 +137,6 @@
            
              
               <breadCrumb title="Architecture" url="http://qinyongli.cn/categories/Architecture/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qinyongli.cn/2017/10/18/%E6%96%B0%E7%9A%84hexo/</loc>
-    <lastmod>2017-10-18T13:47:43.193Z</lastmod>
-    <data>
-        <display>
-        <title>新的hexo</title>
-        <pubTime>2017-10-18T13:40:52.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="blog" url="http://qinyongli.cn/categories/blog/"/>
           
         </display>
     </data>
