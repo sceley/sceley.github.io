@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qinyongli.cn/"/>
-  <updated>2017-10-27T05:47:03.000Z</updated>
+  <updated>2017-10-27T05:50:01.000Z</updated>
   <id>http://qinyongli.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://qinyongli.cn/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/"/>
     <id>http://qinyongli.cn/2017/10/26/浅谈JS内存/</id>
     <published>2017-10-26T11:48:34.000Z</published>
-    <updated>2017-10-27T05:47:03.000Z</updated>
+    <updated>2017-10-27T05:50:01.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2>]]></content>
     
@@ -37,7 +37,7 @@
       <category term="JavaScript" scheme="http://qinyongli.cn/categories/JavaScript/"/>
     
     
-      <category term="memory" scheme="http://qinyongli.cn/tags/memory/"/>
+      <category term="Memory" scheme="http://qinyongli.cn/tags/Memory/"/>
     
   </entry>
   
