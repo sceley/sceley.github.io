@@ -20,7 +20,7 @@
 <meta property="og:description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://qinyongli.cn/img/closure.png">
-<meta property="og:updated_time" content="2017-10-26T14:02:26.000Z">
+<meta property="og:updated_time" content="2017-10-27T05:40:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈curry化">
 <meta name="twitter:description" content="序言在函数式编程中我了解到了柯里化，并且觉得它很有意思，所以对它的实现原理进行了探索，其中难点还真不少。">
@@ -210,7 +210,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/FP/" style="font-size: 20px;">FP</a> <a href="/tags/MVX/" style="font-size: 10px;">MVX</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Web缓存/" style="font-size: 10px;">Web缓存</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a>
+                        <a href="/tags/FP/" style="font-size: 20px;">FP</a> <a href="/tags/MVX/" style="font-size: 10px;">MVX</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a>
                     </div>
                 </section>
                 
@@ -313,7 +313,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JS/">JS</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
     </div>
 
 
@@ -346,6 +346,10 @@
 <p>这个最终的目的就是把所有的参数传递给fn调用</p>
 <p>附上演示的栗子:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> multiply = <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a * b * c;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> multiplyCurry = curry(multiply);</div><div class="line"><span class="built_in">console</span>.log(multiplyCurry(<span class="number">3</span>)(<span class="number">2</span>)(<span class="number">4</span>));</div><div class="line"><span class="comment">//=&gt;24</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>另一种实现</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 另一种简单实现，参数只能从右到左传递</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCurry</span>(<span class="params">func, args</span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> arity = func.length;</div><div class="line">    <span class="keyword">var</span> args = args || [];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> _args = [].slice.call(<span class="built_in">arguments</span>);</div><div class="line">        [].push.apply(_args, args);</div><div class="line"></div><div class="line">        <span class="comment">// 如果参数个数小于最初的func.length，则递归调用，继续收集参数</span></div><div class="line">        <span class="keyword">if</span> (_args.length &lt; arity) &#123;</div><div class="line">            <span class="keyword">return</span> createCurry.call(<span class="keyword">this</span>, func, _args);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 参数收集完毕，则执行func</span></div><div class="line">        <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, _args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -356,7 +360,7 @@
         <p><span>本文标题:</span><a  href="/2017/10/25/浅谈curry化/">浅谈curry化</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月25日 - 20时12分</p>
-        <p><span>最后更新:</span>2017年10月26日 - 22时02分</p>
+        <p><span>最后更新:</span>2017年10月27日 - 13时40分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/25/浅谈curry化/" title="浅谈curry化">http://qinyongli.cn/2017/10/25/浅谈curry化/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/25/浅谈curry化/　　作者: 覃永利" title=""></span>

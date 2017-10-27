@@ -4,19 +4,19 @@
 
     
   <url>
-    <loc>http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/</loc>
-    <lastmod>2017-10-26T16:03:30.000Z</lastmod>
+    <loc>http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/</loc>
+    <lastmod>2017-10-27T05:42:09.000Z</lastmod>
     <data>
         <display>
-        <title>浅谈TCP/IP</title>
-        <pubTime>2017-10-21T14:46:48.000Z</pubTime>
+        <title>浅谈Web缓存</title>
+        <pubTime>2017-10-19T00:48:57.000Z</pubTime>
         
-        <tag>TCP/IP</tag>
+        <tag>cache</tag>
          
          
            
              
-              <breadCrumb title="Internet" url="http://qinyongli.cn/categories/Internet/"/>
+              <breadCrumb title="Web缓存" url="http://qinyongli.cn/categories/Web%E7%BC%93%E5%AD%98/"/>
           
         </display>
     </data>
@@ -25,7 +25,7 @@
     
   <url>
     <loc>http://qinyongli.cn/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2017-10-26T14:04:01.000Z</lastmod>
+    <lastmod>2017-10-27T05:40:51.000Z</lastmod>
     <data>
         <display>
         <title>FP-Pointfree编程指南</title>
@@ -36,7 +36,7 @@
          
            
              
-              <breadCrumb title="JS" url="http://qinyongli.cn/categories/JS/"/>
+              <breadCrumb title="JavaScript" url="http://qinyongli.cn/categories/JavaScript/"/>
           
         </display>
     </data>
@@ -45,7 +45,7 @@
     
   <url>
     <loc>http://qinyongli.cn/2017/10/25/%E6%B5%85%E8%B0%88curry%E5%8C%96/</loc>
-    <lastmod>2017-10-26T14:02:26.000Z</lastmod>
+    <lastmod>2017-10-27T05:40:36.000Z</lastmod>
     <data>
         <display>
         <title>浅谈curry化</title>
@@ -56,27 +56,7 @@
          
            
              
-              <breadCrumb title="JS" url="http://qinyongli.cn/categories/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/</loc>
-    <lastmod>2017-10-26T14:00:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈Web缓存</title>
-        <pubTime>2017-10-19T00:48:57.000Z</pubTime>
-        
-        <tag>Web缓存</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web" url="http://qinyongli.cn/categories/Web/"/>
+              <breadCrumb title="JavaScript" url="http://qinyongli.cn/categories/JavaScript/"/>
           
         </display>
     </data>
@@ -85,7 +65,7 @@
     
   <url>
     <loc>http://qinyongli.cn/2017/10/26/%E6%B5%85%E8%B0%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
-    <lastmod>2017-10-26T11:49:34.000Z</lastmod>
+    <lastmod>2017-10-27T01:53:00.853Z</lastmod>
     <data>
         <display>
         <title>浅谈内存泄漏</title>
@@ -97,6 +77,26 @@
            
              
               <breadCrumb title="后端" url="http://qinyongli.cn/categories/%E5%90%8E%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/</loc>
+    <lastmod>2017-10-26T16:03:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈TCP/IP</title>
+        <pubTime>2017-10-21T14:46:48.000Z</pubTime>
+        
+        <tag>TCP/IP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Internet" url="http://qinyongli.cn/categories/Internet/"/>
           
         </display>
     </data>
