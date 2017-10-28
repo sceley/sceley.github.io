@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="序言">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-27T05:40:51.000Z">
+<meta property="og:updated_time" content="2017-10-28T07:17:35.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FP-Pointfree编程指南">
 <meta name="twitter:description" content="序言">
@@ -331,12 +331,12 @@
 <h2 id="Pointfree"><a href="#Pointfree" class="headerlink" title="Pointfree"></a>Pointfree</h2><h3 id="Pointfree概念"><a href="#Pointfree概念" class="headerlink" title="Pointfree概念"></a>Pointfree概念</h3><p>pointfree 模式指的是，永远不必说出你的数据</p>
 <p>不使用所要处理的值，只合成运算过程。</p>
 <p>example</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> compose = <span class="function"><span class="keyword">function</span> (<span class="params">f, g</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> f(g(x));</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> addOne = <span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> square = <span class="function"><span class="params">x</span> =&gt;</span> x * x;</div><div class="line"><span class="keyword">let</span> addOneSquare = compose(square, addOne);</div><div class="line">addOneSquare(<span class="number">2</span>);</div><div class="line"><span class="comment">//=&gt;9</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> compose = <span class="function"><span class="keyword">function</span> (<span class="params">f, g</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> f(g(x));</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> addOne = <span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> square = <span class="function"><span class="params">x</span> =&gt;</span> x * x;</div><div class="line"><span class="keyword">let</span> addOneSquare = compose(square, addOne);</div><div class="line">addOneSquare(<span class="number">2</span>);</div><div class="line"><span class="comment">//=&gt;9</span></div></pre></td></tr></table></figure>
 <p>上面一个栗子，把两个函数组合，然后求值。</p>
 <p>addOneThenSquare是一个合成函数。定义它的时候，根本不需要提到要处理的值，这就是 Pointfree。</p>
 <h3 id="Pointfree的本质"><a href="#Pointfree的本质" class="headerlink" title="Pointfree的本质"></a>Pointfree的本质</h3><p>Pointfree 的本质就是使用一些通用的函数，组合出各种复杂运算。上层运算不要直接操作数据，而是通过底层函数去处理。这就要求，将一些常用的操作封装成函数。</p>
 <p>example: 读取对象的role属性，不要直接写成obj.role, 而是要把这个操作封装成函数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> prop = <span class="function">(<span class="params">p, obj</span>) =&gt;</span> obj[p];</div><div class="line"><span class="keyword">let</span> propRole = curry(prop)(<span class="string">'role'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> prop = <span class="function">(<span class="params">p, obj</span>) =&gt;</span> obj[p];</div><div class="line"><span class="keyword">let</span> propRole = curry(prop)(<span class="string">'role'</span>);</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -347,7 +347,7 @@
         <p><span>本文标题:</span><a  href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月25日 - 13时55分</p>
-        <p><span>最后更新:</span>2017年10月27日 - 13时40分</p>
+        <p><span>最后更新:</span>2017年10月28日 - 15时17分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/25/FP-Pointfree编程指南/" title="FP-Pointfree编程指南">http://qinyongli.cn/2017/10/25/FP-Pointfree编程指南/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/25/FP-Pointfree编程指南/　　作者: 覃永利" title=""></span>
