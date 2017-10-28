@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qinyongli.cn/"/>
-  <updated>2017-10-28T07:11:01.000Z</updated>
+  <updated>2017-10-28T16:00:45.000Z</updated>
   <id>http://qinyongli.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TCP、UDP、Socket总结</title>
+    <link href="http://qinyongli.cn/2017/10/28/HTTP%E3%80%81TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/"/>
+    <id>http://qinyongli.cn/2017/10/28/HTTP、TCP、UDP、Socket总结/</id>
+    <published>2017-10-28T14:56:46.000Z</published>
+    <updated>2017-10-28T16:00:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>本篇将开启我对各种协议的理解总结。</p><a id="more"></a><h2 id="UDP与TCP与Socket"><a href="#UDP与TCP与Socket" class="headerlink" title="UDP与TCP与Socket"></a>UDP与TCP与Socket</h2><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>TCP是面向连接的、传输可靠（保证数据正确性且保证数据顺序）、用于传输大量数据（流模式）、速度快，建立连接需要开销多（时间、系统资源）。</p><h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p>面向非连接、传输不可靠、用于传输少量数据（数据包模式）、速度快，UDP传输的可靠性由应用层负责。</p><p>UDP报头</p><p><img src="https://p1.ssl.qhmsg.com/dr/220__/t013b598635950ce8ea.png" alt=""></p><h3 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h3><p>网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket。</p><p>Socket接口是TCP/IP网络的API，socket是在应用层和传输层之间的一个抽象层，它把TCP/IP层复杂的操作抽象为几个简单的接口供应用层调用已实现进程在网络中通信。</p><p><img src="/img/socket.jpg" alt=""></p><p>常用的套接字类型2中</p><ul><li>流套接字（SOCK——STREAM）：使用了面向连接的可靠的数据通信方式，即TCP协议。</li><li>数据报套接字（Raw Sockets）：使用了不面向连接的数据传输方式，即UDP。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;p&gt;本篇将开启我对各种协议的理解总结。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Internet" scheme="http://qinyongli.cn/categories/Internet/"/>
+    
+    
+      <category term="Protocol" scheme="http://qinyongli.cn/tags/Protocol/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript常用设计模式</title>

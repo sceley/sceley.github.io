@@ -9,26 +9,23 @@
   
   
   
-  <title>浅谈MVX | Hexo</title>
+  <title>TCP、UDP、Socket总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
-<meta name="keywords" content="MVX">
+  <meta name="description" content="序言本篇将开启我对各种协议的理解总结。">
+<meta name="keywords" content="Protocol">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈MVX">
-<meta property="og:url" content="http://qinyongli.cn/2017/10/21/浅谈MVX/index.html">
+<meta property="og:title" content="TCP、UDP、Socket总结">
+<meta property="og:url" content="http://qinyongli.cn/2017/10/28/HTTP、TCP、UDP、Socket总结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
+<meta property="og:description" content="序言本篇将开启我对各种协议的理解总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020106.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020107.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
-<meta property="og:updated_time" content="2017-10-23T13:34:59.000Z">
+<meta property="og:image" content="https://p1.ssl.qhmsg.com/dr/220__/t013b598635950ce8ea.png">
+<meta property="og:image" content="http://qinyongli.cn/img/socket.jpg">
+<meta property="og:updated_time" content="2017-10-28T16:00:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈MVX">
-<meta name="twitter:description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
-<meta name="twitter:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+<meta name="twitter:title" content="TCP、UDP、Socket总结">
+<meta name="twitter:description" content="序言本篇将开启我对各种协议的理解总结。">
+<meta name="twitter:image" content="https://p1.ssl.qhmsg.com/dr/220__/t013b598635950ce8ea.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -289,11 +286,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-浅谈MVX" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HTTP、TCP、UDP、Socket总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/10/21/浅谈MVX/" class="article-date">
-      <time datetime="2017-10-21T05:06:30.000Z" itemprop="datePublished">2017-10-21</time>
+      <a  href="/2017/10/28/HTTP、TCP、UDP、Socket总结/" class="article-date">
+      <time datetime="2017-10-28T14:56:46.000Z" itemprop="datePublished">2017-10-28</time>
 </a>
 
     </div>
@@ -307,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浅谈MVX
+      TCP、UDP、Socket总结
     </h1>
   
 
@@ -317,13 +314,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Architecture/">Architecture</a>
+    <a class="article-category-link" href="/categories/Internet/">Internet</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVX/">MVX</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Protocol/">Protocol</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -333,33 +330,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM</p>
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>本篇将开启我对各种协议的理解总结。</p>
 <a id="more"></a>
-<h2 id="MVX"><a href="#MVX" class="headerlink" title="MVX"></a>MVX</h2><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC（Model-View-Controller）是应用最广泛的软件架构之一，一般MVC分为: Model(模型)、Controller(控制器)和View(视图)。这主要是基于分层的目的，让彼此的职责分开。</p>
-<p>控制器（Controller），一组行为的集合。(业务逻辑)</p>
-<p>模型（Model），数据相关的操作和封装。(数据保存)</p>
-<p>视图（View），视图的渲染。(用户界面)</p>
-<p>View一般通过Controler来和Model进行联系的。Controller是Model和View的协调者，View和Model不直接联系。基本联系都是单项的。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt=""></p>
-<ol>
-<li>View 传送指令到Controler</li>
-<li>Controller 完成业务逻辑，要求 Model 改变状态</li>
-<li>Model 将新的数据发送到　View，用户得到反馈</li>
-</ol>
-<p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020106.png" alt=""></p>
-<p>另一种是直接通过controller接受指令。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020107.png" alt=""></p>
-<h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><p>MVP模式将 Controller改名为Persenter,　同时改变了通信方向。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt=""></p>
-<ol>
-<li>各部分之间的通信，都是双向的。</li>
-<li>View 与 Model不发生联系。都通过Persenter传递。</li>
-<li>View 非常薄, 不部署任何业务逻辑，称为”被动视图”，即没有任何主动性，而Persenter非常厚，所有逻辑都部署在那里。</li>
-</ol>
-<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>MVVM模式将Persenter改名为ViewModel，基本上与MVP完全一致</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt=""></p>
-<p>唯一的区别是，它采用双向绑定(data-binding): View的变动，自动反映在ViewModel，反之亦然。Angular和Vue采用这种模式。</p>
+<h2 id="UDP与TCP与Socket"><a href="#UDP与TCP与Socket" class="headerlink" title="UDP与TCP与Socket"></a>UDP与TCP与Socket</h2><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>TCP是面向连接的、传输可靠（保证数据正确性且保证数据顺序）、用于传输大量数据（流模式）、速度快，建立连接需要开销多（时间、系统资源）。</p>
+<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p>面向非连接、传输不可靠、用于传输少量数据（数据包模式）、速度快，UDP传输的可靠性由应用层负责。</p>
+<p>UDP报头</p>
+<p><img src="https://p1.ssl.qhmsg.com/dr/220__/t013b598635950ce8ea.png" alt=""></p>
+<h3 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h3><p>网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket。</p>
+<p>Socket接口是TCP/IP网络的API，socket是在应用层和传输层之间的一个抽象层，它把TCP/IP层复杂的操作抽象为几个简单的接口供应用层调用已实现进程在网络中通信。</p>
+<p><img src="/img/socket.jpg" alt=""></p>
+<p>常用的套接字类型2中</p>
+<ul>
+<li>流套接字（SOCK——STREAM）：使用了面向连接的可靠的数据通信方式，即TCP协议。</li>
+<li>数据报套接字（Raw Sockets）：使用了不面向连接的数据传输方式，即UDP。</li>
+</ul>
 
       
     </div>
@@ -368,13 +352,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/10/21/浅谈MVX/">浅谈MVX</a></p>
+        <p><span>本文标题:</span><a  href="/2017/10/28/HTTP、TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
-        <p><span>发布时间:</span>2017年10月21日 - 13时06分</p>
-        <p><span>最后更新:</span>2017年10月23日 - 21时34分</p>
+        <p><span>发布时间:</span>2017年10月28日 - 22时56分</p>
+        <p><span>最后更新:</span>2017年10月29日 - 00时00分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/21/浅谈MVX/" title="浅谈MVX">http://qinyongli.cn/2017/10/21/浅谈MVX/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/21/浅谈MVX/　　作者: 覃永利" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/28/HTTP、TCP、UDP、Socket总结/" title="TCP、UDP、Socket总结">http://qinyongli.cn/2017/10/28/HTTP、TCP、UDP、Socket总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/28/HTTP、TCP、UDP、Socket总结/　　作者: 覃永利" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -385,18 +369,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/10/21/浅谈TCP-IP/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          浅谈TCP/IP
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/10/19/浅谈Web缓存/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈Web缓存</div>
+    <a  href="/2017/10/28/JavaScript常用设计模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript常用设计模式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -408,7 +383,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVX"><span class="toc-number">2.</span> <span class="toc-text">MVX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC"><span class="toc-number">2.1.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVP"><span class="toc-number">2.2.</span> <span class="toc-text">MVP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVVM"><span class="toc-number">2.3.</span> <span class="toc-text">MVVM</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP与TCP与Socket"><span class="toc-number">2.</span> <span class="toc-text">UDP与TCP与Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP"><span class="toc-number">2.1.</span> <span class="toc-text">TCP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP"><span class="toc-number">2.2.</span> <span class="toc-text">UDP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket"><span class="toc-number">2.3.</span> <span class="toc-text">Socket</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -467,13 +442,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/10/21/浅谈TCP-IP/" title="上一篇: 浅谈TCP/IP">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/10/19/浅谈Web缓存/" title="下一篇: 浅谈Web缓存">
+            <a  href="/2017/10/28/JavaScript常用设计模式/" title="下一篇: JavaScript常用设计模式">
                 <i class="fa fa-angle-right"></i>
             </a>
         
