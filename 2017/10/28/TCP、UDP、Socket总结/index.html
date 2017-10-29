@@ -20,9 +20,9 @@
 <meta property="og:description" content="序言本篇将开启我对各种协议的理解总结。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://qinyongli.cn/img/socket.jpg">
-<meta property="og:image" content="http://qinyongli.cn/img/socket">
+<meta property="og:image" content="http://qinyongli.cn/img/socket.png">
 <meta property="og:image" content="https://p1.ssl.qhmsg.com/dr/220__/t013b598635950ce8ea.png">
-<meta property="og:updated_time" content="2017-10-29T06:38:44.021Z">
+<meta property="og:updated_time" content="2017-10-29T06:40:49.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP、UDP、Socket总结">
 <meta name="twitter:description" content="序言本篇将开启我对各种协议的理解总结。">
@@ -340,7 +340,7 @@
 <h4 id="Server-Client模型"><a href="#Server-Client模型" class="headerlink" title="Server-Client模型"></a>Server-Client模型</h4><p>服务器，使用ServerSocket监听指定的端口，端口可以随意指定（由于1024以下的端口通常属于保留端口，在一些操作系统中不可以随意使用，所以建议使用大于1024的端口），等待客户连接请求，客户连接后，会话产生；在完成会话后，关闭连接。</p>
 <p>客户端，使用Socket对网络上某一个服务器的某一个端口发出连接请求，一旦连接成功，打开会话；会话完成后，关闭Socket。客户端不需要指定打开的端口，通常临时的、动态的分配一个1024以上的端口。</p>
 <p>Socket接口是TCP/IP网络的API，Socket接口定义了许多函数或例程，程序员可以用它们来开发TCP/IP网络上的应用程序。要学Internet上的TCP/IP网络编程，必须理解Socket接口。Socket接口设计者最先是将接口放在Unix操作系统里面的。如果了解Unix系统的输入和输出的话，就很容易了解Socket了。网络的Socket数据传输是一种特殊的I/O，Socket也是一种文件描述符。Socket也具有一个类似于打开文件的函数调用Socket（），该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该Socket实现的。</p>
-<p><img src="/img/socket" alt=""></p>
+<p><img src="/img/socket.png" alt=""></p>
 <h4 id="常用的套接字类型2中折叠常用的Socket类型"><a href="#常用的套接字类型2中折叠常用的Socket类型" class="headerlink" title="常用的套接字类型2中折叠常用的Socket类型"></a>常用的套接字类型2中折叠常用的Socket类型</h4><ul>
 <li>流式套接字（SOCK_STREAM）：面向连接的Socket，针对于面向连接的TCP服务应用。</li>
 <li>数据报式套接字（SOCK_DGRAM）：无连接的Socket，对应于无连接的UDP服务应用。</li>
@@ -399,7 +399,7 @@
         <p><span>本文标题:</span><a  href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月28日 - 22时56分</p>
-        <p><span>最后更新:</span>2017年10月29日 - 14时38分</p>
+        <p><span>最后更新:</span>2017年10月29日 - 14时40分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/28/TCP、UDP、Socket总结/" title="TCP、UDP、Socket总结">http://qinyongli.cn/2017/10/28/TCP、UDP、Socket总结/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/28/TCP、UDP、Socket总结/　　作者: 覃永利" title=""></span>
