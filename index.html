@@ -25,7 +25,7 @@
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-    <link rel="icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/img/apple-touch-icon.png">
   
   
   <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
@@ -209,7 +209,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/FP/" style="font-size: 20px;">FP</a> <a href="/tags/MVX/" style="font-size: 10px;">MVX</a> <a href="/tags/Memory/" style="font-size: 10px;">Memory</a> <a href="/tags/Protocol/" style="font-size: 10px;">Protocol</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+                        <a href="/tags/FP/" style="font-size: 20px;">FP</a> <a href="/tags/MVX/" style="font-size: 10px;">MVX</a> <a href="/tags/Memory/" style="font-size: 10px;">Memory</a> <a href="/tags/Protocol/" style="font-size: 20px;">Protocol</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
                     </div>
                 </section>
                 
@@ -285,6 +285,89 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-浅谈HTTP、HTTPS、SPDY、HTTP2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/10/30/浅谈HTTP、HTTPS、SPDY、HTTP2/" class="article-date">
+      <time datetime="2017-10-30T15:24:46.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/10/30/浅谈HTTP、HTTPS、SPDY、HTTP2/">浅谈HTTP、HTTPS、SPDY、HTTP2</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>作为一个WEB开发者，了解一些常用的协议是必须的，本编将总结自己在协议方面的学习。</p>
+<h2 id="WEB始祖HTTP"><a href="#WEB始祖HTTP" class="headerlink" title="WEB始祖HTTP"></a>WEB始祖HTTP</h2><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。伴随着计算机网络和浏览器的诞生，HTTP1.0也随之而来，处于计算机网络中的应用层，HTTP是建立在TCP协议上，所以HTTP协议的瓶颈及其优化技巧都是基于TCP协议本身的特性，例如TCP建立连接的3次握手和断开连接的4次挥手以及每次建立连接带来的RTT延迟时间。</p>
+<h2 id="HTTP的基本优化"><a href="#HTTP的基本优化" class="headerlink" title="HTTP的基本优化"></a>HTTP的基本优化</h2><p>影响一个HTTP网络请求的因素主要有两个: 宽带和延迟。</p>
+<p>宽带: 如果说我们还停留在拨号上网的阶段，宽带可能成为一个比较严重影响请求的问题，但是现在网络基础建设已经使得宽带得到极大的提升，我们就不再会担心有宽带而影响网速了。</p>
+<p>延迟: </p>
+<ul>
+<li>浏览器阻塞(HOL blocking):　浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有4个连接(这个根据浏览器内核不同可能会有所差异)，超过浏览器最大连接限制，后续请求就会被阻塞。</li>
+<li>DNS查询(DNS Lookup): 浏览器需要知道目标服务器的IP才能建立连接。将域名解析为IP的这个系统就是DNS。这个通常可以利用DNS缓存结果达到减少这个时间的目的。</li>
+<li>建立连接(initial connection): HTTP是基于TCP协议的，浏览器最快也要在第三次握手时才能捎带HTTP请求报文，达到真正的建立连接，但是这些连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较为明显，慢启动则对文件类大请求影响较大。</li>
+</ul>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>HTTP是无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</p>
+<p>HTTP是媒体独立的：这意味着，只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。</p>
+<p>HTTP是无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
+<h3 id="HTTP1-0-amp-amp-HTTP1-1"><a href="#HTTP1-0-amp-amp-HTTP1-1" class="headerlink" title="HTTP1.0&amp;&amp;HTTP1.1"></a>HTTP1.0&amp;&amp;HTTP1.1</h3><p>最早在网页中使用是在1996年，那个时候只是使用一些较为简单的网页上和网络请求上，而HTTP1.1则在1999年才开始广泛应用在现在的各大浏览器网络请求中，同时HTTP1.1也是当前使用最为广泛的HTTP协议。主要区别体现在:</p>
+<ol>
+<li>缓存处理，HTTP1.0中主要使用header里的If-Modified-Since，Expires来作为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略，例如Entity，If-Unmodified-Since，If-Match，If-None-Match等更多可供选择的缓存头来控制缓存策略。</li>
+<li>宽带优化及网络连接的使用，HTTP1.0中，存在浪费宽带的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头中引入了range头域，它允许只请求资源的某个部分，既返回码206</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Internet/">Internet</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Protocol/">Protocol</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-TCP、UDP、Socket总结" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -542,76 +625,6 @@
       
         <p class="article-more-link">
           <a   href="/2017/10/25/浅谈curry化/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-FP-Pointfree编程指南" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/10/25/FP-Pointfree编程指南/" class="article-date">
-      <time datetime="2017-10-25T05:55:32.000Z" itemprop="datePublished">2017-10-25</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FP/">FP</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a   href="/2017/10/25/FP-Pointfree编程指南/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
