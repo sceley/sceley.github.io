@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  <meta name="msvalidate.01" content="AE604ACCCD787E5130F0B75BDC9F0231" />
+  <meta name="360-site-verification" content="bd04526f64d2b1b11c8e05a60e0c0256" />
+  
+  
+  
+  
+  <title>浅谈HTTP | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="序言作为一个WEB开发者，了解一些常用的协议是必须的，本编将总结自己在协议方面的学习。">
+<meta name="keywords" content="Protocol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈HTTP">
+<meta property="og:url" content="http://qinyongli.cn/2017/10/30/浅谈HTTP/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="序言作为一个WEB开发者，了解一些常用的协议是必须的，本编将总结自己在协议方面的学习。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qinyongli.cn/img/httprequest.png">
+<meta property="og:image" content="http://qinyongli.cn/img/httpmessage.jpg">
+<meta property="og:image" content="http://qinyongli.cn/img/http.png">
+<meta property="og:image" content="http://qinyongli.cn/img/theprocessofhttp.png">
+<meta property="og:updated_time" content="2017-11-01T07:37:59.520Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈HTTP">
+<meta name="twitter:description" content="序言作为一个WEB开发者，了解一些常用的协议是必须的，本编将总结自己在协议方面的学习。">
+<meta name="twitter:image" content="http://qinyongli.cn/img/httprequest.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/apple-touch-icon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">覃永利</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">Goals determine what I going to be</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder=" Search...">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/categories/开发工具/">玩转开发工具</a></li>
+                        
+                            <li><a  href="/categories/digital">玩转数码</a></li>
+                        
+                            <li><a  href="/categories/cognition">认知提升</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/sceley" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/FP/" style="font-size: 20px;">FP</a> <a href="/tags/MVX/" style="font-size: 10px;">MVX</a> <a href="/tags/Memory/" style="font-size: 10px;">Memory</a> <a href="/tags/Protocol/" style="font-size: 20px;">Protocol</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱动漫,爱游戏,爱编程,爱运动,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">覃永利</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">覃永利</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Goals determine what I going to be</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                
+                    <li><a href="/categories/digital">玩转数码</a></li>
+                
+                    <li><a href="/categories/cognition">认知提升</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/sceley" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-浅谈HTTP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/10/30/浅谈HTTP/" class="article-date">
+      <time datetime="2017-10-30T15:24:46.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浅谈HTTP
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Internet/">Internet</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Protocol/">Protocol</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>作为一个WEB开发者，了解一些常用的协议是必须的，本编将总结自己在协议方面的学习。</p>
+<a id="more"></a>
+<h2 id="WEB始祖HTTP"><a href="#WEB始祖HTTP" class="headerlink" title="WEB始祖HTTP"></a>WEB始祖HTTP</h2><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。伴随着计算机网络和浏览器的诞生，HTTP1.0也随之而来，处于计算机网络中的应用层，HTTP是建立在TCP协议上，所以HTTP协议的瓶颈及其优化技巧都是基于TCP协议本身的特性，例如TCP建立连接的3次握手和断开连接的4次挥手以及每次建立连接带来的RTT延迟时间。</p>
+<p>HTTP得以发展是W3C和IETF两个组织和作的结果，他们最终发布了一系列RFC标准，目前最知名的HTTP标准为RFC 2616。</p>
+<h2 id="HTTP的基本优化"><a href="#HTTP的基本优化" class="headerlink" title="HTTP的基本优化"></a>HTTP的基本优化</h2><p>影响一个HTTP网络请求的因素主要有两个: 宽带和延迟。</p>
+<p>宽带: 如果说我们还停留在拨号上网的阶段，宽带可能成为一个比较严重影响请求的问题，但是现在网络基础建设已经使得宽带得到极大的提升，我们就不再会担心有宽带而影响网速了。</p>
+<p>延迟: </p>
+<ul>
+<li>浏览器阻塞(HOL blocking):　浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有4个连接(这个根据浏览器内核不同可能会有所差异)，超过浏览器最大连接限制，后续请求就会被阻塞。</li>
+<li>DNS查询(DNS Lookup): 浏览器需要知道目标服务器的IP才能建立连接。将域名解析为IP的这个系统就是DNS。这个通常可以利用DNS缓存结果达到减少这个时间的目的。</li>
+<li>建立连接(initial connection): HTTP是基于TCP协议的，浏览器最快也要在第三次握手时才能捎带HTTP请求报文，达到真正的建立连接，但是这些连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较为明显，慢启动则对文件类大请求影响较大。</li>
+</ul>
+<h2 id="HTTP1-0与HTTP1-1"><a href="#HTTP1-0与HTTP1-1" class="headerlink" title="HTTP1.0与HTTP1.1"></a>HTTP1.0与HTTP1.1</h2><p>最早在网页中使用是在1996年，那个时候只是使用一些较为简单的网页上和网络请求上，而HTTP1.1则在1999年才开始广泛应用在现在的各大浏览器网络请求中，同时HTTP1.1也是当前使用最为广泛的HTTP协议。主要区别体现在:</p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>缓存处理，HTTP1.0中主要使用header里的If-Modified-Since，Expires来作为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略，例如Entity，If-Unmodified-Since，If-Match，If-None-Match等更多可供选择的缓存头来控制缓存策略。</li>
+<li>宽带优化及网络连接的使用，HTTP1.0中，存在浪费宽带的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头中引入了range头域，它允许只请求资源的某个部分，即返回码206(Partial Content)，这样就方便了开发者自由的选择以便于充分选择利用宽带和连接。</li>
+<li>错误通知的管理，在HTTP1.1中新增了24个错误状态响应码，如409(Conflict)表示服务器上的某个资源被永久性的删除。</li>
+<li>长连接，HTTP1.1支持长连接和请求流水线处理，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在HTTP1.1中默认开启Connection: keey-alive，一定程度上弥补了HTTP1.O每次请求都要创建连接的缺点。</li>
+<li>Host头处理，在HTTP1.0中认为每一台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名(hostname)。但随着虚拟机技术的发展，在一台物理服务器上可以存在多个虚拟机，并且他们共享一个IP地址。HTTP1.1中的请求消息和响应消息都应该支持Hose头域，且请求消息中如果没有Host头域会报告一个错误(440 Bad Request)。</li>
+</ol>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
+<li>HTTP1.0在传输数据时，每次都要重新建立连接，无疑增加了大量的延迟时间，特别是移动端表现更为突出。</li>
+<li>HTTP1.x在传输数据时，所有传输的内容都是明文的，无法保证数据的安全性。</li>
+<li>HTTP1.x在使用时，header里携带的内容过大，在一定程度上增加了传输成本，并且每次请求header基本不怎么变化，尤其在移动端增加用户的流量。</li>
+<li>虽然HTTP1.x支持keep-alive，来弥补多次创建连接产生的延迟，但是keep-alive使用同样会给服务器端带来大量的性能压力，并且对于单个文件被不断请求的服务（例如图片存放网站），keep-alive可能会极大的影响性能，因为它在文件被请求之后还保持了不必要的连接很长时间。</li>
+</ol>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>HTTP是无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</p>
+<p>HTTP是媒体独立的：这意味着，只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。</p>
+<p>HTTP是无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
+<h3 id="HTTP-消息结构"><a href="#HTTP-消息结构" class="headerlink" title="HTTP 消息结构"></a>HTTP 消息结构</h3><h4 id="客户端请求消息"><a href="#客户端请求消息" class="headerlink" title="客户端请求消息"></a>客户端请求消息</h4><p>客户端发送一个HTTP请求到服务器的请求消息包括以下格式：请求行（request line）、请求头部（header）、空行和请求数据四个部分组成，下图给出了请求报文的一般格式。</p>
+<p><img src="/img/httprequest.png" alt=""></p>
+<h4 id="服务器响应消息"><a href="#服务器响应消息" class="headerlink" title="服务器响应消息"></a>服务器响应消息</h4><p>HTTP响应也由四个部分组成，分别是：状态行、消息报头、空行和响应正文。</p>
+<p><img src="/img/httpmessage.jpg" alt=""></p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>客户端请求：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; GET / HTTP/<span class="number">1.1</span></div><div class="line">&gt; Host: localhost:<span class="number">3000</span></div><div class="line">&gt; User-Agent: curl/<span class="number">7.47</span><span class="number">.0</span></div><div class="line">&gt; Accept: *<span class="comment">/*</span></div><div class="line"><span class="comment">&gt;</span></div></pre></td></tr></table></figure>
+<p>服务端响应:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt; HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</div><div class="line">&lt; Content-Type: text/plain</div><div class="line">&lt; <span class="built_in">Date</span>: Tue, <span class="number">31</span> Oct <span class="number">2017</span> <span class="number">14</span>:<span class="number">11</span>:<span class="number">22</span> GMT</div><div class="line">&lt; Connection: keep-alive</div><div class="line">&lt; Transfer-Encoding: chunked</div><div class="line">&lt; </div><div class="line">Hello World</div></pre></td></tr></table></figure></p>
+<h3 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h3><ul>
+<li>GET: 最常用的方法，通常用于请求服务器发送某个资源。</li>
+<li>POST: 起初是用来向服务器输入数据，实际上通常用来把表单数据传输到服务器。</li>
+<li>PUT: 与GET从服务器读取文档相反，PUT方法会向服务器写入文档。</li>
+<li>DELETE: 请求服务器删除指定的资源。</li>
+</ul>
+<h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>HTTP状态码:</p>
+<ul>
+<li>200 - 请求成功</li>
+<li>301 - 资源（网页等）被永久转移到其它URL</li>
+<li>404 - 请求的资源（网页等）不存在</li>
+<li>500 - 内部服务器错误</li>
+</ul>
+<p>HTTP状态码分类: </p>
+<ul>
+<li>1**    信息，服务器收到请求，需要请求者继续执行操作</li>
+<li>2**    成功，操作被成功接收并处理</li>
+<li>3**    重定向，需要进一步的操作以完成请求</li>
+<li>4**    客户端错误，请求包含语法错误或无法完成请求</li>
+<li>5**    服务器错误，服务器在处理请求的过程中发生了错误</li>
+</ul>
+<h3 id="http模块"><a href="#http模块" class="headerlink" title="http模块"></a>http模块</h3><p>Node的http模块包含了对HTTP处理的封装。在Node中，HTTP服务继承了TCP服务器(net模块)，它能够与多个客户端保持连接，由于其采用事件驱动的形式，并不为每一个连接创建额外的线程或进程，保持很低的内存占用，所以能实现高并发。HTTP服务与TCP服务模型有区别的地方在于，在开启keepalive后，一个TCP会话可以用于多次请求和响应。TCP服务以connection为单位进行服务，HTTP服务以request为单位进行服务。http模块即是将connection到request的过程进行了封装。</p>
+<p><img src="/img/http.png" alt=""></p>
+<p>http模块将connection到request的过程进行了封装</p>
+<p>除此之外，http模块将连接所用套接字的读写抽象为ServerRequest和ServerResponse对象，它们分别对应请求和响应操作。在请求产生的过程中，http模块拿出连接中的传来的数据，调用二进制模块http_parser进行解析，在解析完请求报文的报头，触发request事件，调用用户的业务逻辑。该逻辑的示意图:</p>
+<p><img src="/img/theprocessofhttp.png" alt=""></p>
+<h4 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h4><p>对TCP连接的读操作，http模块将其封装为ServerRequest对象。请求报文头部将会通过http_parser进行解析。</p>
+<p>报头被解析后放置在req.headers属性上传递给业务逻辑以供调用。</p>
+<p>报文体部分则抽象为一个只读流对象，如果业务逻辑需要读取报文体中的数据，则要在这个数据流结束后才能进行操作，如下所示: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">(req, res) =&gt; &#123;</div><div class="line">    <span class="comment">//console.log(req.headers);</span></div><div class="line">    <span class="keyword">let</span> buffers = [];</div><div class="line">    req.on(<span class="string">'data'</span>, chunk =&gt; &#123;</div><div class="line">        buffers.push(chunk);</div><div class="line">    &#125;);</div><div class="line">    res.on(<span class="string">'end'</span>, () =&gt; &#123;</div><div class="line">        <span class="keyword">let</span> buffer = Buffer.concat(buffers);</div><div class="line">        res.end(<span class="string">'Hello World'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>HTTP请求对象和HTTP响应对象是相对较底层的封装，现行的Web框架express就是在这两个对象的基础上进行高层封装完成的。</p>
+<h4 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h4><p>HTTP响应封装了对底层连接的写操作，可以将其看成一个可写的流对象。它影响响应报文头部信息的API为res.setHeader()和res.writeHead()。在上述报文示例中:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</div></pre></td></tr></table></figure>
+<p>其分为setHeader()和writeHead()两个步骤。它在http模块的封装下，实际生成如下的报文: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt; HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</div><div class="line">&lt; Content-Type: text/plain</div></pre></td></tr></table></figure>
+<p>我们可以调用setHeader进行多次设置，但只有调用writeHead后，报头才会写入到连接中。除此之外，http模块会自动帮你设置一些头信息，如下所示:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt; <span class="built_in">Date</span>: Tue, <span class="number">31</span> Oct <span class="number">2017</span> <span class="number">14</span>:<span class="number">11</span>:<span class="number">22</span> GMT</div><div class="line">&lt; Connection: keep-alive</div><div class="line">&lt; Transfer-Encoding: chunked</div><div class="line">&lt;</div></pre></td></tr></table></figure>
+<p>响应结束后，HTTP服务器将可能会将当前连接用于下一个请求，或者关闭连接。值得注意的是，报头是在报文体发送前发送的，一旦开始了数据的发送，writeHead()和setHeader()将不会再生效。这有协议的特性决定的。</p>
+<h3 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器"></a>HTTP服务器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">const</span> server =  http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</div><div class="line">    res.end(<span class="string">'Hello World\n'</span>);</div><div class="line">&#125;);</div><div class="line">server.listen(<span class="number">8080</span>, <span class="string">'127.0.0.1'</span>, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'server runing at http://localhost:127.0.0.1:1337/'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>NODE获取客户端IP:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">req.headers[<span class="string">'x-forwarded-for'</span>] || req.connection.remoteAddress || req.socket.remoteAddress;</div></pre></td></tr></table></figure>
+<p>NODE获取客户端PORT:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">req.connection.remotePort || req.socket.remotePort;</div></pre></td></tr></table></figure></p>
+<h4 id="HTTP服务器的事件"><a href="#HTTP服务器的事件" class="headerlink" title="HTTP服务器的事件"></a>HTTP服务器的事件</h4><p>如同TCP服务一样，HTTP服务器也抽象了一些事件，以供应用层使用，同样典型的是，服务器也是一个EventEmitter实例。</p>
+<ul>
+<li><p>connection事件: 在开始HTTP请求和响应前，客户端与服务器端需要建立底层的TCP连接，这个连接有可能因为开启了keep-alive，可以在多次请求响应之间使用；当这个连接建立时，服务器触发一次connection事件。</p>
+</li>
+<li><p>request事件: 建立TCP连接后，http模块底层将在数据流中抽象出HTTP请求和HTTP响应，当请求数据发送到服务器端，在解析出HTTP请求头后，将会触发该事件；在res.end()后，TCP连接可能将用于下一次请求响应。</p>
+</li>
+<li><p>close事件: 与TCP服务器的行为一致，调用server.close()方法停止接受新的连接，当已有的连接都断开时，触发该事件；可以server.close()传递一个回调函数来快速注册该事件。</p>
+</li>
+<li><p>connect事件: 当客户端发起CONNECT请求时触发，而发起CONNECT请求通常在HTTP代理时出现；如果不监听该事件，发起请求的连接将会关闭。</p>
+</li>
+<li><p>upgrade事件: 当客户端要求升级连接协议时，需要和服务器协商，客户端会在请求头中带上Upgrade字段，服务器端会在接受到这样的请求时触发该事件。如果不监听该事件，发起该请求的连接将会被关闭。</p>
+</li>
+<li><p>clientError事件: 连接的客户触发error事件时，这个错误会传递到服务器端，此时触发该事件。</p>
+</li>
+</ul>
+<h3 id="HTTP客户端"><a href="#HTTP客户端" class="headerlink" title="HTTP客户端"></a>HTTP客户端</h3><blockquote>
+<p>从协议的角度来说，现在的应用，如浏览器，其实是一个HTTP的代理，用户的行为将会通过它转化为HTTP请求报文发送给服务器端，服务器端在处理请求后，发送响应报文给代理，代理在解析报文后，将用户需要的内容呈现在界面上。HTTP服务只做两件事情: 处理HTTP请求和发送HTTP响应。</p>
+</blockquote>
+<p>http模块提供了一个底层API: http.request(options, connect)，用于构造HTTP客户端。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> options = &#123;</div><div class="line">    hostname: <span class="string">'127.0.0.1'</span>,</div><div class="line">    port: <span class="number">1334</span>,</div><div class="line">    path: <span class="string">'/'</span>,</div><div class="line">    method: <span class="string">'GET'</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">const</span> req = http.request(options, res =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'STATUS: '</span> + res.statusCode);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'HEADERS: '</span> + <span class="built_in">JSON</span>.stringify(res.headers));</div><div class="line">    res.setEncoding(<span class="string">'uft8'</span>);</div><div class="line">    res.on(<span class="string">'data'</span>, chunk =&gt; &#123;</div><div class="line">        <span class="built_in">console</span>.log(chunk);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">req.end();</div></pre></td></tr></table></figure>
+<p>options参数决定了这个HTTP请求头中的内容，它的选项有如下这些。</p>
+<ul>
+<li>host: 服务器的域名或IP地址，默认为localhost。</li>
+<li>hostname: 服务器名称。</li>
+<li>port: 服务器端口，默认为80。</li>
+<li>socketPath: Domain套接字路径。</li>
+<li>method: HTTP请求方法，默认为GET。</li>
+<li>path: 请求路径，默认为/。</li>
+<li>headers: 请求头对象。</li>
+<li>auth: Basic认证，这个值将被计算成请求头中的Authorization部分。</li>
+</ul>
+<h4 id="客户端事件"><a href="#客户端事件" class="headerlink" title="客户端事件:"></a>客户端事件:</h4><ul>
+<li>response: 与服务端的request事件对应的客户端在请求发出后得到服务器端响应时，会触发该事件。</li>
+<li>socket: 当底层连接池中建立的连接分配给当前请求对象时，触发该事件。</li>
+<li>connect: 当客户端向服务器端发起CONNECT请求时，如果服务器响应了200状态码，客户端将会触发该事件。</li>
+<li>upgrade: 客户端向服务器端发起Upgrade请求时，如果服务器响应了101 Switching Protocols状态，客户端将会触发该事件。</li>
+<li>continue: 客户端向服务器端发起Expect: 100-continue头信息，以试图发送较大数据量，如果服务器端响应100 Continue状态，客户端将触发该事件。 </li>
+</ul>
+<blockquote>
+<p>在ClientRequest对象中，它的事件叫做response。ClientRequest在解析响应报文时，一解析完就触发response事件，同时传递一个响应对象以供操作ClientResponse。</p>
+<p>TCP和UDP都属于网络传输协议，如果要构造高效的网络应用，就应该从传输层进行着手。</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
+        <p><span>发布时间:</span>2017年10月30日 - 23时24分</p>
+        <p><span>最后更新:</span>2017年11月01日 - 15时37分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/30/浅谈HTTP/" title="浅谈HTTP">http://qinyongli.cn/2017/10/30/浅谈HTTP/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/30/浅谈HTTP/　　作者: 覃永利" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2017/10/28/TCP、UDP、Socket总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TCP、UDP、Socket总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WEB始祖HTTP"><span class="toc-number">2.</span> <span class="toc-text">WEB始祖HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP的基本优化"><span class="toc-number">3.</span> <span class="toc-text">HTTP的基本优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP1-0与HTTP1-1"><span class="toc-number">4.</span> <span class="toc-text">HTTP1.0与HTTP1.1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">4.1.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-number">4.2.</span> <span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP"><span class="toc-number">5.</span> <span class="toc-text">HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-消息结构"><span class="toc-number">5.1.</span> <span class="toc-text">HTTP 消息结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端请求消息"><span class="toc-number">5.1.1.</span> <span class="toc-text">客户端请求消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器响应消息"><span class="toc-number">5.1.2.</span> <span class="toc-text">服务器响应消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实例"><span class="toc-number">5.1.3.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP请求方法"><span class="toc-number">5.2.</span> <span class="toc-text">HTTP请求方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP状态码"><span class="toc-number">5.3.</span> <span class="toc-text">HTTP状态码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http模块"><span class="toc-number">5.4.</span> <span class="toc-text">http模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP请求"><span class="toc-number">5.4.1.</span> <span class="toc-text">HTTP请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP响应"><span class="toc-number">5.4.2.</span> <span class="toc-text">HTTP响应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP服务器"><span class="toc-number">5.5.</span> <span class="toc-text">HTTP服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP服务器的事件"><span class="toc-number">5.5.1.</span> <span class="toc-text">HTTP服务器的事件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP客户端"><span class="toc-number">5.6.</span> <span class="toc-text">HTTP客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端事件"><span class="toc-number">5.6.1.</span> <span class="toc-text">客户端事件:</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/10/28/TCP、UDP、Socket总结/" title="下一篇: TCP、UDP、Socket总结">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript常用设计模式/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 覃永利
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 4;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?4caa02061ff98d2c5225d7216f123fa5";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
