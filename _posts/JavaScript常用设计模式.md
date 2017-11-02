@@ -17,12 +17,9 @@ categories: JavaScript
 - 单体模式
 - 模块模式
 - 代理模式
-- 职责链模式
-- 命令模式
-- 模板方法模式
 - 策略模式
 - 发布-订阅模式
-- 中介者模式
+- 观察者模式
 
 ### 工厂模式
 
@@ -154,4 +151,83 @@ let Proxy = function (girl) {
 //初始化
 let proxy = new Proxy(new AGirl('漂亮妹子'));
 proxy.sendGift('结婚戒');//Hi 漂亮妹子, a boy 送你一个礼物：　结婚戒
+```
+
+### 策略模式
+
+```js
+const stragegy = {
+    'A': function (salary) {
+        return salary * 4;
+    },
+    'B': function (salary) {
+        return salary * 3;
+    },
+    'C': function (salary) {
+        return salay * 2;
+    }
+};
+const calculateBount = function (level, salary) {
+    return stragegy[level](salary);
+};
+console.log(calculateBount('A', 10000));
+```
+
+### 观察者模式
+
+根据状态的变化主动触发观察者队列、hashMap的回调行为。redux中使用
+
+```js
+function Observer() {
+    this.observers = [];
+};
+Observer.prototype.subscribe = function (fn) {
+    this.observers.push(fn);
+};
+Observer.prototype.unsubscribe = function (fn) {
+    this.observers = this.observers.filter(_fn => {
+        return _fn !== fn;
+    });
+};
+Observer.prototype.update = function (val) {
+    this.observers.forEach(fn => {
+        fn(val);
+    });
+};
+const Ob = new Observer();
+const fn1 = function (val) {
+    console.log(`我是${val}`);
+};
+const fn2 = function (val) {
+    console.log(`它是${val}`);
+};
+Ob.subscribe(fn1);
+Ob.subscribe(fn2);
+Ob.update('nodejs');
+Ob.unsubscribe(fn2);
+Ob.update('JavaScript');
+```
+
+### 发布订阅模式
+
+```js
+function PubSub() {
+    this.eventPool = [];
+};
+PubSub.prototype.publish = function(topicName, ...arg) {
+    this.eventPool[topicName] && this.eventPool[topicName].forEach(callback => {
+        callback(arg);
+    });
+};
+PubSub.prototype.subscribe = function(topicName, callback) {
+    let topic = this.eventPool[topicName];
+    if(!topic)
+        this.eventPool[topicName] = [];
+    this.eventPool[topicName].push(callback);
+};
+let pub = new PubSub();
+pub.subscribe('node', function (data) {
+    console.log(`收到:${data}`);
+});
+pub.publish('node', 'nodejs');
 ```
