@@ -4,14 +4,34 @@
 
     
   <url>
-    <loc>http://qinyongli.cn/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2017-11-01T10:43:12.000Z</lastmod>
+    <loc>http://qinyongli.cn/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2017-11-02T07:49:27.000Z</lastmod>
     <data>
         <display>
-        <title>TCP、UDP、Socket总结</title>
-        <pubTime>2017-10-28T14:56:46.000Z</pubTime>
+        <title>JavaScript常用设计模式</title>
+        <pubTime>2017-10-28T05:24:23.000Z</pubTime>
         
-        <tag>Internet</tag>
+        <tag>设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://qinyongli.cn/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qinyongli.cn/2017/10/30/%E6%B5%85%E8%B0%88HTTP/</loc>
+    <lastmod>2017-11-01T10:44:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈HTTP</title>
+        <pubTime>2017-10-30T15:24:46.000Z</pubTime>
+        
+        <tag>HTTP</tag>
          
          
            
@@ -24,14 +44,14 @@
 
     
   <url>
-    <loc>http://qinyongli.cn/2017/10/30/%E6%B5%85%E8%B0%88HTTP/</loc>
-    <lastmod>2017-11-01T07:41:35.000Z</lastmod>
+    <loc>http://qinyongli.cn/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2017-11-01T10:44:20.000Z</lastmod>
     <data>
         <display>
-        <title>浅谈HTTP</title>
-        <pubTime>2017-10-30T15:24:46.000Z</pubTime>
+        <title>TCP、UDP、Socket总结</title>
+        <pubTime>2017-10-28T14:56:46.000Z</pubTime>
         
-        <tag>HTTP</tag>
+        <tag>Internet</tag>
          
          
            
@@ -92,26 +112,6 @@
         <pubTime>2017-10-25T12:12:02.000Z</pubTime>
         
         <tag>FP</tag>
-         
-         
-           
-             
-              <breadCrumb title="JavaScript" url="http://qinyongli.cn/categories/JavaScript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qinyongli.cn/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2017-10-28T07:11:01.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript常用设计模式</title>
-        <pubTime>2017-10-28T05:24:23.000Z</pubTime>
-        
-        <tag>设计模式</tag>
          
          
            

@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://qinyongli.cn/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/</loc>
+    <loc>http://qinyongli.cn/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     
-    <lastmod>2017-11-01T10:43:12.000Z</lastmod>
+    <lastmod>2017-11-02T07:49:27.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://qinyongli.cn/2017/10/30/%E6%B5%85%E8%B0%88HTTP/</loc>
     
-    <lastmod>2017-11-01T07:41:35.000Z</lastmod>
+    <lastmod>2017-11-01T10:44:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://qinyongli.cn/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2017-11-01T10:44:20.000Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://qinyongli.cn/2017/10/25/%E6%B5%85%E8%B0%88curry%E5%8C%96/</loc>
     
     <lastmod>2017-10-28T07:17:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://qinyongli.cn/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2017-10-28T07:11:01.000Z</lastmod>
     
   </url>
   
