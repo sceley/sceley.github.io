@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://qinyongli.cn/img/httpmessage.jpg">
 <meta property="og:image" content="http://qinyongli.cn/img/http.png">
 <meta property="og:image" content="http://qinyongli.cn/img/theprocessofhttp.png">
-<meta property="og:updated_time" content="2017-11-01T10:44:49.000Z">
+<meta property="og:updated_time" content="2017-11-03T13:35:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈HTTP">
 <meta name="twitter:description" content="序言作为一个WEB开发者，了解一些常用的协议是必须的，本编将总结自己在协议方面的学习。">
@@ -366,8 +366,8 @@
 <h4 id="服务器响应消息"><a href="#服务器响应消息" class="headerlink" title="服务器响应消息"></a>服务器响应消息</h4><p>HTTP响应也由四个部分组成，分别是：状态行、消息报头、空行和响应正文。</p>
 <p><img src="/img/httpmessage.jpg" alt=""></p>
 <h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>客户端请求：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; GET / HTTP/<span class="number">1.1</span></div><div class="line">&gt; Host: localhost:<span class="number">3000</span></div><div class="line">&gt; User-Agent: curl/<span class="number">7.47</span><span class="number">.0</span></div><div class="line">&gt; Accept: *<span class="comment">/*</span></div><div class="line"><span class="comment">&gt;</span></div></pre></td></tr></table></figure>
-<p>服务端响应:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt; HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</div><div class="line">&lt; Content-Type: text/plain</div><div class="line">&lt; <span class="built_in">Date</span>: Tue, <span class="number">31</span> Oct <span class="number">2017</span> <span class="number">14</span>:<span class="number">11</span>:<span class="number">22</span> GMT</div><div class="line">&lt; Connection: keep-alive</div><div class="line">&lt; Transfer-Encoding: chunked</div><div class="line">&lt; </div><div class="line">Hello World</div></pre></td></tr></table></figure></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; GET / HTTP/1.1</div><div class="line">&gt; Host: localhost:3000</div><div class="line">&gt; User-Agent: curl/7.47.0</div><div class="line">&gt; Accept: */*</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>服务端响应:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt; HTTP/1.1 200 OK</div><div class="line">&lt; Content-Type: text/plain</div><div class="line">&lt; Date: Tue, 31 Oct 2017 14:11:22 GMT</div><div class="line">&lt; Connection: keep-alive</div><div class="line">&lt; Transfer-Encoding: chunked</div><div class="line">&lt; </div><div class="line">Hello World</div></pre></td></tr></table></figure></p>
 <h3 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h3><ul>
 <li>GET: 最常用的方法，通常用于请求服务器发送某个资源。</li>
 <li>POST: 起初是用来向服务器输入数据，实际上通常用来把表单数据传输到服务器。</li>
@@ -402,9 +402,9 @@
 <h4 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h4><p>HTTP响应封装了对底层连接的写操作，可以将其看成一个可写的流对象。它影响响应报文头部信息的API为res.setHeader()和res.writeHead()。在上述报文示例中:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</div></pre></td></tr></table></figure>
 <p>其分为setHeader()和writeHead()两个步骤。它在http模块的封装下，实际生成如下的报文: </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt; HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</div><div class="line">&lt; Content-Type: text/plain</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt; HTTP/1.1 200 OK</div><div class="line">&lt; Content-Type: text/plain</div></pre></td></tr></table></figure>
 <p>我们可以调用setHeader进行多次设置，但只有调用writeHead后，报头才会写入到连接中。除此之外，http模块会自动帮你设置一些头信息，如下所示:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt; <span class="built_in">Date</span>: Tue, <span class="number">31</span> Oct <span class="number">2017</span> <span class="number">14</span>:<span class="number">11</span>:<span class="number">22</span> GMT</div><div class="line">&lt; Connection: keep-alive</div><div class="line">&lt; Transfer-Encoding: chunked</div><div class="line">&lt;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt; Date: Tue, 31 Oct 2017 14:11:22 GMT</div><div class="line">&lt; Connection: keep-alive</div><div class="line">&lt; Transfer-Encoding: chunked</div><div class="line">&lt;</div></pre></td></tr></table></figure>
 <p>响应结束后，HTTP服务器将可能会将当前连接用于下一个请求，或者关闭连接。值得注意的是，报头是在报文体发送前发送的，一旦开始了数据的发送，writeHead()和setHeader()将不会再生效。这有协议的特性决定的。</p>
 <h3 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器"></a>HTTP服务器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">const</span> server =  http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</div><div class="line">    res.end(<span class="string">'Hello World\n'</span>);</div><div class="line">&#125;);</div><div class="line">server.listen(<span class="number">8080</span>, <span class="string">'127.0.0.1'</span>, () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'server runing at http://localhost:127.0.0.1:1337/'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>NODE获取客户端IP:</p>
@@ -463,7 +463,7 @@
         <p><span>本文标题:</span><a  href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月30日 - 23时24分</p>
-        <p><span>最后更新:</span>2017年11月01日 - 18时44分</p>
+        <p><span>最后更新:</span>2017年11月03日 - 21时35分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/30/浅谈HTTP/" title="浅谈HTTP">http://qinyongli.cn/2017/10/30/浅谈HTTP/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/30/浅谈HTTP/　　作者: 覃永利" title=""></span>
