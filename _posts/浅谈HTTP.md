@@ -72,7 +72,7 @@ HTTP响应也由四个部分组成，分别是：状态行、消息报头、空�
 
 客户端请求：
 
-```js
+```HTTP
 > GET / HTTP/1.1
 > Host: localhost:3000
 > User-Agent: curl/7.47.0
@@ -81,7 +81,7 @@ HTTP响应也由四个部分组成，分别是：状态行、消息报头、空�
 ```
 
 服务端响应:
-```js
+```HTTP
 < HTTP/1.1 200 OK
 < Content-Type: text/plain
 < Date: Tue, 31 Oct 2017 14:11:22 GMT
@@ -160,14 +160,14 @@ res.writeHead(200, {'Content-Type': 'text/plain'});
 
 其分为setHeader()和writeHead()两个步骤。它在http模块的封装下，实际生成如下的报文: 
 
-```js
+```HTTP
 < HTTP/1.1 200 OK
 < Content-Type: text/plain
 ```
 
 我们可以调用setHeader进行多次设置，但只有调用writeHead后，报头才会写入到连接中。除此之外，http模块会自动帮你设置一些头信息，如下所示:
 
-```js
+```HTTP
 < Date: Tue, 31 Oct 2017 14:11:22 GMT
 < Connection: keep-alive
 < Transfer-Encoding: chunked
