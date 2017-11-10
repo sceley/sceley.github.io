@@ -22,6 +22,7 @@
 <meta property="og:image" content="http://qinyongli.cn/img/ssltls.png">
 <meta property="og:image" content="http://qinyongli.cn/img/attack.png">
 <meta property="og:image" content="http://qinyongli.cn/img/checkca.png">
+<meta property="og:image" content="http://qinyongli.cn/img/TLSdetail.jpg">
 <meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092003.png">
 <meta property="og:image" content="http://qinyongli.cn/img/SSLdetail.png">
 <meta property="og:image" content="http://qinyongli.cn/img/ServerHello.png">
@@ -30,7 +31,7 @@
 <meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092007.png">
 <meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092009.png">
 <meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092011.png">
-<meta property="og:updated_time" content="2017-11-10T16:24:27.000Z">
+<meta property="og:updated_time" content="2017-11-10T16:31:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈SSL&#x2F;TLS">
 <meta name="twitter:description" content="序言在网络中，数据在服务器端和客户端之间传递，由于是明文传递的内容，一旦网络被人监控，数据就可能一览无余地展现在中间的窃听者面前。为此我们需要将数据加密后再进行网络传输，这样即使数据被截获和窃听，窃听者也无法知道数据的真实内容是什么。但是对于我们的应用层协议而言，如HTTP、FTP等，我们仍然希望能够透明地处理地处理数据，而无须操心网络传输过程中的安全问题。SSL作为一种安全协议，它在传输层提供对">
@@ -352,6 +353,8 @@
 <li>具有校验机制，一旦被篡改，通信双方会立刻发现。</li>
 <li>配备身份证书，防止身份被冒充。</li>
 </ul>
+<h3 id="TLS-SSL协议的组成"><a href="#TLS-SSL协议的组成" class="headerlink" title="TLS/SSL协议的组成"></a>TLS/SSL协议的组成</h3><p><img src="/img/TLSdetail.jpg" alt=""></p>
+<p>TLS/SSL协议又可以分为两层，上层分为三个子协议: HandShake，ChangeCiperSpec，Alert，下层为Recode。</p>
 <h3 id="SSL基本的运行机制"><a href="#SSL基本的运行机制" class="headerlink" title="SSL基本的运行机制"></a>SSL基本的运行机制</h3><p>SSL/TLS协议的基本思路是采用公钥加密法，也就是说，客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密。</p>
 <h4 id="公钥加密计算量太大，如何减少耗用的时间？"><a href="#公钥加密计算量太大，如何减少耗用的时间？" class="headerlink" title="公钥加密计算量太大，如何减少耗用的时间？"></a>公钥加密计算量太大，如何减少耗用的时间？</h4><p>解决方法：每一次对话（session），客户端和服务器端都生成一个”对话密钥”（session key），用它来加密信息。由于”对话密钥”是对称加密，所以运算速度非常快，而服务器公钥只用于加密”对话密钥”本身，这样就减少了加密运算的消耗时间。</p>
 <blockquote>
@@ -412,7 +415,7 @@
         <p><span>本文标题:</span><a  href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年11月07日 - 19时36分</p>
-        <p><span>最后更新:</span>2017年11月11日 - 00时24分</p>
+        <p><span>最后更新:</span>2017年11月11日 - 00时31分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/11/07/浅谈SSLTLS/" title="浅谈SSL/TLS">http://qinyongli.cn/2017/11/07/浅谈SSLTLS/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/11/07/浅谈SSLTLS/　　作者: 覃永利" title=""></span>
@@ -440,7 +443,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TLS-SSL"><span class="toc-number">2.</span> <span class="toc-text">TLS/SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密匙"><span class="toc-number">2.1.</span> <span class="toc-text">密匙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字证书"><span class="toc-number">2.2.</span> <span class="toc-text">数字证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL作用"><span class="toc-number">2.3.</span> <span class="toc-text">SSL作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL基本的运行机制"><span class="toc-number">2.4.</span> <span class="toc-text">SSL基本的运行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#公钥加密计算量太大，如何减少耗用的时间？"><span class="toc-number">2.4.1.</span> <span class="toc-text">公钥加密计算量太大，如何减少耗用的时间？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-SSL协议的握手过程"><span class="toc-number">2.5.</span> <span class="toc-text">TLS/SSL协议的握手过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#私钥的作用"><span class="toc-number">2.6.</span> <span class="toc-text">私钥的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DH算法的握手阶段"><span class="toc-number">2.7.</span> <span class="toc-text">DH算法的握手阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session的恢复"><span class="toc-number">2.8.</span> <span class="toc-text">session的恢复</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TLS-SSL"><span class="toc-number">2.</span> <span class="toc-text">TLS/SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密匙"><span class="toc-number">2.1.</span> <span class="toc-text">密匙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字证书"><span class="toc-number">2.2.</span> <span class="toc-text">数字证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL作用"><span class="toc-number">2.3.</span> <span class="toc-text">SSL作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-SSL协议的组成"><span class="toc-number">2.4.</span> <span class="toc-text">TLS/SSL协议的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL基本的运行机制"><span class="toc-number">2.5.</span> <span class="toc-text">SSL基本的运行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#公钥加密计算量太大，如何减少耗用的时间？"><span class="toc-number">2.5.1.</span> <span class="toc-text">公钥加密计算量太大，如何减少耗用的时间？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-SSL协议的握手过程"><span class="toc-number">2.6.</span> <span class="toc-text">TLS/SSL协议的握手过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#私钥的作用"><span class="toc-number">2.7.</span> <span class="toc-text">私钥的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DH算法的握手阶段"><span class="toc-number">2.8.</span> <span class="toc-text">DH算法的握手阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session的恢复"><span class="toc-number">2.9.</span> <span class="toc-text">session的恢复</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
