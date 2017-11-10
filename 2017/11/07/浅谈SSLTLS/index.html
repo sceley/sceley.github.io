@@ -9,22 +9,32 @@
   
   
   
-  <title>数据结构之集合运算 | Hexo</title>
+  <title>浅谈SSL/TLS | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="序言数据结构在编程中占据重要地位，程序的好坏与你的数据结构算法有重大的关系。而本篇则是关于我在写了一篇数据结构作业后的总结。">
-<meta name="keywords" content="C++">
+  <meta name="description" content="序言在网络中，数据在服务器端和客户端之间传递，由于是明文传递的内容，一旦网络被人监控，数据就可能一览无余地展现在中间的窃听者面前。为此我们需要将数据加密后再进行网络传输，这样即使数据被截获和窃听，窃听者也无法知道数据的真实内容是什么。但是对于我们的应用层协议而言，如HTTP、FTP等，我们仍然希望能够透明地处理地处理数据，而无须操心网络传输过程中的安全问题。SSL作为一种安全协议，它在传输层提供对">
+<meta name="keywords" content="SSL&#x2F;TLS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构之集合运算">
-<meta property="og:url" content="http://qinyongli.cn/2017/11/07/数据结构之集合运算/index.html">
+<meta property="og:title" content="浅谈SSL&#x2F;TLS">
+<meta property="og:url" content="http://qinyongli.cn/2017/11/07/浅谈SSLTLS/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="序言数据结构在编程中占据重要地位，程序的好坏与你的数据结构算法有重大的关系。而本篇则是关于我在写了一篇数据结构作业后的总结。">
+<meta property="og:description" content="序言在网络中，数据在服务器端和客户端之间传递，由于是明文传递的内容，一旦网络被人监控，数据就可能一览无余地展现在中间的窃听者面前。为此我们需要将数据加密后再进行网络传输，这样即使数据被截获和窃听，窃听者也无法知道数据的真实内容是什么。但是对于我们的应用层协议而言，如HTTP、FTP等，我们仍然希望能够透明地处理地处理数据，而无须操心网络传输过程中的安全问题。SSL作为一种安全协议，它在传输层提供对">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://qinyongli.cn/img/reduceset.png">
-<meta property="og:updated_time" content="2017-11-07T09:30:05.000Z">
+<meta property="og:image" content="http://qinyongli.cn/img/ssltls.png">
+<meta property="og:image" content="http://qinyongli.cn/img/attack.png">
+<meta property="og:image" content="http://qinyongli.cn/img/checkca.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092003.png">
+<meta property="og:image" content="http://qinyongli.cn/img/SSLdetail.png">
+<meta property="og:image" content="http://qinyongli.cn/img/ServerHello.png">
+<meta property="og:image" content="http://qinyongli.cn/img/packets.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092005.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092007.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092009.png">
+<meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092011.png">
+<meta property="og:updated_time" content="2017-11-10T16:24:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构之集合运算">
-<meta name="twitter:description" content="序言数据结构在编程中占据重要地位，程序的好坏与你的数据结构算法有重大的关系。而本篇则是关于我在写了一篇数据结构作业后的总结。">
-<meta name="twitter:image" content="http://qinyongli.cn/img/reduceset.png">
+<meta name="twitter:title" content="浅谈SSL&#x2F;TLS">
+<meta name="twitter:description" content="序言在网络中，数据在服务器端和客户端之间传递，由于是明文传递的内容，一旦网络被人监控，数据就可能一览无余地展现在中间的窃听者面前。为此我们需要将数据加密后再进行网络传输，这样即使数据被截获和窃听，窃听者也无法知道数据的真实内容是什么。但是对于我们的应用层协议而言，如HTTP、FTP等，我们仍然希望能够透明地处理地处理数据，而无须操心网络传输过程中的安全问题。SSL作为一种安全协议，它在传输层提供对">
+<meta name="twitter:image" content="http://qinyongli.cn/img/ssltls.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -285,11 +295,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-数据结构之集合运算" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-浅谈SSLTLS" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/11/07/数据结构之集合运算/" class="article-date">
-      <time datetime="2017-11-07T05:51:50.000Z" itemprop="datePublished">2017-11-07</time>
+      <a  href="/2017/11/07/浅谈SSLTLS/" class="article-date">
+      <time datetime="2017-11-07T11:36:45.000Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
     </div>
@@ -303,7 +313,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      数据结构之集合运算
+      浅谈SSL/TLS
     </h1>
   
 
@@ -312,14 +322,10 @@
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/dataStructure/">dataStructure</a>
-    </div>
-
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSL-TLS/">SSL/TLS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -329,36 +335,73 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>数据结构在编程中占据重要地位，程序的好坏与你的数据结构算法有重大的关系。而本篇则是关于我在写了一篇数据结构作业后的总结。</p>
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在网络中，数据在服务器端和客户端之间传递，由于是明文传递的内容，一旦网络被人监控，数据就可能一览无余地展现在中间的窃听者面前。为此我们需要将数据加密后再进行网络传输，这样即使数据被截获和窃听，窃听者也无法知道数据的真实内容是什么。但是对于我们的应用层协议而言，如HTTP、FTP等，我们仍然希望能够透明地处理地处理数据，而无须操心网络传输过程中的安全问题。SSL作为一种安全协议，它在传输层提供对网络连接加密的功能。对于应用层而言，它是透明的，数据在传递到应用层之前就已经完成了加密和解密的过程。最初的SSL应用层在Web上，被服务器端和浏览器端同时支持，随后IETF将其标准化，称TLS(Transport Layer Security，安全传输层协议)。</p>
 <a id="more"></a>
-<h2 id="包含的运算"><a href="#包含的运算" class="headerlink" title="包含的运算"></a>包含的运算</h2><ul>
-<li>交集(∩)</li>
-<li>并集(∪)</li>
-<li>减集(-)</li>
+<h2 id="TLS-SSL"><a href="#TLS-SSL" class="headerlink" title="TLS/SSL"></a>TLS/SSL</h2><h3 id="密匙"><a href="#密匙" class="headerlink" title="密匙"></a>密匙</h3><p>TLS/SSL是一个公钥/私钥的结构，它是一个非对称的结构，每个服务器端和客户端都有自己的公私钥。公钥用来加密要传输的数据，私钥用来解密接收到的数据。公钥和私钥是配对的，通过公钥加密的数据，只有通过私钥才能解密，所以在建立安全传输之前，客户端和服务器端之间需要互换公钥。客户端发送数据时要通过服务器端的公钥进行加密，服务器端发送数据时则需要客户端的公钥进行加密，如此才能完成加密解密的过程，如下图:</p>
+<p><img src="/img/ssltls.png" alt=""></p>
+<p>公私钥的非对称加密虽然好，但是网络中依然可能存在窃听的情况，典型的例子是中间人攻击。客户端和服务器端在交换公钥的过程中，中间人对客户端扮演服务器端的角色，对服务器端扮演客户端的角色，因此客户端和服务器端几乎感受不到中间人的存在。为了解决这种问题，数据传输过程中还需要对得到的公钥进行认证，以确认得到的公钥是出自目标服务器。如果不能保证这种认证，中间人可能会将伪造的站点响应给用户，从而造成经济损失。中间人攻击示意图:</p>
+<p><img src="/img/attack.png" alt=""></p>
+<p>为了解决这个问题，TLS/SSL引入了数字证书来进行认证。与直接用公钥不同，数据证书包含了服务器的名称和主机名、服务器的公钥、签名颁发机构的名称、来自签名颁发机构的签名。在连接建立前，会通过证书中的签名确认收到的公钥是来自目标服务器的，从而产生信任关系。</p>
+<h3 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h3><p>为了确保我们的数据安全，现在我们引入了一个第三方: CA(Certificate Authority, 数字证书认证中心)。CA的作用是为站点颁布证书，且这个证书中具有CA通过自己的公钥和私钥实现的签名。</p>
+<p>为了得到签名证书，服务器端需要通过自己的私钥生成CSR(Certificate Signing Request，证书签名请求)文件。CA机构将通过这个文件颁发属于该服务器端的签名证书，只要通过CA机构就能验证证书是否合法。</p>
+<p>通过CA机构颁发证书通常是一个繁琐的过程，需要付出一定的费力和精力。</p>
+<p><img src="/img/checkca.png" alt=""></p>
+<p>CA机构将证书颁发给服务器端后，证书在请求的过程中会被发送给客户端，客户端需要通过CA的证书验证真伪。如果是知名的CA机构，它们的证书一般预装在浏览器中。</p>
+<h3 id="SSL作用"><a href="#SSL作用" class="headerlink" title="SSL作用"></a>SSL作用</h3><ul>
+<li>所有信息都是加密传播，第三方无法窃听。</li>
+<li>具有校验机制，一旦被篡改，通信双方会立刻发现。</li>
+<li>配备身份证书，防止身份被冒充。</li>
 </ul>
-<h2 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h2><p>线性表节点</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span> &#123;</span></div><div class="line">    <span class="keyword">char</span> data;<span class="comment">//数据存储</span></div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span> *<span class="title">next</span>;</span><span class="comment">//指向节点的指针</span></div><div class="line">&#125; LinkNode, *LinkNodePtr;</div></pre></td></tr></table></figure>
-<p>线性表</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkList</span> &#123;</span></div><div class="line">    LinkNodePtr head;<span class="comment">//指向头部的指针</span></div><div class="line">    LinkNodePtr tail;<span class="comment">//指向尾部的指针</span></div><div class="line">    <span class="keyword">int</span> len;<span class="comment">//线性表长度</span></div><div class="line">&#125; LinkList;</div></pre></td></tr></table></figure>
-<p>初始化线性表</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitList</span><span class="params">(LinkList &amp;L)</span> </span>&#123;</div><div class="line">    L.len = <span class="number">0</span>;<span class="comment">//长度置零</span></div><div class="line">    L.head = L.tail = (LinkNodePtr)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkNode));<span class="comment">//一个头结点</span></div><div class="line">    L.head-&gt;next = <span class="literal">NULL</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>输入一个集合</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateList</span><span class="params">(LinkList &amp;L, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">char</span> e;</div><div class="line">    <span class="keyword">int</span> locate;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">        <span class="built_in">cin</span>&gt;&gt;e;<span class="comment">//输入字符</span></div><div class="line">        <span class="keyword">if</span>(e &gt;= <span class="string">'a'</span> &amp;&amp; e &lt;= <span class="string">'z'</span>) &#123;<span class="comment">//e的大小在a-z</span></div><div class="line">            locate = FindLocate(L, e);<span class="comment">//有序链表，所以找出适合它大小的位置</span></div><div class="line">            ListInsert(L, locate, e);<span class="comment">//插入到线性表中特定位置</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>把元素插入表中，如果存在重复则不差入</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListInsert</span><span class="params">(LinkList &amp;L, <span class="keyword">int</span> locate, <span class="keyword">char</span> e)</span> </span>&#123;</div><div class="line">    LinkNodePtr q;<span class="comment">//指针</span></div><div class="line">    q = L.head-&gt;next;<span class="comment">//指向第一个节点</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; locate - <span class="number">1</span>; i++) &#123;<span class="comment">//直到指向locate - 1节点</span></div><div class="line">       q = q-&gt;next;<span class="comment">//指针往后指</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(q-&gt;next != <span class="literal">NULL</span> &amp;&amp; e == q-&gt;next-&gt;data) &#123;<span class="comment">//如果第locate位置的值等于e，则直接return</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        LinkNodePtr p;<span class="comment">//指针</span></div><div class="line">        p = (LinkNodePtr)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkNode));<span class="comment">//申请一个节点</span></div><div class="line">        p-&gt;data = e;</div><div class="line">        p-&gt;next = q-&gt;next;</div><div class="line">        q-&gt;next = p;<span class="comment">//在locate位置插入p</span></div><div class="line">        L.len++;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;    </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>打印出一个集合</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">ListTraverse</span><span class="params">(LinkList &amp;L)</span> </span>&#123;</div><div class="line">    LinkNodePtr p;<span class="comment">//一个节点指针</span></div><div class="line">    p = L.head-&gt;next;<span class="comment">//指向第一个节点</span></div><div class="line">    <span class="keyword">for</span>(; p != <span class="literal">NULL</span>;) &#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;p-&gt;data;<span class="comment">//打印数据</span></div><div class="line">        p = p-&gt;next;<span class="comment">//指针往后指</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>获取特定位置的元素</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetElem</span><span class="params">(LinkList &amp;L, <span class="keyword">int</span> i, <span class="keyword">char</span> &amp;e)</span> </span>&#123;</div><div class="line">    LinkNodePtr p;<span class="comment">//一个节点指针</span></div><div class="line">    p = L.head-&gt;next;<span class="comment">//指向第一个节点</span></div><div class="line">    <span class="keyword">int</span> j = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(; j &lt; i; j++) &#123;<span class="comment">//获取第i个节点的值</span></div><div class="line">        p = p-&gt;next;<span class="comment">//指针往后指</span></div><div class="line">    &#125;</div><div class="line">    e = p-&gt;data;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>把元素推入L中</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListAppend</span><span class="params">(LinkList &amp;L, <span class="keyword">char</span> e)</span> </span>&#123;</div><div class="line">    LinkNodePtr p;</div><div class="line">    p = (LinkNodePtr)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LinkNode));</div><div class="line">    p-&gt;data = e;</div><div class="line">    L.tail-&gt;next = p;<span class="comment">//往链表尾部加元素</span></div><div class="line">    L.tail = p;<span class="comment">//把尾指针指向最后一个元素</span></div><div class="line">    L.tail-&gt;next = <span class="literal">NULL</span>;</div><div class="line">    L.len++;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>求减集</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Reduce</span><span class="params">(LinkList &amp;La, LinkList &amp;Lb, LinkList &amp;Lc)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> aLen = La.len;</div><div class="line">    <span class="keyword">int</span> bLen = Lb.len;</div><div class="line">    <span class="keyword">bool</span> equal;</div><div class="line">    <span class="keyword">char</span> ae;</div><div class="line">    <span class="keyword">char</span> be;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= aLen; i++) &#123;</div><div class="line">        GetElem(La, i, ae);<span class="comment">//获取La的元素</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= bLen; j++) &#123;</div><div class="line">            GetElem(Lb, j, be);<span class="comment">//获取Lb的元素</span></div><div class="line">            equal = Equal(ae, be);</div><div class="line">            <span class="keyword">if</span>(equal)</div><div class="line">                <span class="keyword">break</span>;<span class="comment">//一遇到一样的马上退出</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(!equal) &#123;</div><div class="line">            ListAppend(Lc, ae);<span class="comment">//La中与Lb中不一样的进入Lc</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p><img src="/img/reduceset.png" alt=""></p>
-<p>求并集函数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sum</span><span class="params">(LinkList &amp;La, LinkList &amp;Lb, LinkList &amp;Lc)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> aLen = La.len;</div><div class="line">    <span class="keyword">int</span> bLen = Lb.len;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= aLen; i++) &#123;</div><div class="line">        <span class="keyword">char</span> e;</div><div class="line">        GetElem(La, i, e);</div><div class="line">        ListAppend(Lc, e);<span class="comment">//先把La中的元素都放进Lc</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= bLen; i++) &#123;</div><div class="line">        <span class="keyword">int</span> locate;</div><div class="line">        <span class="keyword">char</span> e;</div><div class="line">        GetElem(Lb, i, e);</div><div class="line">        locate = FindLocate(Lc, e);</div><div class="line">        ListInsert(Lc, locate, e);<span class="comment">//然后把Lb中的元素插进，在ListInsert函数内部中判断重复</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>求交集函数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Intersection</span><span class="params">(LinkList &amp;La, LinkList &amp;Lb, LinkList &amp;Lc)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> aLen = La.len;</div><div class="line">    <span class="keyword">int</span> bLen = Lb.len;</div><div class="line">    <span class="keyword">bool</span> equal;</div><div class="line">    <span class="keyword">char</span> ae;</div><div class="line">    <span class="keyword">char</span> be;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= aLen; i++) &#123;</div><div class="line">        GetElem(La, i, ae);<span class="comment">//取La的元素</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= bLen; j++) &#123;</div><div class="line">            GetElem(Lb, j, be);<span class="comment">//取Lb的元素</span></div><div class="line">            equal = Equal(ae, be);<span class="comment">//判断他们是否相等</span></div><div class="line">            <span class="keyword">if</span>(equal) &#123;<span class="comment">//相等则压入线性表Lc中</span></div><div class="line">                ListAppend(Lc, ae);</div><div class="line">                <span class="keyword">break</span>;                </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="SSL基本的运行机制"><a href="#SSL基本的运行机制" class="headerlink" title="SSL基本的运行机制"></a>SSL基本的运行机制</h3><p>SSL/TLS协议的基本思路是采用公钥加密法，也就是说，客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密。</p>
+<h4 id="公钥加密计算量太大，如何减少耗用的时间？"><a href="#公钥加密计算量太大，如何减少耗用的时间？" class="headerlink" title="公钥加密计算量太大，如何减少耗用的时间？"></a>公钥加密计算量太大，如何减少耗用的时间？</h4><p>解决方法：每一次对话（session），客户端和服务器端都生成一个”对话密钥”（session key），用它来加密信息。由于”对话密钥”是对称加密，所以运算速度非常快，而服务器公钥只用于加密”对话密钥”本身，这样就减少了加密运算的消耗时间。</p>
+<blockquote>
+<p>对称加密: 同一个密钥可以同时用作信息的加密和解密。<br>非对称加密: 需要两个密钥：公开密钥（publickey）和私有密钥（privatekey），如果用公开密钥对数据进行加密，只有用对应的私有密钥才能解密。</p>
+</blockquote>
+<p>SSL/TLS协议的基本过程是这样的：</p>
+<ul>
+<li>客户端向服务器端索要并验证公钥。</li>
+<li>双方协商生成”对话密钥”。</li>
+<li>双方采用”对话密钥”进行加密通信。</li>
+</ul>
+<p>上面过程的前两步，又称为”握手阶段”（handshake）。</p>
+<h3 id="TLS-SSL协议的握手过程"><a href="#TLS-SSL协议的握手过程" class="headerlink" title="TLS/SSL协议的握手过程"></a>TLS/SSL协议的握手过程</h3><p>HTTPS通信建立的过程其实是这样子的: 首先完成TCP三次握手，再进行TLS/SSL握手，以上两类握手完成后就建立了一个安全的通道，最后才进行HTTP通讯。</p>
+<p>五步握手: </p>
+<ol>
+<li>TLS/SSL客户端会发送一个成为“Client Hello”的消息包，里面包含了一串随机字符串（Client random）、SSL/TLS的版本和客户端支持的已经按优先次序排列的密码族。</li>
+<li>TLS/SSL服务器这边也会响应一个“Server Hello”的消息包，里面包含了一串随机字符串（Server random）、服务器选择的加密方式、服务器的数字证书、以及session ID。</li>
+<li>TLS/SSL客户端先是核实了服务器的数字证书后，使用服务器提供的公钥加密一串预主密钥(premaster secret)发送给服务器。</li>
+<li>TLS/SSL服务器使用自己的密钥解密获取预主密钥(premaster key)。</li>
+<li>最后双方根据前面的协商好的加密方式，结合两串随机字符串(Client random, Server random)和预主密钥(premaster key)生成后续应用层通信使用的会话秘钥，至此完成了安全通道的建立，后续的消息通讯可以使用这个会话秘钥加密进行。<br><img src="http://image.beekka.com/blog/2014/bg2014092003.png" alt=""></li>
+</ol>
+<p>抓包看看，如下图:</p>
+<p>Client Hello包:</p>
+<p><img src="/img/SSLdetail.png" alt=""></p>
+<p>Server Hello包:</p>
+<p><img src="/img/ServerHello.png" alt=""></p>
+<p>抓到的TLS包:</p>
+<p><img src="/img/packets.png" alt=""></p>
+<h3 id="私钥的作用"><a href="#私钥的作用" class="headerlink" title="私钥的作用"></a>私钥的作用</h3><ul>
+<li>生成对话密钥一共需要三个随机数。</li>
+<li>握手之后的对话使用”对话密钥”加密（对称加密），服务器的公钥和私钥只用于加密和解密”对话密钥”（非对称加密），无其他作用。</li>
+<li>服务器公钥放在服务器的数字证书之中。</li>
+</ul>
+<p>从上面第二点可知，整个对话过程中（握手阶段和其后的对话），服务器的公钥和私钥只需要用到一次。这就是CloudFlare能够提供Keyless服务的根本原因。</p>
+<p>某些客户（比如银行）想要使用外部CDN，加快自家网站的访问速度，但是出于安全考虑，不能把私钥交给CDN服务商。这时，完全可以把私钥留在自家服务器，只用来解密对话密钥，其他步骤都让CDN服务商去完成。</p>
+<p><img src="http://image.beekka.com/blog/2014/bg2014092005.png" alt=""></p>
+<p>上图中，银行的服务器只参与第四步，后面的对话都不再会用到私钥了。</p>
+<h3 id="DH算法的握手阶段"><a href="#DH算法的握手阶段" class="headerlink" title="DH算法的握手阶段"></a>DH算法的握手阶段</h3><p>整个握手阶段都不加密（也没法加密），都是明文的。因此，如果有人窃听通信，他可以知道双方选择的加密方法，以及三个随机数中的两个。整个通话的安全，只取决于第三个随机数（Premaster secret）能不能被破解。</p>
+<p>虽然理论上，只要服务器的公钥足够长（比如2048位），那么Premaster secret可以保证不被破解。但是为了足够安全，我们可以考虑把握手阶段的算法从默认的RSA算法，改为 Diffie-Hellman算法（简称DH算法）。</p>
+<p>采用DH算法后，Premaster secret不需要传递，双方只要交换各自的参数，就可以算出这个随机数。</p>
+<p><img src="http://image.beekka.com/blog/2014/bg2014092007.png" alt=""></p>
+<p>上图中，第三步和第四步由传递Premaster secret变成了传递DH算法所需的参数，然后双方各自算出Premaster secret。这样就提高了安全性。</p>
+<h3 id="session的恢复"><a href="#session的恢复" class="headerlink" title="session的恢复"></a>session的恢复</h3><p>握手阶段用来建立SSL连接。如果出于某种原因，对话中断，就需要重新握手。</p>
+<p>这时有两种方法可以恢复原来的session：一种叫做session ID，另一种叫做session ticket。</p>
+<p>session ID的思想很简单，就是每一次对话都有一个编号（session ID）。如果对话中断，下次重连的时候，只要客户端给出这个编号，且服务器有这个编号的记录，双方就可以重新使用已有的”对话密钥”，而不必重新生成一把。</p>
+<p><img src="http://image.beekka.com/blog/2014/bg2014092009.png" alt=""></p>
+<p>session ID是目前所有浏览器都支持的方法，但是它的缺点在于session ID往往只保留在一台服务器上。所以，如果客户端的请求发到另一台服务器，就无法恢复对话。session ticket就是为了解决这个问题而诞生的，目前只有Firefox和Chrome浏览器支持。</p>
+<p><img src="http://image.beekka.com/blog/2014/bg2014092011.png" alt=""></p>
+<p>上图中，客户端不再发送session ID，而是发送一个服务器在上一次对话中发送过来的session ticket。这个session ticket是加密的，只有服务器才能解密，其中包括本次对话的主要信息，比如对话密钥和加密方法。当服务器收到session ticket以后，解密后就不必重新生成对话密钥了。</p>
+
       
     </div>
     
@@ -366,13 +409,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/11/07/数据结构之集合运算/">数据结构之集合运算</a></p>
+        <p><span>本文标题:</span><a  href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
-        <p><span>发布时间:</span>2017年11月07日 - 13时51分</p>
-        <p><span>最后更新:</span>2017年11月07日 - 17时30分</p>
+        <p><span>发布时间:</span>2017年11月07日 - 19时36分</p>
+        <p><span>最后更新:</span>2017年11月11日 - 00时24分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/11/07/数据结构之集合运算/" title="数据结构之集合运算">http://qinyongli.cn/2017/11/07/数据结构之集合运算/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/11/07/数据结构之集合运算/　　作者: 覃永利" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/07/浅谈SSLTLS/" title="浅谈SSL/TLS">http://qinyongli.cn/2017/11/07/浅谈SSLTLS/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/11/07/浅谈SSLTLS/　　作者: 覃永利" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -383,18 +426,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/11/07/浅谈SSLTLS/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          浅谈SSL/TLS
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/11/03/浅谈Cookie、Session、JWTS/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈Cookie、Session、JWTS</div>
+    <a  href="/2017/11/07/数据结构之集合运算/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构之集合运算</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -406,7 +440,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包含的运算"><span class="toc-number">2.</span> <span class="toc-text">包含的运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码部分"><span class="toc-number">3.</span> <span class="toc-text">代码部分</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TLS-SSL"><span class="toc-number">2.</span> <span class="toc-text">TLS/SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密匙"><span class="toc-number">2.1.</span> <span class="toc-text">密匙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字证书"><span class="toc-number">2.2.</span> <span class="toc-text">数字证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL作用"><span class="toc-number">2.3.</span> <span class="toc-text">SSL作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL基本的运行机制"><span class="toc-number">2.4.</span> <span class="toc-text">SSL基本的运行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#公钥加密计算量太大，如何减少耗用的时间？"><span class="toc-number">2.4.1.</span> <span class="toc-text">公钥加密计算量太大，如何减少耗用的时间？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-SSL协议的握手过程"><span class="toc-number">2.5.</span> <span class="toc-text">TLS/SSL协议的握手过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#私钥的作用"><span class="toc-number">2.6.</span> <span class="toc-text">私钥的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DH算法的握手阶段"><span class="toc-number">2.7.</span> <span class="toc-text">DH算法的握手阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session的恢复"><span class="toc-number">2.8.</span> <span class="toc-text">session的恢复</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -465,13 +499,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/11/07/浅谈SSLTLS/" title="上一篇: 浅谈SSL/TLS">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/11/03/浅谈Cookie、Session、JWTS/" title="下一篇: 浅谈Cookie、Session、JWTS">
+            <a  href="/2017/11/07/数据结构之集合运算/" title="下一篇: 数据结构之集合运算">
                 <i class="fa fa-angle-right"></i>
             </a>
         
