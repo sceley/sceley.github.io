@@ -4,6 +4,43 @@
 
     
   <url>
+    <loc>http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/</loc>
+    <lastmod>2017-11-12T06:00:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈Web缓存</title>
+        <pubTime>2017-10-19T00:48:57.000Z</pubTime>
+        
+        <tag>cache</tag>
+         
+         
+           
+             
+              <breadCrumb title="Performance" url="http://qinyongli.cn/categories/Performance/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://qinyongli.cn/2017/11/11/%E6%B5%85%E8%B0%88HTTPS%E3%80%81HTTP2/</loc>
+    <lastmod>2017-11-11T16:36:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈HTTPS、HTTP2</title>
+        <pubTime>2017-11-11T08:38:58.000Z</pubTime>
+        
+        <tag>HTTPx</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qinyongli.cn/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/</loc>
     <lastmod>2017-11-10T16:31:46.000Z</lastmod>
     <data>
@@ -132,26 +169,6 @@
            
              
               <breadCrumb title="NODEJS" url="http://qinyongli.cn/categories/NODEJS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/</loc>
-    <lastmod>2017-10-31T05:43:23.229Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈Web缓存</title>
-        <pubTime>2017-10-19T00:48:57.000Z</pubTime>
-        
-        <tag>cache</tag>
-         
-         
-           
-             
-              <breadCrumb title="Performance" url="http://qinyongli.cn/categories/Performance/"/>
           
         </display>
     </data>
