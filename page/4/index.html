@@ -9,20 +9,18 @@
   
   
   
-  <title>FP-Pointfree编程指南 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="序言">
-<meta name="keywords" content="FP">
-<meta property="og:type" content="article">
-<meta property="og:title" content="FP-Pointfree编程指南">
-<meta property="og:url" content="http://qinyongli.cn/2017/10/25/FP-Pointfree编程指南/index.html">
+  <meta name="description" content="I dream of flying into the sky">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://qinyongli.cn/page/4/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="序言">
+<meta property="og:description" content="I dream of flying into the sky">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-28T07:17:35.095Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FP-Pointfree编程指南">
-<meta name="twitter:description" content="序言">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="I dream of flying into the sky">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -36,6 +34,9 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
+    
+    
+  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -46,8 +47,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: false,
-          isPost: true,
+          isHome: true,
+          isPost: false,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -283,11 +284,13 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-FP-Pointfree编程指南" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-新的hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/10/25/FP-Pointfree编程指南/" class="article-date">
-      <time datetime="2017-10-25T05:55:32.000Z" itemprop="datePublished">2017-10-25</time>
+      <a  href="/2017/10/18/新的hexo/" class="article-date">
+      <time datetime="2017-10-18T13:40:52.000Z" itemprop="datePublished">2017-10-18</time>
 </a>
 
     </div>
@@ -300,188 +303,60 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      FP-Pointfree编程指南
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/10/18/新的hexo/">新的hexo</a>
     </h1>
   
 
 
       </header>
       
-      <div class="article-info article-info-post">
-        
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-    </div>
-
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FP/">FP</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><a id="more"></a>
-<h2 id="Pointfree"><a href="#Pointfree" class="headerlink" title="Pointfree"></a>Pointfree</h2><h3 id="Pointfree概念"><a href="#Pointfree概念" class="headerlink" title="Pointfree概念"></a>Pointfree概念</h3><p>pointfree 模式指的是，永远不必说出你的数据</p>
-<p>不使用所要处理的值，只合成运算过程。</p>
-<p>example</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> compose = <span class="function"><span class="keyword">function</span> (<span class="params">f, g</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> f(g(x));</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> addOne = <span class="function"><span class="params">x</span> =&gt;</span> x + <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> square = <span class="function"><span class="params">x</span> =&gt;</span> x * x;</div><div class="line"><span class="keyword">let</span> addOneSquare = compose(square, addOne);</div><div class="line">addOneSquare(<span class="number">2</span>);</div><div class="line"><span class="comment">//=&gt;9</span></div></pre></td></tr></table></figure>
-<p>上面一个栗子，把两个函数组合，然后求值。</p>
-<p>addOneThenSquare是一个合成函数。定义它的时候，根本不需要提到要处理的值，这就是 Pointfree。</p>
-<h3 id="Pointfree的本质"><a href="#Pointfree的本质" class="headerlink" title="Pointfree的本质"></a>Pointfree的本质</h3><p>Pointfree 的本质就是使用一些通用的函数，组合出各种复杂运算。上层运算不要直接操作数据，而是通过底层函数去处理。这就要求，将一些常用的操作封装成函数。</p>
-<p>example: 读取对象的role属性，不要直接写成obj.role, 而是要把这个操作封装成函数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> prop = <span class="function">(<span class="params">p, obj</span>) =&gt;</span> obj[p];</div><div class="line"><span class="keyword">let</span> propRole = curry(prop)(<span class="string">'role'</span>);</div></pre></td></tr></table></figure>
+        <h1 id="新的博客"><a href="#新的博客" class="headerlink" title="新的博客"></a>新的博客</h1><p>哎，前段时间为了装Ubuntu系统，在备份中不小心丢失了那些以前写的原生的博客资源。从本站开始，我要重新启航自己的博客生活，希望能和大家一起分享自己的技术心得，我们一起学习成长。一步一步提高自己的技能点，早日实现自己的技术之梦。</p>
+
       
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/life/">life</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
     </div>
     
   </div>
   
-    
-    <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></p>
-        <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
-        <p><span>发布时间:</span>2017年10月25日 - 13时55分</p>
-        <p><span>最后更新:</span>2017年10月28日 - 15时17分</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/25/FP-Pointfree编程指南/" title="FP-Pointfree编程指南">http://qinyongli.cn/2017/10/25/FP-Pointfree编程指南/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/25/FP-Pointfree编程指南/　　作者: 覃永利" title=""></span>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-<nav id="article-nav">
-  
-    <a  href="/2017/10/25/浅谈curry化/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          浅谈curry化
-        
-      </div>
-    </a>
-  
-  
-    <a  href="/2017/10/21/浅谈TCP-IP/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈TCP/IP</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-
-  
 </article>
 
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pointfree"><span class="toc-number">2.</span> <span class="toc-text">Pointfree</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pointfree概念"><span class="toc-number">2.1.</span> <span class="toc-text">Pointfree概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pointfree的本质"><span class="toc-number">2.2.</span> <span class="toc-text">Pointfree的本质</span></a></li></ol></li></ol>
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
-    }
-</script>
 
 
 
 
-<div class="bdsharebuttonbox">
-	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
-	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
 
-    
 
 
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a  href="/2017/10/25/浅谈curry化/" title="上一篇: 浅谈curry化">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-        
-            <a  href="/2017/10/21/浅谈TCP-IP/" title="下一篇: 浅谈TCP/IP">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/浅谈数据上传/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/浅谈HTTPS、HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/数据结构之集合运算/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Cookie、Session、JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript常用设计模式/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        // $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#toc, .switch-btn, .switch-area").toggle();
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-                $(".switch-btn, .switch-area").fadeToggle(300);
-            }
-        })
-    </script>
-
-
-
-
-    <script>
-        
-    </script>
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+  
 
 </div>
       <footer id="footer">
