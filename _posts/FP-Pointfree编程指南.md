@@ -1,8 +1,7 @@
 ---
 title: FP-Pointfree编程指南
 date: 2017-10-25 13:55:32
-tags: FP
-categories: JavaScript
+tags: JavaScript
 ---
 
 ## 序言

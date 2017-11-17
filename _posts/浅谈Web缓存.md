@@ -1,8 +1,7 @@
 ---
 title: 浅谈Web缓存
 date: 2017-10-19 08:48:57
-tags: cache
-categories: Performance
+tags: NODEJS
 ---
 
 ## 序言

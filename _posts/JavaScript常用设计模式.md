@@ -1,8 +1,7 @@
 ---
 title: JavaScript常用设计模式
 date: 2017-10-28 13:24:23
-tags: 设计模式
-categories: JavaScript
+tags: JavaScript
 ---
 
 ## 序言

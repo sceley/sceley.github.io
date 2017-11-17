@@ -1,8 +1,7 @@
 ---
 title: 浅谈TCP/IP
 date: 2017-10-21 22:46:48
-tags: TCP/IP
-categories: Internet
+tags: HTTP
 ---
 
 ## 序言

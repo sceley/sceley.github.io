@@ -1,8 +1,7 @@
 ---
 title: TCP、UDP、Socket总结
 date: 2017-10-28 22:56:46
-tags: Internet
-categories: NODEJS
+tags: HTTP
 ---
 
 ## 序言

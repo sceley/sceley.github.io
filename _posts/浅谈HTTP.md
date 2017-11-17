@@ -2,7 +2,6 @@
 title: 浅谈HTTP
 date: 2017-10-30 23:24:46
 tags: HTTP
-categories: NODEJS
 ---
 ## 序言
 

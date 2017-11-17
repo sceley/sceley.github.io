@@ -1,8 +1,7 @@
 ---
 title: 浅谈Cookie、Session、JWTS
 date: 2017-11-03 22:35:10
-tags: 
-categories: NODEJS
+tags: NODEJS
 ---
 
 ## 序言

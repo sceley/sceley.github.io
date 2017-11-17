@@ -1,8 +1,7 @@
 ---
 title: 浅谈Node-WebSocket
 date: 2017-11-03 11:12:45
-tags: WebSocket
-categories: NODEJS
+tags: NODEJS
 ---
 
 ## 序言

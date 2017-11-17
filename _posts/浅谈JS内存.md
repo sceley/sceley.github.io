@@ -1,8 +1,7 @@
 ---
 title: 浅谈JS内存
 date: 2017-10-26 19:48:34
-tags: Memory
-categories: JavaScript
+tags: JavaScript
 ---
 ## 序言
 

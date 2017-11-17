@@ -1,8 +1,7 @@
 ---
 title: 浅谈curry化
 date: 2017-10-25 20:12:02
-tags: FP
-categories: JavaScript
+tags: JavaScript
 ---
 
 ## 序言

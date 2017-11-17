@@ -1,8 +1,7 @@
 ---
 title: 浅谈MVX
 date: 2017-10-21 13:06:30
-tags: MVX
-categories: Architecture
+tags: Architecture
 
 ---
 

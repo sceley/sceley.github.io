@@ -2,8 +2,6 @@
 title: 新的hexo
 date: 2017-10-18 21:40:52
 tags: hexo
-categories: life
-
 ---
 
 # 新的博客
