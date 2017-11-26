@@ -82,3 +82,19 @@ process.send({
 
 #### 句柄传递
 
+细节请查看《Node.js深入浅出》
+
+以发送的TCP服务器句柄为例，子进程收到消息后的还原过程如下所示:
+
+```js
+function (message, handle, emit) {
+	let server = new net.Server();
+	server.listen(handle, function () {
+		emit(server);
+	});
+};
+```
+子进程根据message.type创建对应TCP服务器对象，然后监听到文件描述符上。
+
+> Node进程之间只有消息传递，不会真正地传递对象。
+> 多个应用监听相同的端口时，文件描述符同一时间只能被某个进程所用。换言之就是网络请求向服务器端发送时，只有一个幸运的进程能够抢到连接，也就是说只有它能为这个请求进行服务。这些进程服务是抢占式的。
