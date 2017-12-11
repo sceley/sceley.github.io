@@ -9,26 +9,20 @@
   
   
   
-  <title>浅谈MVX | Hexo</title>
+  <title>数据库的那些事 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
-<meta name="keywords" content="Architecture">
+  <meta name="description" content="###　管理数据库 添加用户MySql1create user `user`@`host` identified by `password`; MongoDB1db.createUser(&amp;#123;user: &quot;&quot;, pwd: &quot;&quot;, roles: [&quot;readWrite&quot;]&amp;#125;) 更改密码mysql1mysqladmin -u root -p password mongodb1234d">
+<meta name="keywords" content="database">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈MVX">
-<meta property="og:url" content="http://qinyongli.cn/2017/10/21/浅谈MVX/index.html">
+<meta property="og:title" content="数据库的那些事">
+<meta property="og:url" content="http://qinyongli.cn/2017/12/09/数据库的那些事/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
+<meta property="og:description" content="###　管理数据库 添加用户MySql1create user `user`@`host` identified by `password`; MongoDB1db.createUser(&amp;#123;user: &quot;&quot;, pwd: &quot;&quot;, roles: [&quot;readWrite&quot;]&amp;#125;) 更改密码mysql1mysqladmin -u root -p password mongodb1234d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020106.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020107.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020109.png">
-<meta property="og:image" content="http://image.beekka.com/blog/2015/bg2015020110.png">
-<meta property="og:updated_time" content="2017-11-17T06:08:44.573Z">
+<meta property="og:updated_time" content="2017-12-11T04:41:11.551Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈MVX">
-<meta name="twitter:description" content="序言MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM">
-<meta name="twitter:image" content="http://image.beekka.com/blog/2015/bg2015020105.png">
+<meta name="twitter:title" content="数据库的那些事">
+<meta name="twitter:description" content="###　管理数据库 添加用户MySql1create user `user`@`host` identified by `password`; MongoDB1db.createUser(&amp;#123;user: &quot;&quot;, pwd: &quot;&quot;, roles: [&quot;readWrite&quot;]&amp;#125;) 更改密码mysql1mysqladmin -u root -p password mongodb1234d">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -289,11 +283,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-浅谈MVX" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-数据库的那些事" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/10/21/浅谈MVX/" class="article-date">
-      <time datetime="2017-10-21T05:06:30.000Z" itemprop="datePublished">2017-10-21</time>
+      <a  href="/2017/12/09/数据库的那些事/" class="article-date">
+      <time datetime="2017-12-09T09:55:18.000Z" itemprop="datePublished">2017-12-09</time>
 </a>
 
     </div>
@@ -307,7 +301,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浅谈MVX
+      数据库的那些事
     </h1>
   
 
@@ -319,7 +313,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Architecture/">Architecture</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -329,34 +323,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>MVC框架最早出现在Java领域，然后慢慢的在前端开发中也被提到，后来又出现了MVP，以及现在最成熟的MVVM</p>
-<a id="more"></a>
-<h2 id="MVX"><a href="#MVX" class="headerlink" title="MVX"></a>MVX</h2><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>MVC（Model-View-Controller）是应用最广泛的软件架构之一，一般MVC分为: Model(模型)、Controller(控制器)和View(视图)。这主要是基于分层的目的，让彼此的职责分开。</p>
-<p>控制器（Controller），一组行为的集合。(业务逻辑)</p>
-<p>模型（Model），数据相关的操作和封装。(数据保存)</p>
-<p>视图（View），视图的渲染。(用户界面)</p>
-<p>View一般通过Controler来和Model进行联系的。Controller是Model和View的协调者，View和Model不直接联系。基本联系都是单项的。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020105.png" alt=""></p>
-<ol>
-<li>View 传送指令到Controler</li>
-<li>Controller 完成业务逻辑，要求 Model 改变状态</li>
-<li>Model 将新的数据发送到　View，用户得到反馈</li>
-</ol>
-<p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020106.png" alt=""></p>
-<p>另一种是直接通过controller接受指令。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020107.png" alt=""></p>
-<h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><p>MVP模式将 Controller改名为Persenter,　同时改变了通信方向。</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020109.png" alt=""></p>
-<ol>
-<li>各部分之间的通信，都是双向的。</li>
-<li>View 与 Model不发生联系。都通过Persenter传递。</li>
-<li>View 非常薄, 不部署任何业务逻辑，称为”被动视图”，即没有任何主动性，而Persenter非常厚，所有逻辑都部署在那里。</li>
-</ol>
-<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>MVVM模式将Persenter改名为ViewModel，基本上与MVP完全一致</p>
-<p><img src="http://image.beekka.com/blog/2015/bg2015020110.png" alt=""></p>
-<p>唯一的区别是，它采用双向绑定(data-binding): View的变动，自动反映在ViewModel，反之亦然。Angular和Vue采用这种模式。</p>
-
+        <p>###　管理数据库</p>
+<h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><h4 id="MySql"><a href="#MySql" class="headerlink" title="MySql"></a>MySql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create user `user`@`host` identified by `password`;</div></pre></td></tr></table></figure>
+<h4 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.createUser(&#123;user: "", pwd: "", roles: ["readWrite"]&#125;)</div></pre></td></tr></table></figure>
+<h3 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h3><h4 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqladmin -u root -p password</div></pre></td></tr></table></figure>
+<h4 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.update(&lt;username&gt;, &#123;</div><div class="line">		pwd: &lt;password&gt;,</div><div class="line">		roles: [&#123;role: &lt;&gt;, db: &lt;dbname&gt;&#125;]</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><h4 id="mysql-1"><a href="#mysql-1" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><h4 id="mysql-2"><a href="#mysql-2" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create batabase `dbname`;</div></pre></td></tr></table></figure>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><h4 id="mysql-3"><a href="#mysql-3" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">drop database `dbname`;</div></pre></td></tr></table></figure>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="mysql-4"><a href="#mysql-4" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>/integer =&gt; 整型</div><div class="line"><span class="keyword">double</span> =&gt; 双精度的浮点数</div><div class="line"><span class="keyword">float</span> =&gt; 浮点</div><div class="line"><span class="keyword">char</span> =&gt; 定长字符串</div><div class="line">varchar =&gt; 变长字符串</div><div class="line">text =&gt; 长文本数据</div><div class="line">date =&gt; 日期</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -364,13 +339,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/10/21/浅谈MVX/">浅谈MVX</a></p>
+        <p><span>本文标题:</span><a  href="/2017/12/09/数据库的那些事/">数据库的那些事</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
-        <p><span>发布时间:</span>2017年10月21日 - 13时06分</p>
-        <p><span>最后更新:</span>2017年11月17日 - 14时08分</p>
+        <p><span>发布时间:</span>2017年12月09日 - 17时55分</p>
+        <p><span>最后更新:</span>2017年12月11日 - 12时41分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/21/浅谈MVX/" title="浅谈MVX">http://qinyongli.cn/2017/10/21/浅谈MVX/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/21/浅谈MVX/　　作者: 覃永利" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/09/数据库的那些事/" title="数据库的那些事">http://qinyongli.cn/2017/12/09/数据库的那些事/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/12/09/数据库的那些事/　　作者: 覃永利" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -381,18 +356,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/10/21/浅谈TCP-IP/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          浅谈TCP/IP
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/10/19/浅谈Web缓存/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈Web缓存</div>
+    <a  href="/2017/11/17/浅谈Nodejs多进程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈Nodejs多进程</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -404,7 +370,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVX"><span class="toc-number">2.</span> <span class="toc-text">MVX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC"><span class="toc-number">2.1.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVP"><span class="toc-number">2.2.</span> <span class="toc-text">MVP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVVM"><span class="toc-number">2.3.</span> <span class="toc-text">MVVM</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加用户"><span class="toc-number">1.</span> <span class="toc-text">添加用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MySql"><span class="toc-number">1.1.</span> <span class="toc-text">MySql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MongoDB"><span class="toc-number">1.2.</span> <span class="toc-text">MongoDB</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改密码"><span class="toc-number">2.</span> <span class="toc-text">更改密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql"><span class="toc-number">2.1.</span> <span class="toc-text">mysql</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mongodb"><span class="toc-number">2.2.</span> <span class="toc-text">mongodb</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除用户"><span class="toc-number">3.</span> <span class="toc-text">删除用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql-1"><span class="toc-number">3.1.</span> <span class="toc-text">mysql</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数据库"><span class="toc-number">4.</span> <span class="toc-text">创建数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql-2"><span class="toc-number">4.1.</span> <span class="toc-text">mysql</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除数据库"><span class="toc-number">5.</span> <span class="toc-text">删除数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql-3"><span class="toc-number">5.1.</span> <span class="toc-text">mysql</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型"><span class="toc-number">6.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql-4"><span class="toc-number">6.1.</span> <span class="toc-text">mysql</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -463,13 +429,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/10/21/浅谈TCP-IP/" title="上一篇: 浅谈TCP/IP">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/10/19/浅谈Web缓存/" title="下一篇: 浅谈Web缓存">
+            <a  href="/2017/11/17/浅谈Nodejs多进程/" title="下一篇: 浅谈Nodejs多进程">
                 <i class="fa fa-angle-right"></i>
             </a>
         

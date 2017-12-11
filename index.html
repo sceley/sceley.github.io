@@ -209,7 +209,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/HTTP/" style="font-size: 20px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 20px;">NODEJS</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+                        <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/HTTP/" style="font-size: 20px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 20px;">NODEJS</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
                     </div>
                 </section>
                 
@@ -286,10 +286,79 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-浅谈Nodejs多线程" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-数据库的那些事" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/11/17/浅谈Nodejs多线程/" class="article-date">
+      <a  href="/2017/12/09/数据库的那些事/" class="article-date">
+      <time datetime="2017-12-09T09:55:18.000Z" itemprop="datePublished">2017-12-09</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/12/09/数据库的那些事/">数据库的那些事</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>###　管理数据库</p>
+<h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><h4 id="MySql"><a href="#MySql" class="headerlink" title="MySql"></a>MySql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create user `user`@`host` identified by `password`;</div></pre></td></tr></table></figure>
+<h4 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.createUser(&#123;user: "", pwd: "", roles: ["readWrite"]&#125;)</div></pre></td></tr></table></figure>
+<h3 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h3><h4 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqladmin -u root -p password</div></pre></td></tr></table></figure>
+<h4 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.update(&lt;username&gt;, &#123;</div><div class="line">		pwd: &lt;password&gt;,</div><div class="line">		roles: [&#123;role: &lt;&gt;, db: &lt;dbname&gt;&#125;]</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><h4 id="mysql-1"><a href="#mysql-1" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><h4 id="mysql-2"><a href="#mysql-2" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create batabase `dbname`;</div></pre></td></tr></table></figure>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><h4 id="mysql-3"><a href="#mysql-3" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">drop database `dbname`;</div></pre></td></tr></table></figure>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="mysql-4"><a href="#mysql-4" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>/integer =&gt; 整型</div><div class="line"><span class="keyword">double</span> =&gt; 双精度的浮点数</div><div class="line"><span class="keyword">float</span> =&gt; 浮点</div><div class="line"><span class="keyword">char</span> =&gt; 定长字符串</div><div class="line">varchar =&gt; 变长字符串</div><div class="line">text =&gt; 长文本数据</div><div class="line">date =&gt; 日期</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-浅谈Nodejs多进程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/11/17/浅谈Nodejs多进程/" class="article-date">
       <time datetime="2017-11-17T03:57:10.000Z" itemprop="datePublished">2017-11-17</time>
 </a>
 
@@ -304,7 +373,7 @@
         
   
     <h1 itemprop="name">
-      <a  class="article-title" href="/2017/11/17/浅谈Nodejs多线程/">浅谈Nodejs多进程</a>
+      <a  class="article-title" href="/2017/11/17/浅谈Nodejs多进程/">浅谈Nodejs多进程</a>
     </h1>
   
 
@@ -331,7 +400,7 @@
 
       
         <p class="article-more-link">
-          <a   href="/2017/11/17/浅谈Nodejs多线程/#more">查看更多 >></a>
+          <a   href="/2017/11/17/浅谈Nodejs多进程/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -530,72 +599,6 @@
       
         <p class="article-more-link">
           <a   href="/2017/11/07/浅谈SSLTLS/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-数据结构之集合运算" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/11/07/数据结构之集合运算/" class="article-date">
-      <time datetime="2017-11-07T05:51:50.000Z" itemprop="datePublished">2017-11-07</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/11/07/数据结构之集合运算/">数据结构之集合运算</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>数据结构在编程中占据重要地位，程序的好坏与你的数据结构算法有重大的关系。而本篇则是关于我在写了一篇数据结构作业后的总结。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a   href="/2017/11/07/数据结构之集合运算/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
