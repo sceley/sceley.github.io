@@ -5,9 +5,9 @@
   <subtitle>Goals determine what I going to be</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://qinyongli.cn/index.html/"/>
+  <link href="http://qinyongli.cn/"/>
   <updated>2017-12-11T12:12:05.135Z</updated>
-  <id>http://qinyongli.cn/index.html/</id>
+  <id>http://qinyongli.cn/</id>
   
   <author>
     <name>覃永利</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>数据库的那些事</title>
-    <link href="http://qinyongli.cn/index.html/2017/12/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    <id>http://qinyongli.cn/index.html/2017/12/09/数据库的那些事/</id>
+    <link href="http://qinyongli.cn/2017/12/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <id>http://qinyongli.cn/2017/12/09/数据库的那些事/</id>
     <published>2017-12-09T09:55:18.000Z</published>
     <updated>2017-12-11T12:12:05.135Z</updated>
     
@@ -32,14 +32,14 @@
     </summary>
     
     
-      <category term="database" scheme="http://qinyongli.cn/index.html/tags/database/"/>
+      <category term="database" scheme="http://qinyongli.cn/tags/database/"/>
     
   </entry>
   
   <entry>
     <title>浅谈Nodejs多进程</title>
-    <link href="http://qinyongli.cn/index.html/2017/11/17/%E6%B5%85%E8%B0%88Nodejs%E5%A4%9A%E8%BF%9B%E7%A8%8B/"/>
-    <id>http://qinyongli.cn/index.html/2017/11/17/浅谈Nodejs多进程/</id>
+    <link href="http://qinyongli.cn/2017/11/17/%E6%B5%85%E8%B0%88Nodejs%E5%A4%9A%E8%BF%9B%E7%A8%8B/"/>
+    <id>http://qinyongli.cn/2017/11/17/浅谈Nodejs多进程/</id>
     <published>2017-11-17T03:57:10.000Z</published>
     <updated>2017-11-21T04:37:05.115Z</updated>
     
@@ -52,14 +52,14 @@
     </summary>
     
     
-      <category term="NODEJS" scheme="http://qinyongli.cn/index.html/tags/NODEJS/"/>
+      <category term="NODEJS" scheme="http://qinyongli.cn/tags/NODEJS/"/>
     
   </entry>
   
   <entry>
     <title>浅谈数据上传</title>
-    <link href="http://qinyongli.cn/index.html/2017/11/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/"/>
-    <id>http://qinyongli.cn/index.html/2017/11/13/浅谈数据上传/</id>
+    <link href="http://qinyongli.cn/2017/11/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/"/>
+    <id>http://qinyongli.cn/2017/11/13/浅谈数据上传/</id>
     <published>2017-11-13T15:28:41.000Z</published>
     <updated>2017-11-17T06:11:16.000Z</updated>
     
@@ -72,14 +72,14 @@
     </summary>
     
     
-      <category term="NODEJS" scheme="http://qinyongli.cn/index.html/tags/NODEJS/"/>
+      <category term="NODEJS" scheme="http://qinyongli.cn/tags/NODEJS/"/>
     
   </entry>
   
   <entry>
     <title>浅谈HTTPS、HTTP2</title>
-    <link href="http://qinyongli.cn/index.html/2017/11/11/%E6%B5%85%E8%B0%88HTTPS%E3%80%81HTTP2/"/>
-    <id>http://qinyongli.cn/index.html/2017/11/11/浅谈HTTPS、HTTP2/</id>
+    <link href="http://qinyongli.cn/2017/11/11/%E6%B5%85%E8%B0%88HTTPS%E3%80%81HTTP2/"/>
+    <id>http://qinyongli.cn/2017/11/11/浅谈HTTPS、HTTP2/</id>
     <published>2017-11-11T08:38:58.000Z</published>
     <updated>2017-11-17T06:08:11.650Z</updated>
     
@@ -92,14 +92,14 @@
     </summary>
     
     
-      <category term="HTTP" scheme="http://qinyongli.cn/index.html/tags/HTTP/"/>
+      <category term="HTTP" scheme="http://qinyongli.cn/tags/HTTP/"/>
     
   </entry>
   
   <entry>
     <title>浅谈SSL/TLS</title>
-    <link href="http://qinyongli.cn/index.html/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/"/>
-    <id>http://qinyongli.cn/index.html/2017/11/07/浅谈SSLTLS/</id>
+    <link href="http://qinyongli.cn/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/"/>
+    <id>http://qinyongli.cn/2017/11/07/浅谈SSLTLS/</id>
     <published>2017-11-07T11:36:45.000Z</published>
     <updated>2017-11-17T06:10:23.188Z</updated>
     
@@ -112,14 +112,14 @@
     </summary>
     
     
-      <category term="HTTP" scheme="http://qinyongli.cn/index.html/tags/HTTP/"/>
+      <category term="HTTP" scheme="http://qinyongli.cn/tags/HTTP/"/>
     
   </entry>
   
   <entry>
     <title>数据结构之集合运算</title>
-    <link href="http://qinyongli.cn/index.html/2017/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/"/>
-    <id>http://qinyongli.cn/index.html/2017/11/07/数据结构之集合运算/</id>
+    <link href="http://qinyongli.cn/2017/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/"/>
+    <id>http://qinyongli.cn/2017/11/07/数据结构之集合运算/</id>
     <published>2017-11-07T05:51:50.000Z</published>
     <updated>2017-11-17T06:11:26.099Z</updated>
     
@@ -132,14 +132,14 @@
     </summary>
     
     
-      <category term="C++" scheme="http://qinyongli.cn/index.html/tags/C/"/>
+      <category term="C++" scheme="http://qinyongli.cn/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>浅谈Cookie、Session、JWTS</title>
-    <link href="http://qinyongli.cn/index.html/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/"/>
-    <id>http://qinyongli.cn/index.html/2017/11/03/浅谈Cookie、Session、JWTS/</id>
+    <link href="http://qinyongli.cn/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/"/>
+    <id>http://qinyongli.cn/2017/11/03/浅谈Cookie、Session、JWTS/</id>
     <published>2017-11-03T14:35:10.000Z</published>
     <updated>2017-11-17T06:07:37.000Z</updated>
     
@@ -152,14 +152,14 @@
     </summary>
     
     
-      <category term="NODEJS" scheme="http://qinyongli.cn/index.html/tags/NODEJS/"/>
+      <category term="NODEJS" scheme="http://qinyongli.cn/tags/NODEJS/"/>
     
   </entry>
   
   <entry>
     <title>浅谈Node-WebSocket</title>
-    <link href="http://qinyongli.cn/index.html/2017/11/03/%E6%B5%85%E8%B0%88Node-WebSocket/"/>
-    <id>http://qinyongli.cn/index.html/2017/11/03/浅谈Node-WebSocket/</id>
+    <link href="http://qinyongli.cn/2017/11/03/%E6%B5%85%E8%B0%88Node-WebSocket/"/>
+    <id>http://qinyongli.cn/2017/11/03/浅谈Node-WebSocket/</id>
     <published>2017-11-03T03:12:45.000Z</published>
     <updated>2017-11-17T06:09:33.045Z</updated>
     
@@ -172,14 +172,14 @@
     </summary>
     
     
-      <category term="NODEJS" scheme="http://qinyongli.cn/index.html/tags/NODEJS/"/>
+      <category term="NODEJS" scheme="http://qinyongli.cn/tags/NODEJS/"/>
     
   </entry>
   
   <entry>
     <title>浅谈HTTP</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/30/%E6%B5%85%E8%B0%88HTTP/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/30/浅谈HTTP/</id>
+    <link href="http://qinyongli.cn/2017/10/30/%E6%B5%85%E8%B0%88HTTP/"/>
+    <id>http://qinyongli.cn/2017/10/30/浅谈HTTP/</id>
     <published>2017-10-30T15:24:46.000Z</published>
     <updated>2017-11-17T06:08:03.934Z</updated>
     
@@ -192,14 +192,14 @@
     </summary>
     
     
-      <category term="HTTP" scheme="http://qinyongli.cn/index.html/tags/HTTP/"/>
+      <category term="HTTP" scheme="http://qinyongli.cn/tags/HTTP/"/>
     
   </entry>
   
   <entry>
     <title>TCP、UDP、Socket总结</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/28/TCP、UDP、Socket总结/</id>
+    <link href="http://qinyongli.cn/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/"/>
+    <id>http://qinyongli.cn/2017/10/28/TCP、UDP、Socket总结/</id>
     <published>2017-10-28T14:56:46.000Z</published>
     <updated>2017-11-17T06:07:19.347Z</updated>
     
@@ -212,14 +212,14 @@
     </summary>
     
     
-      <category term="HTTP" scheme="http://qinyongli.cn/index.html/tags/HTTP/"/>
+      <category term="HTTP" scheme="http://qinyongli.cn/tags/HTTP/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript常用设计模式</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/28/JavaScript常用设计模式/</id>
+    <link href="http://qinyongli.cn/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://qinyongli.cn/2017/10/28/JavaScript常用设计模式/</id>
     <published>2017-10-28T05:24:23.000Z</published>
     <updated>2017-11-17T06:06:58.711Z</updated>
     
@@ -232,14 +232,14 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="http://qinyongli.cn/index.html/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://qinyongli.cn/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>浅谈JS内存</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/26/浅谈JS内存/</id>
+    <link href="http://qinyongli.cn/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/"/>
+    <id>http://qinyongli.cn/2017/10/26/浅谈JS内存/</id>
     <published>2017-10-26T11:48:34.000Z</published>
     <updated>2017-11-26T15:56:41.000Z</updated>
     
@@ -255,14 +255,14 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="http://qinyongli.cn/index.html/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://qinyongli.cn/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>浅谈curry化</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/25/%E6%B5%85%E8%B0%88curry%E5%8C%96/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/25/浅谈curry化/</id>
+    <link href="http://qinyongli.cn/2017/10/25/%E6%B5%85%E8%B0%88curry%E5%8C%96/"/>
+    <id>http://qinyongli.cn/2017/10/25/浅谈curry化/</id>
     <published>2017-10-25T12:12:02.000Z</published>
     <updated>2017-11-17T06:07:52.000Z</updated>
     
@@ -275,14 +275,14 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="http://qinyongli.cn/index.html/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://qinyongli.cn/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>FP-Pointfree编程指南</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/25/FP-Pointfree编程指南/</id>
+    <link href="http://qinyongli.cn/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/"/>
+    <id>http://qinyongli.cn/2017/10/25/FP-Pointfree编程指南/</id>
     <published>2017-10-25T05:55:32.000Z</published>
     <updated>2017-11-17T06:06:45.664Z</updated>
     
@@ -295,14 +295,14 @@
     </summary>
     
     
-      <category term="JavaScript" scheme="http://qinyongli.cn/index.html/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://qinyongli.cn/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>浅谈TCP/IP</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/21/浅谈TCP-IP/</id>
+    <link href="http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/"/>
+    <id>http://qinyongli.cn/2017/10/21/浅谈TCP-IP/</id>
     <published>2017-10-21T14:46:48.000Z</published>
     <updated>2017-11-17T06:10:43.143Z</updated>
     
@@ -315,14 +315,14 @@
     </summary>
     
     
-      <category term="HTTP" scheme="http://qinyongli.cn/index.html/tags/HTTP/"/>
+      <category term="HTTP" scheme="http://qinyongli.cn/tags/HTTP/"/>
     
   </entry>
   
   <entry>
     <title>浅谈MVX</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/21/%E6%B5%85%E8%B0%88MVX/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/21/浅谈MVX/</id>
+    <link href="http://qinyongli.cn/2017/10/21/%E6%B5%85%E8%B0%88MVX/"/>
+    <id>http://qinyongli.cn/2017/10/21/浅谈MVX/</id>
     <published>2017-10-21T05:06:30.000Z</published>
     <updated>2017-11-17T06:08:44.573Z</updated>
     
@@ -335,14 +335,14 @@
     </summary>
     
     
-      <category term="Architecture" scheme="http://qinyongli.cn/index.html/tags/Architecture/"/>
+      <category term="Architecture" scheme="http://qinyongli.cn/tags/Architecture/"/>
     
   </entry>
   
   <entry>
     <title>浅谈Web缓存</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/19/浅谈Web缓存/</id>
+    <link href="http://qinyongli.cn/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/"/>
+    <id>http://qinyongli.cn/2017/10/19/浅谈Web缓存/</id>
     <published>2017-10-19T00:48:57.000Z</published>
     <updated>2017-11-17T06:11:07.575Z</updated>
     
@@ -355,14 +355,14 @@
     </summary>
     
     
-      <category term="NODEJS" scheme="http://qinyongli.cn/index.html/tags/NODEJS/"/>
+      <category term="NODEJS" scheme="http://qinyongli.cn/tags/NODEJS/"/>
     
   </entry>
   
   <entry>
     <title>新的hexo</title>
-    <link href="http://qinyongli.cn/index.html/2017/10/18/%E6%96%B0%E7%9A%84hexo/"/>
-    <id>http://qinyongli.cn/index.html/2017/10/18/新的hexo/</id>
+    <link href="http://qinyongli.cn/2017/10/18/%E6%96%B0%E7%9A%84hexo/"/>
+    <id>http://qinyongli.cn/2017/10/18/新的hexo/</id>
     <published>2017-10-18T13:40:52.000Z</published>
     <updated>2017-11-17T06:12:58.317Z</updated>
     
@@ -378,7 +378,7 @@
     </summary>
     
     
-      <category term="hexo" scheme="http://qinyongli.cn/index.html/tags/hexo/"/>
+      <category term="hexo" scheme="http://qinyongli.cn/tags/hexo/"/>
     
   </entry>
   
