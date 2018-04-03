@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="覃永利的技术博客">
 <meta property="og:description" content="管理数据库本篇将是自己在数据库方面的总结">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-11T12:12:05.135Z">
+<meta property="og:updated_time" content="2017-12-11T12:12:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库的那些事">
 <meta name="twitter:description" content="管理数据库本篇将是自己在数据库方面的总结">
@@ -208,7 +208,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/HTTP/" style="font-size: 20px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 20px;">NODEJS</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+                        <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/HTTP/" style="font-size: 20px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 20px;">NODEJS</a> <a href="/tags/Socket编程/" style="font-size: 10px;">Socket编程</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
                     </div>
                 </section>
                 
@@ -325,15 +325,15 @@
           
         <h2 id="管理数据库"><a href="#管理数据库" class="headerlink" title="管理数据库"></a>管理数据库</h2><p>本篇将是自己在数据库方面的总结</p>
 <a id="more"></a>
-<h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><h4 id="MySql"><a href="#MySql" class="headerlink" title="MySql"></a>MySql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create user `user`@`host` identified by `password`;</div></pre></td></tr></table></figure>
-<h4 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.createUser(&#123;user: "", pwd: "", roles: ["readWrite"]&#125;)</div></pre></td></tr></table></figure>
-<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><h4 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.dropUser("sceley")</div></pre></td></tr></table></figure>
-<h3 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h3><h4 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqladmin -u root -p password</div></pre></td></tr></table></figure>
-<h4 id="mongodb-1"><a href="#mongodb-1" class="headerlink" title="mongodb"></a>mongodb</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.update(&lt;username&gt;, &#123;</div><div class="line">		pwd: &lt;password&gt;,</div><div class="line">		roles: [&#123;role: &lt;&gt;, db: &lt;dbname&gt;&#125;]</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
-<h3 id="删除用户-1"><a href="#删除用户-1" class="headerlink" title="删除用户"></a>删除用户</h3><h4 id="mysql-1"><a href="#mysql-1" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><h4 id="mysql-2"><a href="#mysql-2" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">create batabase `dbname`;</div></pre></td></tr></table></figure>
-<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><h4 id="mysql-3"><a href="#mysql-3" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">drop database `dbname`;</div></pre></td></tr></table></figure>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="mysql-4"><a href="#mysql-4" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>/integer =&gt; 整型</div><div class="line"><span class="keyword">double</span> =&gt; 双精度的浮点数</div><div class="line"><span class="keyword">float</span> =&gt; 浮点</div><div class="line"><span class="keyword">char</span> =&gt; 定长字符串</div><div class="line">varchar =&gt; 变长字符串</div><div class="line">text =&gt; 长文本数据</div><div class="line">date =&gt; 日期</div></pre></td></tr></table></figure>
+<h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><h4 id="MySql"><a href="#MySql" class="headerlink" title="MySql"></a>MySql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user `user`@`host` identified by `password`;</span><br></pre></td></tr></table></figure>
+<h4 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(&#123;user: "", pwd: "", roles: ["readWrite"]&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><h4 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropUser("sceley")</span><br></pre></td></tr></table></figure>
+<h3 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h3><h4 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p password</span><br></pre></td></tr></table></figure>
+<h4 id="mongodb-1"><a href="#mongodb-1" class="headerlink" title="mongodb"></a>mongodb</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.update(&lt;username&gt;, &#123;</span><br><span class="line">		pwd: &lt;password&gt;,</span><br><span class="line">		roles: [&#123;role: &lt;&gt;, db: &lt;dbname&gt;&#125;]</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="删除用户-1"><a href="#删除用户-1" class="headerlink" title="删除用户"></a>删除用户</h3><h4 id="mysql-1"><a href="#mysql-1" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><h4 id="mysql-2"><a href="#mysql-2" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create batabase `dbname`;</span><br></pre></td></tr></table></figure>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><h4 id="mysql-3"><a href="#mysql-3" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database `dbname`;</span><br></pre></td></tr></table></figure>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="mysql-4"><a href="#mysql-4" class="headerlink" title="mysql"></a>mysql</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>/integer =&gt; 整型</span><br><span class="line"><span class="keyword">double</span> =&gt; 双精度的浮点数</span><br><span class="line"><span class="keyword">float</span> =&gt; 浮点</span><br><span class="line"><span class="keyword">char</span> =&gt; 定长字符串</span><br><span class="line">varchar =&gt; 变长字符串</span><br><span class="line">text =&gt; 长文本数据</span><br><span class="line">date =&gt; 日期</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -357,6 +357,15 @@
 
 
 <nav id="article-nav">
+  
+    <a  href="/2018/03/29/入门docker/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          入门docker
+        
+      </div>
+    </a>
   
   
     <a  href="/2017/11/17/浅谈Nodejs多进程/" id="article-nav-older" class="article-nav-link-wrap">
@@ -431,7 +440,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a  href="/2018/03/29/入门docker/" title="上一篇: 入门docker">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
@@ -440,7 +451,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/数据库的那些事/">数据库的那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/浅谈Nodejs多进程/">浅谈Nodejs多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/浅谈数据上传/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/浅谈HTTPS、HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/数据结构之集合运算/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Cookie、Session、JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript常用设计模式/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/基于c语言的socket编程/">基于c语言的socket编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/入门docker/">入门docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/数据库的那些事/">数据库的那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/浅谈Nodejs多进程/">浅谈Nodejs多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/浅谈数据上传/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/浅谈HTTPS、HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/数据结构之集合运算/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Cookie、Session、JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript常用设计模式/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
