@@ -11,17 +11,18 @@
   
   <title>入门docker | 覃永利的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="覃永利的个人博客。旨在于记录生活中的点滴，包括技术和生活，丰富日常生活，同时兼有分享技术心得。一起成长、学习吧。">
+  <meta name="description" content="如果让我用一句话来形容docker的话。它简单易用，只是简单的操作拉取镜像和创建容器，然后你可以使用mysql、mongodb、redis、nginx等各类服务了。">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门docker">
 <meta property="og:url" content="http://qinyongli.cn/2018/03/29/入门docker/index.html">
 <meta property="og:site_name" content="覃永利的技术博客">
-<meta property="og:description" content="覃永利的个人博客。旨在于记录生活中的点滴，包括技术和生活，丰富日常生活，同时兼有分享技术心得。一起成长、学习吧。">
+<meta property="og:description" content="如果让我用一句话来形容docker的话。它简单易用，只是简单的操作拉取镜像和创建容器，然后你可以使用mysql、mongodb、redis、nginx等各类服务了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-29T12:46:00.803Z">
+<meta property="og:updated_time" content="2018-04-03T09:04:04.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门docker">
-<meta name="twitter:description" content="覃永利的个人博客。旨在于记录生活中的点滴，包括技术和生活，丰富日常生活，同时兼有分享技术心得。一起成长、学习吧。">
+<meta name="twitter:description" content="如果让我用一句话来形容docker的话。它简单易用，只是简单的操作拉取镜像和创建容器，然后你可以使用mysql、mongodb、redis、nginx等各类服务了。">
   
     <link rel="alternative" href="/atom.xml" title="覃永利的技术博客" type="application/atom+xml">
   
@@ -207,7 +208,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/HTTP/" style="font-size: 20px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 20px;">NODEJS</a> <a href="/tags/Socket编程/" style="font-size: 10px;">Socket编程</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+                        <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/HTTP/" style="font-size: 20px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 20px;">NODEJS</a> <a href="/tags/Socket编程/" style="font-size: 10px;">Socket编程</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
                     </div>
                 </section>
                 
@@ -311,6 +312,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -318,7 +323,46 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <p>如果让我用一句话来形容docker的话。它简单易用，只是简单的操作拉取镜像和创建容器，然后你可以使用mysql、mongodb、redis、nginx等各类服务了。</p>
+<a id="more"></a>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><a href="https://docs.docker.com/docker-for-mac/install/" target="_blank" rel="noopener">Mac</a></li>
+<li><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">Ubuntu</a></li>
+<li><a href="https://docs.docker.com/docker-for-windows/install/" target="_blank" rel="noopener">Windows</a></li>
+</ul>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>查看Docker的版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+<p>Docker 需要用户具有 sudo 权限，为了避免每次命令都输入sudo，可以把用户加入 Docker 用户组</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
+<p>启动docker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br></pre></td></tr></table></figure>
+<p>下载镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [imageName]</span><br></pre></td></tr></table></figure>
+<p>删除image镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker image rm [imageName]</span><br></pre></td></tr></table></figure>
+<p>列出docker镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
+<p>生成容器    </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run -p 3306:3306 --rm=true --name=mysql -v ./mysql:/etc/mysql -it -d mysql /bin/bash</span><br></pre></td></tr></table></figure>
+<p>参数:</p>
+<pre><code>- -p容器的 3306 端口映射到本机的 3306 端口。
+- -it 容器的 Shell 映射到当前的 Shell，然后你在本机窗口输入的命令，就会传入容器。
+- mysql 镜像的名称
+- /bin/bash：容器启动以后，内部第一个执行的命令。这里是启动 Bash，保证用户可以使用 Shell。
+- -v 挂载本地目录到容器目录
+- --rm=true 容器停止运行后，自动删除容器文件x
+- --name=** 给容器命名
+- -d 在后台运行
+</code></pre><p>列出容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls (--all)</span><br></pre></td></tr></table></figure>
+<p>删除容器<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm [containerID/containerName]</span><br></pre></td></tr></table></figure></p>
+<p>启动容器(前面的docker container run命令是新建容器，每运行一次，就会新建一个容器。)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container start [containerID]</span><br></pre></td></tr></table></figure>
+<p>终止容器运行<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stop</span><br></pre></td></tr></table></figure></p>
+<p>进入一个正在运行的 docker 容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container exec -it [containerID] /bin/bash</span><br></pre></td></tr></table></figure>
+<p>用于从正在运行的 Docker 容器里面，将文件拷贝到本机<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container cp [containID]:[/path/to/file] .</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -329,7 +373,7 @@
         <p><span>本文标题:</span><a  href="/2018/03/29/入门docker/">入门docker</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2018年03月29日 - 20时46分</p>
-        <p><span>最后更新:</span>2018年03月29日 - 20时46分</p>
+        <p><span>最后更新:</span>2018年04月03日 - 17时04分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/03/29/入门docker/" title="入门docker">http://qinyongli.cn/2018/03/29/入门docker/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2018/03/29/入门docker/　　作者: 覃永利" title=""></span>
@@ -366,7 +410,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-number">2.</span> <span class="toc-text">命令</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
