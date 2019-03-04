@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  <meta name="msvalidate.01" content="AE604ACCCD787E5130F0B75BDC9F0231">
+  <meta name="360-site-verification" content="bd04526f64d2b1b11c8e05a60e0c0256">
+  
+  
+  
+  
+  <title>C语言中的多进程 | 覃永利的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="序言为了充分利用计算机中的多核CPU，计算机提供了两个接口使用多核CPU，两个接口分别是：多进程、多线程。本编文章将介绍多进程编程，利用多核CPU。">
+<meta name="keywords" content="C语言多进程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言中的多进程">
+<meta property="og:url" content="http://qinyongli.cn/2018/06/04/C语言中的多进程/index.html">
+<meta property="og:site_name" content="覃永利的技术博客">
+<meta property="og:description" content="序言为了充分利用计算机中的多核CPU，计算机提供了两个接口使用多核CPU，两个接口分别是：多进程、多线程。本编文章将介绍多进程编程，利用多核CPU。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qinyongli.cn/img/fork函数创建进程.png">
+<meta property="og:image" content="http://qinyongli.cn/img/fork.png">
+<meta property="og:image" content="http://qinyongli.cn/img/wait.png">
+<meta property="og:image" content="http://qinyongli.cn/img/waitpid.h">
+<meta property="og:image" content="http://qinyongli.cn/img/signal.png">
+<meta property="og:updated_time" content="2018-06-04T08:50:41.826Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言中的多进程">
+<meta name="twitter:description" content="序言为了充分利用计算机中的多核CPU，计算机提供了两个接口使用多核CPU，两个接口分别是：多进程、多线程。本编文章将介绍多进程编程，利用多核CPU。">
+<meta name="twitter:image" content="http://qinyongli.cn/img/fork函数创建进程.png">
+  
+    <link rel="alternative" href="/atom.xml" title="覃永利的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/apple-touch-icon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">覃永利</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">Goals determine what I going to be</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder=" Search...">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                        
+                            <li><a href="/categories/digital">玩转数码</a></li>
+                        
+                            <li><a href="/categories/cognition">认知提升</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/sceley" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/C语言多进程/" style="font-size: 10px;">C语言多进程</a> <a href="/tags/HTTP/" style="font-size: 20px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 20px;">NODEJS</a> <a href="/tags/Socket编程/" style="font-size: 10px;">Socket编程</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱动漫,爱游戏,爱编程,爱运动,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">覃永利</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">覃永利</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Goals determine what I going to be</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                
+                    <li><a href="/categories/digital">玩转数码</a></li>
+                
+                    <li><a href="/categories/cognition">认知提升</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/sceley" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C语言中的多进程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/04/C语言中的多进程/" class="article-date">
+      <time datetime="2018-06-04T02:03:26.000Z" itemprop="datePublished">2018-06-04</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C语言中的多进程
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言多进程/">C语言多进程</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>为了充分利用计算机中的多核CPU，计算机提供了两个接口使用多核CPU，两个接口分别是：多进程、多线程。本编文章将介绍多进程编程，利用多核CPU。</p>
+<a id="more"></a>
+<h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><blockquote>
+<p>核的个数与可同时运行的进程数相同。相反，若进程数超过核数，进程将分时使用CPU资源。但因为CPU运行速度极快，我们会感到所有进程同时运行。当然多核越多，这种感觉也明显。</p>
+</blockquote>
+<h3 id="fork函数创建多进程"><a href="#fork函数创建多进程" class="headerlink" title="fork函数创建多进程"></a>fork函数创建多进程</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pid_t</span> fork(<span class="keyword">void</span>);</span><br></pre></td></tr></table></figure>
+<p>fork函数将创建调用的进程副本。两个进程都将执行fork调用后的语句，子进程将复制父进程相同的内存空间，之后的程序流要根据fork函数的返回值加以区分。</p>
+<ul>
+<li>父进程：fork函数返回子进程ID</li>
+<li>子进程：fork函数返回0</li>
+</ul>
+<p><img src="/img/fork函数创建进程.png" alt></p>
+<p>eg.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> gval = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">pid_t</span> pid;</span><br><span class="line">	<span class="keyword">int</span> lval = <span class="number">20</span>;</span><br><span class="line">	gval++, lval += <span class="number">5</span>;</span><br><span class="line">	</span><br><span class="line">	pid = fork();</span><br><span class="line">	<span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;<span class="comment">//child pro</span></span><br><span class="line">		gval += <span class="number">2</span>, lval += <span class="number">2</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;<span class="comment">//parent pro</span></span><br><span class="line">		gval -= <span class="number">2</span>, lval -= <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Child Proc: [%d, %d] \n"</span>, gval, lval);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Parent Proc: [%d, %d] \n"</span>, gval, lval);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="/img/fork.png" alt></p>
+<h3 id="进程与僵尸进程"><a href="#进程与僵尸进程" class="headerlink" title="进程与僵尸进程"></a>进程与僵尸进程</h3><h4 id="僵尸进程的产生"><a href="#僵尸进程的产生" class="headerlink" title="僵尸进程的产生"></a>僵尸进程的产生</h4><p>文件操作中，关闭文件和打开文件同等重要。同样进程的创建和进程的销毁同等重要。如果未认真对待进程销毁，它们将变成僵尸进程困扰各位。</p>
+<p>进程完成工作后（执行完main函数中的程序后）应当销毁，但有时这些进程将变成僵尸进程，占用系统中的重要资源。</p>
+<p>子进程的终止方式：</p>
+<ul>
+<li>传递参数并调用exit函数</li>
+<li>main函数中执行return语句并返回值</li>
+</ul>
+<p>向exit函数传递的参数值和main函数的return语句返回的值都会传递给操作系统。而操作系统并不会销毁子进程，直到把这些值传递给产生该子进程的父进程。</p>
+<p>eg.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">	<span class="keyword">if</span> (pid == <span class="number">0</span>) &#123; Child Pro</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Hi, I am a child process \n"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Child Process ID: %d \n"</span>, pid);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (pid) &#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">"End child process \n"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"End parent process \n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="销毁僵尸进程"><a href="#销毁僵尸进程" class="headerlink" title="销毁僵尸进程"></a>销毁僵尸进程</h4><p>为了销毁子进程，父进程应主动请求获取子进程的返回值。</p>
+<h5 id="使用wait函数"><a href="#使用wait函数" class="headerlink" title="使用wait函数"></a>使用wait函数</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">pid <span class="title">wait</span><span class="params">(<span class="keyword">int</span> * statloc)</span></span>;</span><br><span class="line"><span class="comment">//成功时返回终止的子进程的ID，失败时返回-1</span></span><br></pre></td></tr></table></figure>
+<p>调用此函数时如果已有子进程终止，那么子进程终止时传递的返回值（exit函数的参数值、main函数的return返回值）将保存到该函数的参数所指内存空间。</p>
+<ul>
+<li>WIFEXITED子进程正常终止时返回”真“ true</li>
+<li>WEXITSTATUS返回子进程的返回值</li>
+</ul>
+<p>eg.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#in</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> status;</span><br><span class="line">	<span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">	<span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Child PID:%d \n"</span>, pid);</span><br><span class="line">		pid = fork();</span><br><span class="line">		<span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="built_in">exit</span>(<span class="number">7</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			wait(&amp;status);</span><br><span class="line">			<span class="keyword">if</span> (WIFEXITED(status)) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"Child send one: %d \n"</span>, WEXITSTATUS(status));</span><br><span class="line">			&#125;</span><br><span class="line">			wait(&amp;status)</span><br><span class="line">			<span class="keyword">if</span> (WIFEXITED(status)) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"Child send tow: %d \n"</span>, WEXITSTATUS(status));</span><br><span class="line">			&#125;</span><br><span class="line">			sleep(<span class="number">30</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="/img/wait.png" alt></p>
+<p>调用wait函数时，如果没有已终止的子进程，那么程序将阻塞（Blocking）直到有子进程终止。</p>
+<h5 id="使用waitpid函数"><a href="#使用waitpid函数" class="headerlink" title="使用waitpid函数"></a>使用waitpid函数</h5><p>wait函数会引起程序阻塞，而waitpid即使没有终止的子进程也不会进入阻塞状态，而是返回0并退出。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pid_t</span> waitpid(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> * statloc, <span class="keyword">int</span> options);</span><br><span class="line"></span><br><span class="line"><span class="comment">//成功时返回终止的子进程ID(或0)，失败时返回-1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1. pid 等待终止的目标子进程的ID， 若传递-1，则与wait函数相同，可以等待任意子进程终止</span></span><br><span class="line"><span class="comment">//2. ...</span></span><br><span class="line"><span class="comment">//3. 传递头文件sys/wait.h中声明的常量WNOHANG，即使没有终止的子进程也不会进入阻塞状态，而是返回0并退出</span></span><br></pre></td></tr></table></figure>
+<p>调用waitpid时程序不会阻塞。</p>
+<p>eg.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> status;</span><br><span class="line">	<span class="keyword">pid_t</span> pid = fork();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (pid == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">24</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">while</span> (!waitpid(<span class="number">-1</span>, &amp;status, WNOHANG)) &#123;</span><br><span class="line">			sleep(<span class="number">3</span>);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"sleep 3sec \n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (WIFEXITED(status)) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"Child send %d \n"</span>, WEXITSTATUS(status));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="/img/waitpid.h" alt></p>
+<h3 id="信号处理"><a href="#信号处理" class="headerlink" title="信号处理"></a>信号处理</h3><h4 id="signal函数"><a href="#signal函数" class="headerlink" title="signal函数"></a>signal函数</h4><p>信号注册函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> (*signal(<span class="keyword">int</span> signo, <span class="keyword">void</span> (*func)(<span class="keyword">int</span>)))(<span class="keyword">int</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数名: signal</span></span><br><span class="line"><span class="comment">//参数：int signo, void (*func)(int)</span></span><br><span class="line"><span class="comment">//返回类型：参数为int类型，返回void型函数指针</span></span><br></pre></td></tr></table></figure>
+<p>发生第一个参数代表的情况时，调用第二个参数所指向的函数。</p>
+<p>signal函数中注册的部分特殊情况和对应的常数。</p>
+<ul>
+<li>SIGALRM: 已通过调用alarm函数注册的时间</li>
+<li>SIGINT: 输入CTRL+C</li>
+<li>SIGCHLD: 子进程终止</li>
+</ul>
+<p>注册好信号后，发生注册信号时（注册的情况发生时），操作系统将调用该信号对应的函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">alarm</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> seconds)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>如果调用该函数的同时向它传递一个正整型参数，相应时间后（以秒为单位）将产生SIGALRM信号。若向该函数传递0，则之前对SIGALRM信号的预约将取消。</p>
+<p>eg.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timeout</span><span class="params">(<span class="keyword">int</span> sig)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (sig == SIGALRM) &#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">"Time out!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	alarm(<span class="number">2</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">keycontrol</span><span class="params">(<span class="keyword">int</span> sig)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (sig == SIGINT) &#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">"CTRL+C"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	signal(SIGALRM, timeout);</span><br><span class="line">	signal(SIGINT, keycontrol);</span><br><span class="line">	alarm(<span class="number">2</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">"waiting ..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="/img/signal.png" alt></p>
+<blockquote>
+<p>发生信号时将唤醒由于调用sleep函数而进入阻塞状态的进程</p>
+</blockquote>
+<h4 id="sigaction函数进行信号处理"><a href="#sigaction函数进行信号处理" class="headerlink" title="sigaction函数进行信号处理"></a>sigaction函数进行信号处理</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sigaction</span> <span class="params">(<span class="keyword">int</span> signo, <span class="keyword">const</span> struct sigaction *act, struct sigaction *oldact)</span></span>;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/06/04/C语言中的多进程/">C语言中的多进程</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
+        <p><span>发布时间:</span>2018年06月04日 - 10时03分</p>
+        <p><span>最后更新:</span>2018年06月04日 - 16时50分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/06/04/C语言中的多进程/" title="C语言中的多进程">http://qinyongli.cn/2018/06/04/C语言中的多进程/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2018/06/04/C语言中的多进程/　　作者: 覃永利" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/02/基于c语言的socket编程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于c语言的socket编程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多进程"><span class="toc-number">2.</span> <span class="toc-text">多进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fork函数创建多进程"><span class="toc-number">2.1.</span> <span class="toc-text">fork函数创建多进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程与僵尸进程"><span class="toc-number">2.2.</span> <span class="toc-text">进程与僵尸进程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#僵尸进程的产生"><span class="toc-number">2.2.1.</span> <span class="toc-text">僵尸进程的产生</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#销毁僵尸进程"><span class="toc-number">2.2.2.</span> <span class="toc-text">销毁僵尸进程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用wait函数"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">使用wait函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用waitpid函数"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">使用waitpid函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号处理"><span class="toc-number">2.3.</span> <span class="toc-text">信号处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#signal函数"><span class="toc-number">2.3.1.</span> <span class="toc-text">signal函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sigaction函数进行信号处理"><span class="toc-number">2.3.2.</span> <span class="toc-text">sigaction函数进行信号处理</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/04/02/基于c语言的socket编程/" title="下一篇: 基于c语言的socket编程">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/C语言中的多进程/">C语言中的多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/基于c语言的socket编程/">基于c语言的socket编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/入门docker/">入门docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/数据库的那些事/">数据库的那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/浅谈Nodejs多进程/">浅谈Nodejs多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/浅谈数据上传/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/浅谈HTTPS、HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/数据结构之集合运算/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Cookie、Session、JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript常用设计模式/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 覃永利
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 4;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?4caa02061ff98d2c5225d7216f123fa5";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
