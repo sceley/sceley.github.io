@@ -286,6 +286,83 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-浅谈JS内存" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/26/浅谈JS内存/" class="article-date">
+      <time datetime="2017-10-26T11:48:34.000Z" itemprop="datePublished">2017-10-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>与前端不同，后端是直面服务器的，所以对性能的要求更高，对内存有更高的要求。如果存在内存泄漏，跟随着时间的流逝，内存泄漏越来越多，程序运行也会越来越慢，最终崩溃。所以要想深入学习node，控制内存的使用是至关重要的。</p>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>C语言有低级的原生内存管理原语，像malloc()和free()，开发人员使用这些原语可以显式分配和释放内存。</p>
+<p>JavaScript在创建变量时会自动分配内存，并在这些变量不被使用时自动释放内存－－－垃圾回收机制。</p>
+<h3 id="内存生命周期"><a href="#内存生命周期" class="headerlink" title="内存生命周期"></a>内存生命周期</h3><p>Allocate =&gt; Use Memory =&gt; Release memory</p>
+<ul>
+<li>分配内存</li>
+<li>使用内存</li>
+<li>释放内存</li>
+</ul>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul>
+<li>所有的变量和程序中用到的数据。</li>
+<li>程序的代码，包括操作系统的代码。</li>
+</ul>
+<p>编译器和操作系统共同帮助开发者完成大部分的内存管理。</p>
+<h4 id="动态分配"><a href="#动态分配" class="headerlink" title="动态分配"></a>动态分配</h4><h4 id="JavaScript中的内存分配"><a href="#JavaScript中的内存分配" class="headerlink" title="JavaScript中的内存分配"></a>JavaScript中的内存分配</h4><p>JavaScript在开发者声明值的时候自动分配内存。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">374</span>;<span class="comment">//为数值分配内存</span></span><br><span class="line"><span class="keyword">var</span> s = <span class="string">'sessionstack'</span>;<span class="comment">//为字符串分配内存</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="literal">null</span>,</span><br><span class="line">&#125;;<span class="comment">//为对象和它包含的值分配内存</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="literal">null</span>, <span class="string">'str'</span>];<span class="comment">//为数组和它包含的值分配内存</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + <span class="number">3</span>;</span><br><span class="line">&#125;;<span class="comment">//为函数(可调用的对象)分配内存</span></span><br><span class="line"><span class="comment">//函数表达式也会分配一个对象</span></span><br></pre></td></tr></table></figure>
+<h4 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h4><h5 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h5><h5 id="标记清除算法"><a href="#标记清除算法" class="headerlink" title="标记清除算法"></a>标记清除算法</h5>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-浅谈curry化" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -530,72 +607,6 @@
       
         <p class="article-more-link">
           <a href="/2017/10/21/浅谈MVX/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-浅谈Web缓存" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/10/19/浅谈Web缓存/" class="article-date">
-      <time datetime="2017-10-19T00:48:57.000Z" itemprop="datePublished">2017-10-19</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在开发当中，性能至关重要，然而判断一个网站的性能最直观的就是看到网页打开的速度。其中提高网页反应速度的一个方式就是使用缓存。一个优秀的缓存策略可以缩短网页请求的距离，减少延迟，使缓存文件得到重复利用，减少冠带，降低网络负荷。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NODEJS/">NODEJS</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2017/10/19/浅谈Web缓存/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
