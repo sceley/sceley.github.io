@@ -11,18 +11,18 @@
   
   <title>浅谈JS内存 | 覃永利的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="序言与前端不同，后端是直面服务器的，所以对性能的要求更高，对内存有更高的要求。如果存在内存泄漏，跟随着时间的流逝，内存泄漏越来越多，程序运行也会越来越慢，最终崩溃。所以要想深入学习node，控制内存的使用是至关重要的。 内存管理概述C语言有低级的原生内存管理原语，像malloc()和free()，开发人员使用这些原语可以显式分配和释放内存。 JavaScript在创建变量时会自动分配内存，并在这些">
+  <meta name="description" content="序言与前端不同，后端是直面服务器的，所以对性能的要求更高，对内存有更高的要求。如果存在内存泄漏，跟随着时间的流逝，内存泄漏越来越多，程序运行也会越来越慢，最终崩溃。所以要想深入学习node，控制内存的使用是至关重要的。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈JS内存">
 <meta property="og:url" content="http://qinyongli.cn/2017/10/26/浅谈JS内存/index.html">
 <meta property="og:site_name" content="覃永利的技术博客">
-<meta property="og:description" content="序言与前端不同，后端是直面服务器的，所以对性能的要求更高，对内存有更高的要求。如果存在内存泄漏，跟随着时间的流逝，内存泄漏越来越多，程序运行也会越来越慢，最终崩溃。所以要想深入学习node，控制内存的使用是至关重要的。 内存管理概述C语言有低级的原生内存管理原语，像malloc()和free()，开发人员使用这些原语可以显式分配和释放内存。 JavaScript在创建变量时会自动分配内存，并在这些">
+<meta property="og:description" content="序言与前端不同，后端是直面服务器的，所以对性能的要求更高，对内存有更高的要求。如果存在内存泄漏，跟随着时间的流逝，内存泄漏越来越多，程序运行也会越来越慢，最终崩溃。所以要想深入学习node，控制内存的使用是至关重要的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-26T15:56:40.000Z">
+<meta property="og:updated_time" content="2019-03-04T12:48:54.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈JS内存">
-<meta name="twitter:description" content="序言与前端不同，后端是直面服务器的，所以对性能的要求更高，对内存有更高的要求。如果存在内存泄漏，跟随着时间的流逝，内存泄漏越来越多，程序运行也会越来越慢，最终崩溃。所以要想深入学习node，控制内存的使用是至关重要的。 内存管理概述C语言有低级的原生内存管理原语，像malloc()和free()，开发人员使用这些原语可以显式分配和释放内存。 JavaScript在创建变量时会自动分配内存，并在这些">
+<meta name="twitter:description" content="序言与前端不同，后端是直面服务器的，所以对性能的要求更高，对内存有更高的要求。如果存在内存泄漏，跟随着时间的流逝，内存泄漏越来越多，程序运行也会越来越慢，最终崩溃。所以要想深入学习node，控制内存的使用是至关重要的。">
   
     <link rel="alternative" href="/atom.xml" title="覃永利的技术博客" type="application/atom+xml">
   
@@ -324,6 +324,7 @@
       
           
         <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>与前端不同，后端是直面服务器的，所以对性能的要求更高，对内存有更高的要求。如果存在内存泄漏，跟随着时间的流逝，内存泄漏越来越多，程序运行也会越来越慢，最终崩溃。所以要想深入学习node，控制内存的使用是至关重要的。</p>
+<a id="more"></a>
 <h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>C语言有低级的原生内存管理原语，像malloc()和free()，开发人员使用这些原语可以显式分配和释放内存。</p>
 <p>JavaScript在创建变量时会自动分配内存，并在这些变量不被使用时自动释放内存－－－垃圾回收机制。</p>
 <h3 id="内存生命周期"><a href="#内存生命周期" class="headerlink" title="内存生命周期"></a>内存生命周期</h3><p>Allocate =&gt; Use Memory =&gt; Release memory</p>
@@ -350,7 +351,7 @@
         <p><span>本文标题:</span><a href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2017年10月26日 - 19时48分</p>
-        <p><span>最后更新:</span>2017年11月26日 - 23时56分</p>
+        <p><span>最后更新:</span>2019年03月04日 - 20时48分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/10/26/浅谈JS内存/" title="浅谈JS内存">http://qinyongli.cn/2017/10/26/浅谈JS内存/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/26/浅谈JS内存/　　作者: 覃永利" title></span>
