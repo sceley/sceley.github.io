@@ -11,17 +11,17 @@
   
   <title>写一个Promise | 覃永利的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="序言JS和Node.js通过事件驱动、事件循环实现了异步编程，提高了资源利用率，提高了性能，但也因此带来了异步编程的难点。为了解决异步编程带来的难点，社区出了好几个解决方案，事件发布/订阅模式、Promise/Deferred模式、流程控制库，最终Promise成为了ES6中一个解决异步编程难点的API，再配合ES2017中Async/Await真正解决异步编程的难点。 介绍PromiseProm">
+  <meta name="description" content="序言JS和Node.js通过事件驱动、事件循环实现了异步编程，提高了资源利用率，提高了性能，但也因此带来了异步编程的难点。为了解决异步编程带来的难点，社区出了好几个解决方案，事件发布/订阅模式、Promise/Deferred模式、流程控制库，最终Promise成为了ES6中一个解决异步编程难点的API，再配合ES2017中Async/Await真正解决异步编程的难点。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写一个Promise">
 <meta property="og:url" content="http://qinyongli.cn/2019/03/05/写一个Promise/index.html">
 <meta property="og:site_name" content="覃永利的技术博客">
-<meta property="og:description" content="序言JS和Node.js通过事件驱动、事件循环实现了异步编程，提高了资源利用率，提高了性能，但也因此带来了异步编程的难点。为了解决异步编程带来的难点，社区出了好几个解决方案，事件发布/订阅模式、Promise/Deferred模式、流程控制库，最终Promise成为了ES6中一个解决异步编程难点的API，再配合ES2017中Async/Await真正解决异步编程的难点。 介绍PromiseProm">
+<meta property="og:description" content="序言JS和Node.js通过事件驱动、事件循环实现了异步编程，提高了资源利用率，提高了性能，但也因此带来了异步编程的难点。为了解决异步编程带来的难点，社区出了好几个解决方案，事件发布/订阅模式、Promise/Deferred模式、流程控制库，最终Promise成为了ES6中一个解决异步编程难点的API，再配合ES2017中Async/Await真正解决异步编程的难点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-05T14:09:08.358Z">
+<meta property="og:updated_time" content="2019-03-05T14:11:44.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写一个Promise">
-<meta name="twitter:description" content="序言JS和Node.js通过事件驱动、事件循环实现了异步编程，提高了资源利用率，提高了性能，但也因此带来了异步编程的难点。为了解决异步编程带来的难点，社区出了好几个解决方案，事件发布/订阅模式、Promise/Deferred模式、流程控制库，最终Promise成为了ES6中一个解决异步编程难点的API，再配合ES2017中Async/Await真正解决异步编程的难点。 介绍PromiseProm">
+<meta name="twitter:description" content="序言JS和Node.js通过事件驱动、事件循环实现了异步编程，提高了资源利用率，提高了性能，但也因此带来了异步编程的难点。为了解决异步编程带来的难点，社区出了好几个解决方案，事件发布/订阅模式、Promise/Deferred模式、流程控制库，最终Promise成为了ES6中一个解决异步编程难点的API，再配合ES2017中Async/Await真正解决异步编程的难点。">
   
     <link rel="alternative" href="/atom.xml" title="覃永利的技术博客" type="application/atom+xml">
   
@@ -319,6 +319,7 @@
       
           
         <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>JS和Node.js通过事件驱动、事件循环实现了异步编程，提高了资源利用率，提高了性能，但也因此带来了异步编程的难点。为了解决异步编程带来的难点，社区出了好几个解决方案，事件发布/订阅模式、Promise/Deferred模式、流程控制库，最终Promise成为了ES6中一个解决异步编程难点的API，再配合ES2017中Async/Await真正解决异步编程的难点。</p>
+<a id="more"></a>
 <h2 id="介绍Promise"><a href="#介绍Promise" class="headerlink" title="介绍Promise"></a>介绍Promise</h2><h3 id="Promise的含义"><a href="#Promise的含义" class="headerlink" title="Promise的含义"></a>Promise的含义</h3><p>所谓Promise，就是一个对象，用来传递异步操作的消息。它代表了某个未来才会知道结果的事件（通常是一个异步操作），并且这个事件提供统一的API，可供进一步处理。</p>
 <p>Promise有两个特点:</p>
 <ol>
@@ -338,7 +339,7 @@
         <p><span>本文标题:</span><a href="/2019/03/05/写一个Promise/">写一个Promise</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2019年03月05日 - 19时51分</p>
-        <p><span>最后更新:</span>2019年03月05日 - 22时09分</p>
+        <p><span>最后更新:</span>2019年03月05日 - 22时11分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/05/写一个Promise/" title="写一个Promise">http://qinyongli.cn/2019/03/05/写一个Promise/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2019/03/05/写一个Promise/　　作者: 覃永利" title></span>
