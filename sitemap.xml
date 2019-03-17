@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://qinyongli.cn/2019/03/05/%E5%86%99%E4%B8%80%E4%B8%AAPromise/</loc>
+    
+    <lastmod>2019-03-17T15:25:03.963Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://qinyongli.cn/2019/03/04/ECMAScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
     
-    <lastmod>2019-03-15T17:28:02.422Z</lastmod>
+    <lastmod>2019-03-16T04:42:56.712Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://qinyongli.cn/2019/03/08/%E6%B5%85%E8%B0%88JavaScript%E7%9A%84%E9%97%AD%E5%8C%85/</loc>
     
     <lastmod>2019-03-08T08:01:45.493Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://qinyongli.cn/2019/03/05/%E5%86%99%E4%B8%80%E4%B8%AAPromise/</loc>
-    
-    <lastmod>2019-03-05T14:11:44.388Z</lastmod>
     
   </url>
   
