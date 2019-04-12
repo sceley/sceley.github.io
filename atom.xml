@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qinyongli.cn/"/>
-  <updated>2019-04-04T04:08:04.306Z</updated>
+  <updated>2019-04-12T04:15:01.775Z</updated>
   <id>http://qinyongli.cn/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS严格模式</title>
+    <link href="http://qinyongli.cn/2019/04/12/JS%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://qinyongli.cn/2019/04/12/JS严格模式/</id>
+    <published>2019-04-12T03:57:55.000Z</published>
+    <updated>2019-04-12T04:15:01.775Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>除了正常运行模式，ECMAscript 5添加了第二种运行模式：”严格模式”（strict mode）。顾名思义，这种模式使得Javascript在更严格的条件下运行。</p><a id="more"></a><h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><ul><li>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行</li><li>消除代码运行的一些不安全之处，保证代码运行的安全；</li><li>提高编译器效率，增加运行速度；</li><li>为未来新版本的Javascript做好铺垫。</li></ul><h2 id="进入标志"><a href="#进入标志" class="headerlink" title="进入标志"></a>进入标志</h2><p>进入”严格模式”的标志，是下面这行语句:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br></pre></td></tr></table></figure><h2 id="如何调用"><a href="#如何调用" class="headerlink" title="如何调用"></a>如何调用</h2><p>“严格模式”有两种调用方法，适用于不同的场合。</p><h3 id="针对整个脚本文件"><a href="#针对整个脚本文件" class="headerlink" title="针对整个脚本文件"></a>针对整个脚本文件</h3><p>将”use strict”放在脚本文件的第一行，则整个脚本都将以”严格模式”运行。如果这行语句不在第一行，则无效，整个脚本以”正常模式”运行。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="meta">　　"use strict"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"这是严格模式。"</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><h3 id="针对单个函数"><a href="#针对单个函数" class="headerlink" title="针对单个函数"></a>针对单个函数</h3><p>将”use strict”放在函数体的第一行，则整个函数以”严格模式”运行。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strict</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">　　"use strict"</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="string">"这是严格模式。"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><p>ES6的模块自动采用严格模式，不管有没有在模块头部加上”use strict”。</p><h2 id="严格模式下的限制"><a href="#严格模式下的限制" class="headerlink" title="严格模式下的限制"></a>严格模式下的限制</h2><ul><li>变量必须声明后再使用。</li><li>函数的参数不能有同名属性，否则报错。</li><li>不能使用with语句。</li><li>不能对只读属性赋值，否则报错。</li><li>不能使用前缀0表示八进制，否则报错。</li><li>不能删除不可能删除的属性，否则报错。</li><li>不能删除变量(delete prop)，会报错，只能删除属性(delete global[prop])。</li><li>eval不会在其外层作用域引入变量。</li><li>eval和arguments不能被重新赋值。</li><li>arguments不会自动反映函数参数的变化。</li><li>不能使用arguments.callee。</li><li>不能使用arguments.caller。</li><li>禁止this指向全局对象。</li><li>不能使用fn.caller和fn.arguments获取函数调用的堆栈。</li><li>增加了保留字(比如protected、static和interface)。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h1&gt;&lt;p&gt;除了正常运行模式，ECMAscript 5添加了第二种运行模式：”严格模式”（strict mode）。顾名思义，这种模式使得Javascript在更严格的条件下运行。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://qinyongli.cn/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>css布局相关</title>
