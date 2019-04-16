@@ -61,13 +61,13 @@
     <link href="http://qinyongli.cn/2019/03/17/%E6%B5%85%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/"/>
     <id>http://qinyongli.cn/2019/03/17/浅谈浏览器缓存机制/</id>
     <published>2019-03-17T15:26:44.000Z</published>
-    <updated>2019-03-18T02:08:10.759Z</updated>
+    <updated>2019-04-16T04:45:03.472Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>缓存对于前端性能优化来说是个很重要的点，良好的缓存策略可以降低资源的重复加载提高网页的整体加载速度。</p><a id="more"></a><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>通常浏览器缓存策略分为两种：强缓存和协商缓存。</p><p>几条关于缓存的规则：</p><ul><li>添加Expires或Cache-Control到报文头中</li><li>配置ETags</li><li>让Ajax可缓存</li></ul><p>通常来说，POST、DELETE、PUT这类行为性的请求操作一般不做任何缓存，大多数缓存只应用在GET请求中。</p><h3 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h3><h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3>]]></content>
+    <content type="html"><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>缓存对于前端性能优化来说是个很重要的点，良好的缓存策略可以降低资源的重复加载提高网页的整体加载速度。</p><a id="more"></a><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>通常浏览器缓存策略分为两种：强缓存和协商缓存。</p><p>几条关于缓存的规则：</p><ul><li>添加Expires或Cache-Control到报文头中</li><li>配置ETags</li><li>让Ajax可缓存</li></ul><p>通常来说，POST、DELETE、PUT这类行为性的请求操作一般不做任何缓存，大多数缓存只应用在GET请求中。</p><h3 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h3><h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h1&gt;&lt;p&gt;缓存对于前端性能优化来说是个很重要的点，良好的缓存策略可以降低资源的重复加载提高网页的整体加载速度。&lt;/p&gt;
+      &lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;p&gt;缓存对于前端性能优化来说是个很重要的点，良好的缓存策略可以降低资源的重复加载提高网页的整体加载速度。&lt;/p&gt;
     
     </summary>
     
