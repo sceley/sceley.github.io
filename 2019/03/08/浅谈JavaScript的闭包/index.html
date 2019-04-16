@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="覃永利的技术博客">
 <meta property="og:description" content="序言在JS中闭包是一个很重要的概念，很多地方都运用到了闭包，所以有必要深入理解一下闭包。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T04:39:20.918Z">
+<meta property="og:updated_time" content="2019-04-16T04:45:41.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈JavaScript的闭包">
 <meta name="twitter:description" content="序言在JS中闭包是一个很重要的概念，很多地方都运用到了闭包，所以有必要深入理解一下闭包。">
@@ -323,7 +323,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>在JS中闭包是一个很重要的概念，很多地方都运用到了闭包，所以有必要深入理解一下闭包。</p>
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在JS中闭包是一个很重要的概念，很多地方都运用到了闭包，所以有必要深入理解一下闭包。</p>
 <a id="more"></a>
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式，就是在一个函数内部创建另一个函数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCompareFn</span> (<span class="params">propertyName</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">object1, object2</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> value1 = object1[propertyName];</span><br><span class="line">		<span class="keyword">var</span> value2 = object2[propertyName];</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> (value1 &lt; value2) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (value1 &gt; value2) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -339,7 +339,7 @@
         <p><span>本文标题:</span><a href="/2019/03/08/浅谈JavaScript的闭包/">浅谈JavaScript的闭包</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2019年03月08日 - 14时12分</p>
-        <p><span>最后更新:</span>2019年04月16日 - 12时39分</p>
+        <p><span>最后更新:</span>2019年04月16日 - 12时45分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/08/浅谈JavaScript的闭包/" title="浅谈JavaScript的闭包">http://qinyongli.cn/2019/03/08/浅谈JavaScript的闭包/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2019/03/08/浅谈JavaScript的闭包/　　作者: 覃永利" title></span>
@@ -376,7 +376,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">2.</span> <span class="toc-text">基本概念</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
