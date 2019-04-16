@@ -12,13 +12,14 @@
   <title>ECMAScript 面向对象 | 覃永利的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="序言很多编程语言都有面向对象的编程，ECMAScript同样也是如此。ECMAScript语言的传统方法是通过构造函数定义并生成新对象，自从ES6出来之后，ES6提供了更接近传统语言的写法，引入了Class(类)这个概念作为对象的模板。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ECMAScript 面向对象">
 <meta property="og:url" content="http://qinyongli.cn/2019/03/04/ECMAScript-面向对象/index.html">
 <meta property="og:site_name" content="覃永利的技术博客">
 <meta property="og:description" content="序言很多编程语言都有面向对象的编程，ECMAScript同样也是如此。ECMAScript语言的传统方法是通过构造函数定义并生成新对象，自从ES6出来之后，ES6提供了更接近传统语言的写法，引入了Class(类)这个概念作为对象的模板。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-16T04:42:56.712Z">
+<meta property="og:updated_time" content="2019-04-16T04:37:13.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECMAScript 面向对象">
 <meta name="twitter:description" content="序言很多编程语言都有面向对象的编程，ECMAScript同样也是如此。ECMAScript语言的传统方法是通过构造函数定义并生成新对象，自从ES6出来之后，ES6提供了更接近传统语言的写法，引入了Class(类)这个概念作为对象的模板。">
@@ -207,7 +208,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Architecture/" style="font-size: 10px;">Architecture</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/C语言多进程/" style="font-size: 10px;">C语言多进程</a> <a href="/tags/HTTP/" style="font-size: 20px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 20px;">NODEJS</a> <a href="/tags/Socket编程/" style="font-size: 10px;">Socket编程</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+                        <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/C语言/" style="font-size: 13.33px;">C语言</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 16.67px;">NODEJS</a> <a href="/tags/Web通讯/" style="font-size: 10px;">Web通讯</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/框架模式/" style="font-size: 10px;">框架模式</a>
                     </div>
                 </section>
                 
@@ -311,6 +312,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -318,7 +323,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>很多编程语言都有面向对象的编程，ECMAScript同样也是如此。ECMAScript语言的传统方法是通过构造函数定义并生成新对象，自从ES6出来之后，ES6提供了更接近传统语言的写法，引入了Class(类)这个概念作为对象的模板。</p>
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>很多编程语言都有面向对象的编程，ECMAScript同样也是如此。ECMAScript语言的传统方法是通过构造函数定义并生成新对象，自从ES6出来之后，ES6提供了更接近传统语言的写法，引入了Class(类)这个概念作为对象的模板。</p>
 <a id="more"></a>
 <h2 id="ES5的面相对象"><a href="#ES5的面相对象" class="headerlink" title="ES5的面相对象"></a>ES5的面相对象</h2><h3 id="理解对象"><a href="#理解对象" class="headerlink" title="理解对象"></a>理解对象</h3><h4 id="属性类型"><a href="#属性类型" class="headerlink" title="属性类型"></a>属性类型</h4><p>ECMAScript中有两种属性：数据属性和访问器属性。</p>
 <h5 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h5><p>数据属性包含一个数据值的位置。在这个位置可以读取和写入值。数据属性有4个描述其行为的特性。</p>
@@ -392,7 +397,7 @@
         <p><span>本文标题:</span><a href="/2019/03/04/ECMAScript-面向对象/">ECMAScript 面向对象</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
         <p><span>发布时间:</span>2019年03月04日 - 15时41分</p>
-        <p><span>最后更新:</span>2019年03月16日 - 12时42分</p>
+        <p><span>最后更新:</span>2019年04月16日 - 12时37分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/04/ECMAScript-面向对象/" title="ECMAScript 面向对象">http://qinyongli.cn/2019/03/04/ECMAScript-面向对象/</a>
             <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2019/03/04/ECMAScript-面向对象/　　作者: 覃永利" title></span>
@@ -429,7 +434,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES5的面相对象"><span class="toc-number">1.1.</span> <span class="toc-text">ES5的面相对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#理解对象"><span class="toc-number">1.1.1.</span> <span class="toc-text">理解对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#属性类型"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">属性类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#数据属性"><span class="toc-number">1.1.1.1.1.</span> <span class="toc-text">数据属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#访问器属性"><span class="toc-number">1.1.1.1.2.</span> <span class="toc-text">访问器属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象"><span class="toc-number">1.1.2.</span> <span class="toc-text">创建对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#工厂模式"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造函数模式"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">构造函数模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原型模式"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合使用构造函数模式和原型模式"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">组合使用构造函数模式和原型模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">1.1.3.</span> <span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#组合继承"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">组合继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#寄生组合继承"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">寄生组合继承</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6类的面向对象"><span class="toc-number">1.2.</span> <span class="toc-text">ES6类的面向对象</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES5的面相对象"><span class="toc-number">2.</span> <span class="toc-text">ES5的面相对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#理解对象"><span class="toc-number">2.1.</span> <span class="toc-text">理解对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#属性类型"><span class="toc-number">2.1.1.</span> <span class="toc-text">属性类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#数据属性"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">数据属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#访问器属性"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">访问器属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象"><span class="toc-number">2.2.</span> <span class="toc-text">创建对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#工厂模式"><span class="toc-number">2.2.1.</span> <span class="toc-text">工厂模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造函数模式"><span class="toc-number">2.2.2.</span> <span class="toc-text">构造函数模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原型模式"><span class="toc-number">2.2.3.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合使用构造函数模式和原型模式"><span class="toc-number">2.2.4.</span> <span class="toc-text">组合使用构造函数模式和原型模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">2.3.</span> <span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#组合继承"><span class="toc-number">2.3.1.</span> <span class="toc-text">组合继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#寄生组合继承"><span class="toc-number">2.3.2.</span> <span class="toc-text">寄生组合继承</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6类的面向对象"><span class="toc-number">3.</span> <span class="toc-text">ES6类的面向对象</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
