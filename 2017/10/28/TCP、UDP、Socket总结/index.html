@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
-  <meta name="msvalidate.01" content="AE604ACCCD787E5130F0B75BDC9F0231">
-  <meta name="360-site-verification" content="bd04526f64d2b1b11c8e05a60e0c0256">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  <meta name="msvalidate.01" content="AE604ACCCD787E5130F0B75BDC9F0231" />
+  <meta name="360-site-verification" content="bd04526f64d2b1b11c8e05a60e0c0256" />
   
   
   
@@ -12,20 +12,20 @@
   <title>TCP、UDP、Socket总结 | 覃永利的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="序言本篇将开启我对各种协议的理解总结。">
-<meta name="keywords" content="HTTP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP、UDP、Socket总结">
-<meta property="og:url" content="http://qinyongli.cn/2017/10/28/TCP、UDP、Socket总结/index.html">
+<meta property="og:url" content="http://qinyongli.cn/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="覃永利的技术博客">
 <meta property="og:description" content="序言本篇将开启我对各种协议的理解总结。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http://qinyongli.cn/img/socket.jpg">
 <meta property="og:image" content="http://qinyongli.cn/img/socket.png">
 <meta property="og:image" content="https://p1.ssl.qhmsg.com/dr/220__/t013b598635950ce8ea.png">
-<meta property="og:updated_time" content="2017-11-17T06:07:18.000Z">
+<meta property="article:published_time" content="2017-10-28T14:56:46.000Z">
+<meta property="article:modified_time" content="2017-11-17T06:07:18.000Z">
+<meta property="article:author" content="覃永利">
+<meta property="article:tag" content="HTTP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP、UDP、Socket总结">
-<meta name="twitter:description" content="序言本篇将开启我对各种协议的理解总结。">
 <meta name="twitter:image" content="http://qinyongli.cn/img/socket.jpg">
   
     <link rel="alternative" href="/atom.xml" title="覃永利的技术博客" type="application/atom+xml">
@@ -34,9 +34,13 @@
     <link rel="icon" href="/img/apple-touch-icon.png">
   
   
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
-  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
@@ -45,7 +49,7 @@
   
   <!-- 加载特效 -->
     <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
   <script>
       var yiliaConfig = {
           fancybox: true,
@@ -72,7 +76,7 @@
       s.parentNode.insertBefore(bp, s);
   })();
   </script>
-</head></html>
+<meta name="generator" content="Hexo 5.3.0"></head>
 <body>
   <div id="container">
     <div class="left-col">
@@ -86,10 +90,8 @@
             
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">覃永利</a></h1>
+          <h1 class="header-author"><a href="/"></a></h1>
         </hgroup>
-        
-        <p class="header-subtitle">Goals determine what I going to be</p>
         
         
             <form>
@@ -189,22 +191,22 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/archives/">所有文章</a></li>
+                            <li><a  href="/archives/">所有文章</a></li>
                         
-                            <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                            <li><a  href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
                         
-                            <li><a href="/categories/digital">玩转数码</a></li>
+                            <li><a  href="/categories/digital">玩转数码</a></li>
                         
-                            <li><a href="/categories/cognition">认知提升</a></li>
+                            <li><a  href="/categories/cognition">认知提升</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
+                            <li><a  href="/about/">关于我</a></li>
                         
                         </ul>
                     </nav>
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fl github" target="_blank" href="https://github.com/sceley" title="github">github</a>
+                                <a class="fl github"  target="_blank" href="https://github.com/sceley" title="github">github</a>
                             
                         </ul>
                     </nav>
@@ -212,7 +214,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/C语言/" style="font-size: 13.33px;">C语言</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 16.67px;">NODEJS</a> <a href="/tags/Web通讯/" style="font-size: 10px;">Web通讯</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/框架模式/" style="font-size: 10px;">框架模式</a>
+                        <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 13.33px;">C语言</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 16.67px;">NODEJS</a> <a href="/tags/Web%E9%80%9A%E8%AE%AF/" style="font-size: 10px;">Web通讯</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">框架模式</a> <a href="/tags/%E7%88%B1%E6%83%85/" style="font-size: 10px;">爱情</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a>
                     </div>
                 </section>
                 
@@ -220,11 +222,11 @@
                 <section class="switch-part switch-part3">
                     <div id="js-friends">
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
                     
                     </div>
                 </section>
@@ -246,7 +248,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">覃永利</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -256,17 +258,15 @@
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">覃永利</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
             </hgroup>
-            
-            <p class="header-subtitle">Goals determine what I going to be</p>
             
             <nav class="header-menu">
                 <ul>
                 
                     <li><a href="/archives/">所有文章</a></li>
                 
-                    <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                    <li><a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
                 
                     <li><a href="/categories/digital">玩转数码</a></li>
                 
@@ -290,7 +290,7 @@
       <div class="body-wrap"><article id="post-TCP、UDP、Socket总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/10/28/TCP、UDP、Socket总结/" class="article-date">
+      <a  href="/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/" class="article-date">
       <time datetime="2017-10-28T14:56:46.000Z" itemprop="datePublished">2017-10-28</time>
 </a>
 
@@ -298,7 +298,7 @@
   
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -317,7 +317,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -329,22 +329,23 @@
           
         <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>本篇将开启我对各种协议的理解总结。</p>
 <a id="more"></a>
+
 <h2 id="UDP与TCP与Socket"><a href="#UDP与TCP与Socket" class="headerlink" title="UDP与TCP与Socket"></a>UDP与TCP与Socket</h2><h3 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket。</p>
 <p>Socket的英文原义是”孔”或”插座”。作为BSD UNIX的进程通信机制，取后一种意思。通常也称作”套接字”，用于描述IP地址和端口，是一个通信链的句柄，可以用来实现不同虚拟机或不同计算机之间的通信。</p>
 <p>socket是在应用层和传输层之间的一个抽象层，它把TCP/IP层复杂的操作抽象为几个简单的接口供应用层调用已实现进程在网络中通信。</p>
-<p><img src="/img/socket.jpg" alt></p>
+<p><img src="/img/socket.jpg"></p>
 <h4 id="Server-Client模型"><a href="#Server-Client模型" class="headerlink" title="Server-Client模型"></a>Server-Client模型</h4><p>服务器，使用ServerSocket监听指定的端口，端口可以随意指定（由于1024以下的端口通常属于保留端口，在一些操作系统中不可以随意使用，所以建议使用大于1024的端口），等待客户连接请求，客户连接后，会话产生；在完成会话后，关闭连接。</p>
 <p>客户端，使用Socket对网络上某一个服务器的某一个端口发出连接请求，一旦连接成功，打开会话；会话完成后，关闭Socket。客户端不需要指定打开的端口，通常临时的、动态的分配一个1024以上的端口。</p>
 <p>Socket接口是TCP/IP网络的API，Socket接口定义了许多函数或例程，程序员可以用它们来开发TCP/IP网络上的应用程序。要学Internet上的TCP/IP网络编程，必须理解Socket接口。Socket接口设计者最先是将接口放在Unix操作系统里面的。如果了解Unix系统的输入和输出的话，就很容易了解Socket了。网络的Socket数据传输是一种特殊的I/O，Socket也是一种文件描述符。Socket也具有一个类似于打开文件的函数调用Socket（），该函数返回一个整型的Socket描述符，随后的连接建立、数据传输等操作都是通过该Socket实现的。</p>
-<p><img src="/img/socket.png" alt></p>
+<p><img src="/img/socket.png"></p>
 <h4 id="常用的套接字类型2中折叠常用的Socket类型"><a href="#常用的套接字类型2中折叠常用的Socket类型" class="headerlink" title="常用的套接字类型2中折叠常用的Socket类型"></a>常用的套接字类型2中折叠常用的Socket类型</h4><ul>
 <li>流式套接字（SOCK_STREAM）：面向连接的Socket，针对于面向连接的TCP服务应用。</li>
 <li>数据报式套接字（SOCK_DGRAM）：无连接的Socket，对应于无连接的UDP服务应用。</li>
 </ul>
 <h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>TCP服务在网络应用中十分常见，目前大多数的应用都是基于TCP搭建而成。典型的HTTP、SMTP、IMAP等协议。</p>
 <p>TCP(传输控制协议)是面向连接的、传输可靠（保证数据正确性且保证数据顺序）、用于传输大量数据（流模式）、速度快，建立连接需要开销多（时间、系统资源）。</p>
-<h4 id="TCP服务器端"><a href="#TCP服务器端" class="headerlink" title="TCP服务器端"></a>TCP服务器端</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">const</span> server = net.createServer(<span class="function"><span class="params">socket</span> =&gt;</span> &#123;</span><br><span class="line">    socket.on(<span class="string">'data'</span>, data =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`接受到客户端发来的数据: <span class="subst">$&#123;data&#125;</span>`</span>);</span><br><span class="line">        socket.write(<span class="string">'你好'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    socket.on(<span class="string">'end'</span>, () =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'断开链接'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    socket.write(<span class="string">'欢迎光临nodejs应用\n'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8124</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'server bound'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="TCP客户端"><a href="#TCP客户端" class="headerlink" title="TCP客户端"></a>TCP客户端</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">const</span> client = net.connect(&#123;<span class="attr">port</span>: <span class="number">8124</span>&#125;, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'client connected'</span>);</span><br><span class="line">    client.write(<span class="string">'Hello World!'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">client.on(<span class="string">'data'</span>, data =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString());</span><br><span class="line">    client.end();</span><br><span class="line">&#125;);</span><br><span class="line">client.on(<span class="string">'end'</span>,() =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'client disconnected'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="TCP服务器端"><a href="#TCP服务器端" class="headerlink" title="TCP服务器端"></a>TCP服务器端</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">&#x27;net&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> server = net.createServer(<span class="function"><span class="params">socket</span> =&gt;</span> &#123;</span><br><span class="line">    socket.on(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`接受到客户端发来的数据: <span class="subst">$&#123;data&#125;</span>`</span>);</span><br><span class="line">        socket.write(<span class="string">&#x27;你好&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    socket.on(<span class="string">&#x27;end&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;断开链接&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    socket.write(<span class="string">&#x27;欢迎光临nodejs应用\n&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">8124</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;server bound&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="TCP客户端"><a href="#TCP客户端" class="headerlink" title="TCP客户端"></a>TCP客户端</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">&#x27;net&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> client = net.connect(&#123;<span class="attr">port</span>: <span class="number">8124</span>&#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;client connected&#x27;</span>);</span><br><span class="line">    client.write(<span class="string">&#x27;Hello World!&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">client.on(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString());</span><br><span class="line">    client.end();</span><br><span class="line">&#125;);</span><br><span class="line">client.on(<span class="string">&#x27;end&#x27;</span>,<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;client disconnected&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h4 id="TCP服务事件"><a href="#TCP服务事件" class="headerlink" title="TCP服务事件"></a>TCP服务事件</h4><h5 id="服务器事件"><a href="#服务器事件" class="headerlink" title="服务器事件"></a>服务器事件</h5><p>对于通过net.createServer()创建的服务器而言，它是一个EventEmiter实例，它的自定以事件有如下几种。</p>
 <ul>
 <li>listening: 在调用server.listen()绑定端口或Domain Socket后触发。</li>
@@ -361,19 +362,19 @@
 <li>error: 当异常发生时，触发该事件。</li>
 <li>timeout: 当一定事件后连接不再活跃时，该事件将会被触发，通知用户当前该连接已经被闲置。</li>
 </ul>
-<p>另外，由于TCP套接字是可读可写的Stream对象，可以利用pipe()方法巧妙地实现管道操作，如下代码实现了一个echo服务器:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">const</span> server = net.createServer(<span class="function"><span class="params">socket</span> =&gt;</span> &#123;</span><br><span class="line">    socket.write(<span class="string">'Echo server \r\n'</span>);</span><br><span class="line">    socket.pipe(socket);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">1337</span>, <span class="string">'127.0.0.1'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>另外，由于TCP套接字是可读可写的Stream对象，可以利用pipe()方法巧妙地实现管道操作，如下代码实现了一个echo服务器:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> net = <span class="built_in">require</span>(<span class="string">&#x27;net&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> server = net.createServer(<span class="function"><span class="params">socket</span> =&gt;</span> &#123;</span><br><span class="line">    socket.write(<span class="string">&#x27;Echo server \r\n&#x27;</span>);</span><br><span class="line">    socket.pipe(socket);</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="number">1337</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p>UDP(用户数据包协议)面向非连接、传输不可靠、用于传输少量数据（数据报模式）、速度快，UDP传输的可靠性由应用层负责。</p>
 <p>UDP报头: </p>
-<p><img src="https://p1.ssl.qhmsg.com/dr/220__/t013b598635950ce8ea.png" alt></p>
+<p><img src="https://p1.ssl.qhmsg.com/dr/220__/t013b598635950ce8ea.png"></p>
 <p>TCP中连接一旦建立，所有的会话都基于连接完成，客户端如果要与另一个TCP服务通讯，需要另创建一个套接字来完成连接。但在UDP中，一个套接字可以与多个UDP服务通讯，它虽然提供面向事务的简单不可靠的信息传输服务，在网络差的情况下存在丢包严重的问题，但是由于它无须连接，资源消耗低，处理快速且灵活，所以常常应用在那种偶尔丢一两个数据包也不会产生重大影响的场景，如果音频、视频等。UDP目前应用很广泛，DNS服务器是基于它实现的。</p>
 <h4 id="创建UDP套接字"><a href="#创建UDP套接字" class="headerlink" title="创建UDP套接字"></a>创建UDP套接字</h4><p>创建UDP套接字十分简单，UDP套接字一旦创建，既可以作为客户端发送数据，也可以作为服务器端接受数据。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dgram = <span class="built_in">require</span>(<span class="string">'dgram'</span>);</span><br><span class="line"><span class="keyword">const</span> socket = dgram.createSocket(<span class="string">'udp4'</span>);</span><br></pre></td></tr></table></figure>
-<p>####　创建UDP服务器端</p>
-<p>若想让UDP套接字接收网络消息，只要调用dgram.bind(port, [address])方法对网卡和端口进行绑定即可。以下为一个完整的服务器端示例:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dgram = <span class="built_in">require</span>(<span class="string">'dgram'</span>);</span><br><span class="line"><span class="keyword">const</span> server = dgram.createSocket(<span class="string">'udp4'</span>);</span><br><span class="line">server.on(<span class="string">'message'</span>, (msg, rinfo) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`server got: <span class="subst">$&#123;msg&#125;</span> from <span class="subst">$&#123;rinfo.address&#125;</span>:<span class="subst">$&#123;rinfo.port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.on(<span class="string">'listening'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> address = server.address();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`server listening <span class="subst">$&#123;address.address&#125;</span>:<span class="subst">$&#123;address.port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.bind(<span class="number">41234</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dgram = <span class="built_in">require</span>(<span class="string">&#x27;dgram&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> socket = dgram.createSocket(<span class="string">&#x27;udp4&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="创建UDP服务器端"><a href="#创建UDP服务器端" class="headerlink" title="创建UDP服务器端"></a>创建UDP服务器端</h4><p>若想让UDP套接字接收网络消息，只要调用dgram.bind(port, [address])方法对网卡和端口进行绑定即可。以下为一个完整的服务器端示例:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dgram = <span class="built_in">require</span>(<span class="string">&#x27;dgram&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> server = dgram.createSocket(<span class="string">&#x27;udp4&#x27;</span>);</span><br><span class="line">server.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">msg, rinfo</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`server got: <span class="subst">$&#123;msg&#125;</span> from <span class="subst">$&#123;rinfo.address&#125;</span>:<span class="subst">$&#123;rinfo.port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.on(<span class="string">&#x27;listening&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> address = server.address();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`server listening <span class="subst">$&#123;address.address&#125;</span>:<span class="subst">$&#123;address.port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line">server.bind(<span class="number">41234</span>);</span><br></pre></td></tr></table></figure>
 <p>该套接字将接收所有网卡上41234端口上的消息。在绑定完成后，将触发listening事件。</p>
 <h4 id="创建UDP客户端"><a href="#创建UDP客户端" class="headerlink" title="创建UDP客户端"></a>创建UDP客户端</h4><p>创建一个客户端与服务器端进行对话，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dgram = <span class="built_in">require</span>(<span class="string">'dgram'</span>);</span><br><span class="line"><span class="keyword">const</span> message = <span class="keyword">new</span> Buffer(<span class="string">"深入浅出nodejs"</span>);</span><br><span class="line"><span class="keyword">const</span> client = dgram.createSocket(<span class="string">'udp4'</span>);</span><br><span class="line">client.send(message, <span class="number">0</span>, message.length, <span class="number">41234</span>, <span class="string">'localhost'</span>, (err, bytes) =&gt; &#123;</span><br><span class="line">    client.close();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dgram = <span class="built_in">require</span>(<span class="string">&#x27;dgram&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> message = <span class="keyword">new</span> Buffer(<span class="string">&quot;深入浅出nodejs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> client = dgram.createSocket(<span class="string">&#x27;udp4&#x27;</span>);</span><br><span class="line">client.send(message, <span class="number">0</span>, message.length, <span class="number">41234</span>, <span class="string">&#x27;localhost&#x27;</span>, <span class="function">(<span class="params">err, bytes</span>) =&gt;</span> &#123;</span><br><span class="line">    client.close();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>当套接字对象用在客户端时，可以调用send()方法发送消息到网络中。send()方法的参数如下:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socket.send(buf, offset, length, port, address, [callback]);</span><br></pre></td></tr></table></figure>
 <p>这些参数分别为要发送的Buffer、Buffer的偏移、Buffer的长度、目标端口、目标地址、发送完成后的回调。与TCP套接字的write相比,send()方法的参数列表相对复杂，但是它更灵活的地方在于可以随意发送数据到网络中的服务器端，而TCP如果要发送数据给另一个服务器端，则需要重新通过套接字构造新的连接。</p>
@@ -392,16 +393,16 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
+        <p><span>本文标题:</span><a  href="/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/">TCP、UDP、Socket总结</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2017年10月28日 - 22时56分</p>
         <p><span>最后更新:</span>2017年11月17日 - 14时07分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/28/TCP、UDP、Socket总结/" title="TCP、UDP、Socket总结">http://qinyongli.cn/2017/10/28/TCP、UDP、Socket总结/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/28/TCP、UDP、Socket总结/　　作者: 覃永利" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/" title="TCP、UDP、Socket总结">http://qinyongli.cn/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/　　作者: " title=""></span>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -409,7 +410,7 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/10/30/浅谈HTTP/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2017/10/30/%E6%B5%85%E8%B0%88HTTP/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -419,7 +420,7 @@
     </a>
   
   
-    <a href="/2017/10/28/JavaScript常用设计模式/" id="article-nav-older" class="article-nav-link-wrap">
+    <a  href="/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">JavaScript常用设计模式</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -432,7 +433,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP与TCP与Socket"><span class="toc-number">2.</span> <span class="toc-text">UDP与TCP与Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket"><span class="toc-number">2.1.</span> <span class="toc-text">Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-number">2.1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Server-Client模型"><span class="toc-number">2.1.2.</span> <span class="toc-text">Server-Client模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常用的套接字类型2中折叠常用的Socket类型"><span class="toc-number">2.1.3.</span> <span class="toc-text">常用的套接字类型2中折叠常用的Socket类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP"><span class="toc-number">2.2.</span> <span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP服务器端"><span class="toc-number">2.2.1.</span> <span class="toc-text">TCP服务器端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP客户端"><span class="toc-number">2.2.2.</span> <span class="toc-text">TCP客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP服务事件"><span class="toc-number">2.2.3.</span> <span class="toc-text">TCP服务事件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#服务器事件"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">服务器事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#连接事件"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">连接事件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP"><span class="toc-number">2.3.</span> <span class="toc-text">UDP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建UDP套接字"><span class="toc-number">2.3.1.</span> <span class="toc-text">创建UDP套接字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建UDP客户端"><span class="toc-number">2.3.2.</span> <span class="toc-text">创建UDP客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UDP套接字事件"><span class="toc-number">2.3.3.</span> <span class="toc-text">UDP套接字事件</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP%E4%B8%8ETCP%E4%B8%8ESocket"><span class="toc-number">2.</span> <span class="toc-text">UDP与TCP与Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket"><span class="toc-number">2.1.</span> <span class="toc-text">Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Server-Client%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">Server-Client模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%A5%97%E6%8E%A5%E5%AD%97%E7%B1%BB%E5%9E%8B2%E4%B8%AD%E6%8A%98%E5%8F%A0%E5%B8%B8%E7%94%A8%E7%9A%84Socket%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.3.</span> <span class="toc-text">常用的套接字类型2中折叠常用的Socket类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP"><span class="toc-number">2.2.</span> <span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="toc-number">2.2.1.</span> <span class="toc-text">TCP服务器端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.2.2.</span> <span class="toc-text">TCP客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP%E6%9C%8D%E5%8A%A1%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.2.3.</span> <span class="toc-text">TCP服务事件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">服务器事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">连接事件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP"><span class="toc-number">2.3.</span> <span class="toc-text">UDP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAUDP%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="toc-number">2.3.1.</span> <span class="toc-text">创建UDP套接字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAUDP%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="toc-number">2.3.2.</span> <span class="toc-text">创建UDP服务器端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAUDP%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.3.3.</span> <span class="toc-text">创建UDP客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UDP%E5%A5%97%E6%8E%A5%E5%AD%97%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.3.4.</span> <span class="toc-text">UDP套接字事件</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -442,8 +443,10 @@
         display: none;
     }
 </style>
-<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
 <script>
     var valueHide = "隐藏目录";
     var valueShow = "显示目录";
@@ -491,18 +494,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/10/30/浅谈HTTP/" title="上一篇: 浅谈HTTP">
+            <a  href="/2017/10/30/%E6%B5%85%E8%B0%88HTTP/" title="上一篇: 浅谈HTTP">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/10/28/JavaScript常用设计模式/" title="下一篇: JavaScript常用设计模式">
+            <a  href="/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="下一篇: JavaScript常用设计模式">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/16/探索webpack/">探索webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/nginx探索/">nginx探索</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/HTML5的新API/">HTML5的新API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/16/探索flex/">探索flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/JS严格模式/">JS严格模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/css布局相关/">css布局相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/17/浅谈浏览器缓存机制/">浅谈浏览器缓存机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/Script标签/">Script标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/浅谈JavaScript的闭包/">浅谈JavaScript的闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/07/JavaScript的变量声明/">JavaScript的变量声明</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/05/写一个Promise/">写一个Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/HTML5-通讯API/">HTML5 通讯API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/ECMAScript-面向对象/">ECMAScript 面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/C语言中的多进程/">C语言中的多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/基于c语言的socket编程/">基于c语言的socket编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/入门docker/">入门docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/数据库的那些事/">数据库的那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/浅谈Nodejs多进程/">浅谈Nodejs多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/浅谈数据上传/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/浅谈HTTPS、HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/数据结构之集合运算/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Cookie、Session、JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript常用设计模式/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/01/17/%E6%88%90%E9%95%BF/">成长</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/">进程、线程、协程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/16/%E6%8E%A2%E7%B4%A2webpack/">探索webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/nginx%E6%8E%A2%E7%B4%A2/">nginx探索</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/HTML5%E7%9A%84%E6%96%B0API/">HTML5的新API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/16/%E6%8E%A2%E7%B4%A2flex/">探索flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/JS%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">JS严格模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/css%E5%B8%83%E5%B1%80%E7%9B%B8%E5%85%B3/">css布局相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/17/%E6%B5%85%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/">浅谈浏览器缓存机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/Script%E6%A0%87%E7%AD%BE/">Script标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/%E6%B5%85%E8%B0%88JavaScript%E7%9A%84%E9%97%AD%E5%8C%85/">浅谈JavaScript的闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/07/JavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/">JavaScript的变量声明</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/05/%E5%86%99%E4%B8%80%E4%B8%AAPromise/">写一个Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/HTML5-%E9%80%9A%E8%AE%AFAPI/">HTML5 通讯API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/ECMAScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">ECMAScript 面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B/">C语言中的多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/%E5%9F%BA%E4%BA%8Ec%E8%AF%AD%E8%A8%80%E7%9A%84socket%E7%BC%96%E7%A8%8B/">基于c语言的socket编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/%E5%85%A5%E9%97%A8docker/">入门docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">数据库的那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/%E6%B5%85%E8%B0%88Nodejs%E5%A4%9A%E8%BF%9B%E7%A8%8B/">浅谈Nodejs多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/%E6%B5%85%E8%B0%88HTTPS%E3%80%81HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/%E6%B5%85%E8%B0%88Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/%E6%B5%85%E8%B0%88HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/%E6%B5%85%E8%B0%88curry%E5%8C%96/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/%E6%B5%85%E8%B0%88MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/%E6%96%B0%E7%9A%84hexo/">新的hexo</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
@@ -536,7 +539,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2019 覃永利
+                &copy; 2021 覃永利
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
@@ -545,8 +548,8 @@
         
             <div class="visit">
                 
-                    <span id="busuanzi_container_site_pv" style="display:none">
-                        <span id="site-visit">极客到访数: 
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -555,7 +558,7 @@
                     <span>, </span>
                 
                 
-                    <span id="busuanzi_container_page_pv" style="display:none">
+                    <span id="busuanzi_container_page_pv" style='display:none'>
                         <span id="page-visit">本页阅读量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
@@ -567,8 +570,12 @@
 </footer>
 
     </div>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 
     <script>
         $(document).ready(function() {

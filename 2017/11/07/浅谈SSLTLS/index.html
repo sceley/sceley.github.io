@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
-  <meta name="msvalidate.01" content="AE604ACCCD787E5130F0B75BDC9F0231">
-  <meta name="360-site-verification" content="bd04526f64d2b1b11c8e05a60e0c0256">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  <meta name="msvalidate.01" content="AE604ACCCD787E5130F0B75BDC9F0231" />
+  <meta name="360-site-verification" content="bd04526f64d2b1b11c8e05a60e0c0256" />
   
   
   
@@ -12,13 +12,12 @@
   <title>浅谈SSL/TLS | 覃永利的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="序言在网络中，数据在服务器端和客户端之间传递，由于是明文传递的内容，一旦网络被人监控，数据就可能一览无余地展现在中间的窃听者面前。为此我们需要将数据加密后再进行网络传输，这样即使数据被截获和窃听，窃听者也无法知道数据的真实内容是什么。但是对于我们的应用层协议而言，如HTTP、FTP等，我们仍然希望能够透明地处理地处理数据，而无须操心网络传输过程中的安全问题。SSL作为一种安全协议，它在传输层提供对">
-<meta name="keywords" content="HTTP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈SSL&#x2F;TLS">
-<meta property="og:url" content="http://qinyongli.cn/2017/11/07/浅谈SSLTLS/index.html">
+<meta property="og:url" content="http://qinyongli.cn/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/index.html">
 <meta property="og:site_name" content="覃永利的技术博客">
 <meta property="og:description" content="序言在网络中，数据在服务器端和客户端之间传递，由于是明文传递的内容，一旦网络被人监控，数据就可能一览无余地展现在中间的窃听者面前。为此我们需要将数据加密后再进行网络传输，这样即使数据被截获和窃听，窃听者也无法知道数据的真实内容是什么。但是对于我们的应用层协议而言，如HTTP、FTP等，我们仍然希望能够透明地处理地处理数据，而无须操心网络传输过程中的安全问题。SSL作为一种安全协议，它在传输层提供对">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http://qinyongli.cn/img/ssltls.png">
 <meta property="og:image" content="http://qinyongli.cn/img/attack.png">
 <meta property="og:image" content="http://qinyongli.cn/img/checkca.png">
@@ -31,10 +30,11 @@
 <meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092007.png">
 <meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092009.png">
 <meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014092011.png">
-<meta property="og:updated_time" content="2017-11-17T06:10:22.000Z">
+<meta property="article:published_time" content="2017-11-07T11:36:45.000Z">
+<meta property="article:modified_time" content="2017-11-17T06:10:22.000Z">
+<meta property="article:author" content="覃永利">
+<meta property="article:tag" content="HTTP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈SSL&#x2F;TLS">
-<meta name="twitter:description" content="序言在网络中，数据在服务器端和客户端之间传递，由于是明文传递的内容，一旦网络被人监控，数据就可能一览无余地展现在中间的窃听者面前。为此我们需要将数据加密后再进行网络传输，这样即使数据被截获和窃听，窃听者也无法知道数据的真实内容是什么。但是对于我们的应用层协议而言，如HTTP、FTP等，我们仍然希望能够透明地处理地处理数据，而无须操心网络传输过程中的安全问题。SSL作为一种安全协议，它在传输层提供对">
 <meta name="twitter:image" content="http://qinyongli.cn/img/ssltls.png">
   
     <link rel="alternative" href="/atom.xml" title="覃永利的技术博客" type="application/atom+xml">
@@ -43,9 +43,13 @@
     <link rel="icon" href="/img/apple-touch-icon.png">
   
   
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
-  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
@@ -54,7 +58,7 @@
   
   <!-- 加载特效 -->
     <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
   <script>
       var yiliaConfig = {
           fancybox: true,
@@ -81,7 +85,7 @@
       s.parentNode.insertBefore(bp, s);
   })();
   </script>
-</head></html>
+<meta name="generator" content="Hexo 5.3.0"></head>
 <body>
   <div id="container">
     <div class="left-col">
@@ -95,10 +99,8 @@
             
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">覃永利</a></h1>
+          <h1 class="header-author"><a href="/"></a></h1>
         </hgroup>
-        
-        <p class="header-subtitle">Goals determine what I going to be</p>
         
         
             <form>
@@ -198,22 +200,22 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/archives/">所有文章</a></li>
+                            <li><a  href="/archives/">所有文章</a></li>
                         
-                            <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                            <li><a  href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
                         
-                            <li><a href="/categories/digital">玩转数码</a></li>
+                            <li><a  href="/categories/digital">玩转数码</a></li>
                         
-                            <li><a href="/categories/cognition">认知提升</a></li>
+                            <li><a  href="/categories/cognition">认知提升</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
+                            <li><a  href="/about/">关于我</a></li>
                         
                         </ul>
                     </nav>
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fl github" target="_blank" href="https://github.com/sceley" title="github">github</a>
+                                <a class="fl github"  target="_blank" href="https://github.com/sceley" title="github">github</a>
                             
                         </ul>
                     </nav>
@@ -221,7 +223,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/C语言/" style="font-size: 13.33px;">C语言</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 16.67px;">NODEJS</a> <a href="/tags/Web通讯/" style="font-size: 10px;">Web通讯</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/框架模式/" style="font-size: 10px;">框架模式</a>
+                        <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 13.33px;">C语言</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 16.67px;">NODEJS</a> <a href="/tags/Web%E9%80%9A%E8%AE%AF/" style="font-size: 10px;">Web通讯</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">框架模式</a> <a href="/tags/%E7%88%B1%E6%83%85/" style="font-size: 10px;">爱情</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a>
                     </div>
                 </section>
                 
@@ -229,11 +231,11 @@
                 <section class="switch-part switch-part3">
                     <div id="js-friends">
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
                     
                     </div>
                 </section>
@@ -255,7 +257,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">覃永利</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -265,17 +267,15 @@
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">覃永利</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
             </hgroup>
-            
-            <p class="header-subtitle">Goals determine what I going to be</p>
             
             <nav class="header-menu">
                 <ul>
                 
                     <li><a href="/archives/">所有文章</a></li>
                 
-                    <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                    <li><a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
                 
                     <li><a href="/categories/digital">玩转数码</a></li>
                 
@@ -299,7 +299,7 @@
       <div class="body-wrap"><article id="post-浅谈SSLTLS" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/07/浅谈SSLTLS/" class="article-date">
+      <a  href="/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/" class="article-date">
       <time datetime="2017-11-07T11:36:45.000Z" itemprop="datePublished">2017-11-07</time>
 </a>
 
@@ -307,7 +307,7 @@
   
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -326,7 +326,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -338,22 +338,23 @@
           
         <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在网络中，数据在服务器端和客户端之间传递，由于是明文传递的内容，一旦网络被人监控，数据就可能一览无余地展现在中间的窃听者面前。为此我们需要将数据加密后再进行网络传输，这样即使数据被截获和窃听，窃听者也无法知道数据的真实内容是什么。但是对于我们的应用层协议而言，如HTTP、FTP等，我们仍然希望能够透明地处理地处理数据，而无须操心网络传输过程中的安全问题。SSL作为一种安全协议，它在传输层提供对网络连接加密的功能。对于应用层而言，它是透明的，数据在传递到应用层之前就已经完成了加密和解密的过程。最初的SSL应用层在Web上，被服务器端和浏览器端同时支持，随后IETF将其标准化，称TLS(Transport Layer Security，安全传输层协议)。</p>
 <a id="more"></a>
+
 <h2 id="TLS-SSL"><a href="#TLS-SSL" class="headerlink" title="TLS/SSL"></a>TLS/SSL</h2><h3 id="密匙"><a href="#密匙" class="headerlink" title="密匙"></a>密匙</h3><p>TLS/SSL是一个公钥/私钥的结构，它是一个非对称的结构，每个服务器端和客户端都有自己的公私钥。公钥用来加密要传输的数据，私钥用来解密接收到的数据。公钥和私钥是配对的，通过公钥加密的数据，只有通过私钥才能解密，所以在建立安全传输之前，客户端和服务器端之间需要互换公钥。客户端发送数据时要通过服务器端的公钥进行加密，服务器端发送数据时则需要客户端的公钥进行加密，如此才能完成加密解密的过程，如下图:</p>
-<p><img src="/img/ssltls.png" alt></p>
+<p><img src="/img/ssltls.png"></p>
 <p>公私钥的非对称加密虽然好，但是网络中依然可能存在窃听的情况，典型的例子是中间人攻击。客户端和服务器端在交换公钥的过程中，中间人对客户端扮演服务器端的角色，对服务器端扮演客户端的角色，因此客户端和服务器端几乎感受不到中间人的存在。为了解决这种问题，数据传输过程中还需要对得到的公钥进行认证，以确认得到的公钥是出自目标服务器。如果不能保证这种认证，中间人可能会将伪造的站点响应给用户，从而造成经济损失。中间人攻击示意图:</p>
-<p><img src="/img/attack.png" alt></p>
+<p><img src="/img/attack.png"></p>
 <p>为了解决这个问题，TLS/SSL引入了数字证书来进行认证。与直接用公钥不同，数据证书包含了服务器的名称和主机名、服务器的公钥、签名颁发机构的名称、来自签名颁发机构的签名。在连接建立前，会通过证书中的签名确认收到的公钥是来自目标服务器的，从而产生信任关系。</p>
 <h3 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h3><p>为了确保我们的数据安全，现在我们引入了一个第三方: CA(Certificate Authority, 数字证书认证中心)。CA的作用是为站点颁布证书，且这个证书中具有CA通过自己的公钥和私钥实现的签名。</p>
 <p>为了得到签名证书，服务器端需要通过自己的私钥生成CSR(Certificate Signing Request，证书签名请求)文件。CA机构将通过这个文件颁发属于该服务器端的签名证书，只要通过CA机构就能验证证书是否合法。</p>
 <p>通过CA机构颁发证书通常是一个繁琐的过程，需要付出一定的费力和精力。</p>
-<p><img src="/img/checkca.png" alt></p>
+<p><img src="/img/checkca.png"></p>
 <p>CA机构将证书颁发给服务器端后，证书在请求的过程中会被发送给客户端，客户端需要通过CA的证书验证真伪。如果是知名的CA机构，它们的证书一般预装在浏览器中。</p>
 <h3 id="SSL作用"><a href="#SSL作用" class="headerlink" title="SSL作用"></a>SSL作用</h3><ul>
 <li>所有信息都是加密传播，第三方无法窃听。</li>
 <li>具有校验机制，一旦被篡改，通信双方会立刻发现。</li>
 <li>配备身份证书，防止身份被冒充。</li>
 </ul>
-<h3 id="TLS-SSL协议的组成"><a href="#TLS-SSL协议的组成" class="headerlink" title="TLS/SSL协议的组成"></a>TLS/SSL协议的组成</h3><p><img src="/img/TLSdetail.jpg" alt></p>
+<h3 id="TLS-SSL协议的组成"><a href="#TLS-SSL协议的组成" class="headerlink" title="TLS/SSL协议的组成"></a>TLS/SSL协议的组成</h3><p><img src="/img/TLSdetail.jpg"></p>
 <p>TLS/SSL协议又可以分为两层，上层分为三个子协议: HandShake，ChangeCiperSpec，Alert，下层为Recode。</p>
 <h3 id="SSL基本的运行机制"><a href="#SSL基本的运行机制" class="headerlink" title="SSL基本的运行机制"></a>SSL基本的运行机制</h3><p>SSL/TLS协议的基本思路是采用公钥加密法，也就是说，客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密。</p>
 <h4 id="公钥加密计算量太大，如何减少耗用的时间？"><a href="#公钥加密计算量太大，如何减少耗用的时间？" class="headerlink" title="公钥加密计算量太大，如何减少耗用的时间？"></a>公钥加密计算量太大，如何减少耗用的时间？</h4><p>解决方法：每一次对话（session），客户端和服务器端都生成一个”对话密钥”（session key），用它来加密信息。由于”对话密钥”是对称加密，所以运算速度非常快，而服务器公钥只用于加密”对话密钥”本身，这样就减少了加密运算的消耗时间。</p>
@@ -374,15 +375,15 @@
 <li>TLS/SSL服务器这边也会响应一个“Server Hello”的消息包，里面包含了一串随机字符串（Server random）、服务器选择的加密方式、服务器的数字证书、以及session ID。</li>
 <li>TLS/SSL客户端先是核实了服务器的数字证书后，使用服务器提供的公钥加密一串预主密钥(premaster secret)发送给服务器。</li>
 <li>TLS/SSL服务器使用自己的密钥解密获取预主密钥(premaster key)。</li>
-<li>最后双方根据前面的协商好的加密方式，结合两串随机字符串(Client random, Server random)和预主密钥(premaster key)生成后续应用层通信使用的会话秘钥，至此完成了安全通道的建立，后续的消息通讯可以使用这个会话秘钥加密进行。<br><img src="http://image.beekka.com/blog/2014/bg2014092003.png" alt></li>
+<li>最后双方根据前面的协商好的加密方式，结合两串随机字符串(Client random, Server random)和预主密钥(premaster key)生成后续应用层通信使用的会话秘钥，至此完成了安全通道的建立，后续的消息通讯可以使用这个会话秘钥加密进行。<br><img src="http://image.beekka.com/blog/2014/bg2014092003.png"></li>
 </ol>
 <p>抓包看看，如下图:</p>
 <p>Client Hello包:</p>
-<p><img src="/img/SSLdetail.png" alt></p>
+<p><img src="/img/SSLdetail.png"></p>
 <p>Server Hello包:</p>
-<p><img src="/img/ServerHello.png" alt></p>
+<p><img src="/img/ServerHello.png"></p>
 <p>抓到的TLS包:</p>
-<p><img src="/img/packets.png" alt></p>
+<p><img src="/img/packets.png"></p>
 <h3 id="私钥的作用"><a href="#私钥的作用" class="headerlink" title="私钥的作用"></a>私钥的作用</h3><ul>
 <li>生成对话密钥一共需要三个随机数。</li>
 <li>握手之后的对话使用”对话密钥”加密（对称加密），服务器的公钥和私钥只用于加密和解密”对话密钥”（非对称加密），无其他作用。</li>
@@ -390,19 +391,19 @@
 </ul>
 <p>从上面第二点可知，整个对话过程中（握手阶段和其后的对话），服务器的公钥和私钥只需要用到一次。这就是CloudFlare能够提供Keyless服务的根本原因。</p>
 <p>某些客户（比如银行）想要使用外部CDN，加快自家网站的访问速度，但是出于安全考虑，不能把私钥交给CDN服务商。这时，完全可以把私钥留在自家服务器，只用来解密对话密钥，其他步骤都让CDN服务商去完成。</p>
-<p><img src="http://image.beekka.com/blog/2014/bg2014092005.png" alt></p>
+<p><img src="http://image.beekka.com/blog/2014/bg2014092005.png"></p>
 <p>上图中，银行的服务器只参与第四步，后面的对话都不再会用到私钥了。</p>
 <h3 id="DH算法的握手阶段"><a href="#DH算法的握手阶段" class="headerlink" title="DH算法的握手阶段"></a>DH算法的握手阶段</h3><p>整个握手阶段都不加密（也没法加密），都是明文的。因此，如果有人窃听通信，他可以知道双方选择的加密方法，以及三个随机数中的两个。整个通话的安全，只取决于第三个随机数（Premaster secret）能不能被破解。</p>
 <p>虽然理论上，只要服务器的公钥足够长（比如2048位），那么Premaster secret可以保证不被破解。但是为了足够安全，我们可以考虑把握手阶段的算法从默认的RSA算法，改为 Diffie-Hellman算法（简称DH算法）。</p>
 <p>采用DH算法后，Premaster secret不需要传递，双方只要交换各自的参数，就可以算出这个随机数。</p>
-<p><img src="http://image.beekka.com/blog/2014/bg2014092007.png" alt></p>
+<p><img src="http://image.beekka.com/blog/2014/bg2014092007.png"></p>
 <p>上图中，第三步和第四步由传递Premaster secret变成了传递DH算法所需的参数，然后双方各自算出Premaster secret。这样就提高了安全性。</p>
 <h3 id="session的恢复"><a href="#session的恢复" class="headerlink" title="session的恢复"></a>session的恢复</h3><p>握手阶段用来建立SSL连接。如果出于某种原因，对话中断，就需要重新握手。</p>
 <p>这时有两种方法可以恢复原来的session：一种叫做session ID，另一种叫做session ticket。</p>
 <p>session ID的思想很简单，就是每一次对话都有一个编号（session ID）。如果对话中断，下次重连的时候，只要客户端给出这个编号，且服务器有这个编号的记录，双方就可以重新使用已有的”对话密钥”，而不必重新生成一把。</p>
-<p><img src="http://image.beekka.com/blog/2014/bg2014092009.png" alt></p>
+<p><img src="http://image.beekka.com/blog/2014/bg2014092009.png"></p>
 <p>session ID是目前所有浏览器都支持的方法，但是它的缺点在于session ID往往只保留在一台服务器上。所以，如果客户端的请求发到另一台服务器，就无法恢复对话。session ticket就是为了解决这个问题而诞生的，目前只有Firefox和Chrome浏览器支持。</p>
-<p><img src="http://image.beekka.com/blog/2014/bg2014092011.png" alt></p>
+<p><img src="http://image.beekka.com/blog/2014/bg2014092011.png"></p>
 <p>上图中，客户端不再发送session ID，而是发送一个服务器在上一次对话中发送过来的session ticket。这个session ticket是加密的，只有服务器才能解密，其中包括本次对话的主要信息，比如对话密钥和加密方法。当服务器收到session ticket以后，解密后就不必重新生成对话密钥了。</p>
 
       
@@ -412,16 +413,16 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
+        <p><span>本文标题:</span><a  href="/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/">浅谈SSL/TLS</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2017年11月07日 - 19时36分</p>
         <p><span>最后更新:</span>2017年11月17日 - 14时10分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/11/07/浅谈SSLTLS/" title="浅谈SSL/TLS">http://qinyongli.cn/2017/11/07/浅谈SSLTLS/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/11/07/浅谈SSLTLS/　　作者: 覃永利" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/" title="浅谈SSL/TLS">http://qinyongli.cn/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/　　作者: " title=""></span>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -429,7 +430,7 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/11/11/浅谈HTTPS、HTTP2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2017/11/11/%E6%B5%85%E8%B0%88HTTPS%E3%80%81HTTP2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -439,7 +440,7 @@
     </a>
   
   
-    <a href="/2017/11/07/数据结构之集合运算/" id="article-nav-older" class="article-nav-link-wrap">
+    <a  href="/2017/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">数据结构之集合运算</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -452,7 +453,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TLS-SSL"><span class="toc-number">2.</span> <span class="toc-text">TLS/SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密匙"><span class="toc-number">2.1.</span> <span class="toc-text">密匙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字证书"><span class="toc-number">2.2.</span> <span class="toc-text">数字证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL作用"><span class="toc-number">2.3.</span> <span class="toc-text">SSL作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-SSL协议的组成"><span class="toc-number">2.4.</span> <span class="toc-text">TLS/SSL协议的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL基本的运行机制"><span class="toc-number">2.5.</span> <span class="toc-text">SSL基本的运行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#公钥加密计算量太大，如何减少耗用的时间？"><span class="toc-number">2.5.1.</span> <span class="toc-text">公钥加密计算量太大，如何减少耗用的时间？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-SSL协议的握手过程"><span class="toc-number">2.6.</span> <span class="toc-text">TLS/SSL协议的握手过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#私钥的作用"><span class="toc-number">2.7.</span> <span class="toc-text">私钥的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DH算法的握手阶段"><span class="toc-number">2.8.</span> <span class="toc-text">DH算法的握手阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session的恢复"><span class="toc-number">2.9.</span> <span class="toc-text">session的恢复</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TLS-SSL"><span class="toc-number">2.</span> <span class="toc-text">TLS&#x2F;SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%86%E5%8C%99"><span class="toc-number">2.1.</span> <span class="toc-text">密匙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6"><span class="toc-number">2.2.</span> <span class="toc-text">数字证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL%E4%BD%9C%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">SSL作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-SSL%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">2.4.</span> <span class="toc-text">TLS&#x2F;SSL协议的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-number">2.5.</span> <span class="toc-text">SSL基本的运行机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E5%8A%A0%E5%AF%86%E8%AE%A1%E7%AE%97%E9%87%8F%E5%A4%AA%E5%A4%A7%EF%BC%8C%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E8%80%97%E7%94%A8%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9F"><span class="toc-number">2.5.1.</span> <span class="toc-text">公钥加密计算量太大，如何减少耗用的时间？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-SSL%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B"><span class="toc-number">2.6.</span> <span class="toc-text">TLS&#x2F;SSL协议的握手过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%81%E9%92%A5%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.7.</span> <span class="toc-text">私钥的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DH%E7%AE%97%E6%B3%95%E7%9A%84%E6%8F%A1%E6%89%8B%E9%98%B6%E6%AE%B5"><span class="toc-number">2.8.</span> <span class="toc-text">DH算法的握手阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session%E7%9A%84%E6%81%A2%E5%A4%8D"><span class="toc-number">2.9.</span> <span class="toc-text">session的恢复</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -462,8 +463,10 @@
         display: none;
     }
 </style>
-<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
 <script>
     var valueHide = "隐藏目录";
     var valueShow = "显示目录";
@@ -511,18 +514,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/11/11/浅谈HTTPS、HTTP2/" title="上一篇: 浅谈HTTPS、HTTP2">
+            <a  href="/2017/11/11/%E6%B5%85%E8%B0%88HTTPS%E3%80%81HTTP2/" title="上一篇: 浅谈HTTPS、HTTP2">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/11/07/数据结构之集合运算/" title="下一篇: 数据结构之集合运算">
+            <a  href="/2017/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" title="下一篇: 数据结构之集合运算">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/16/探索webpack/">探索webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/nginx探索/">nginx探索</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/HTML5的新API/">HTML5的新API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/16/探索flex/">探索flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/JS严格模式/">JS严格模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/css布局相关/">css布局相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/17/浅谈浏览器缓存机制/">浅谈浏览器缓存机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/Script标签/">Script标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/浅谈JavaScript的闭包/">浅谈JavaScript的闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/07/JavaScript的变量声明/">JavaScript的变量声明</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/05/写一个Promise/">写一个Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/HTML5-通讯API/">HTML5 通讯API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/ECMAScript-面向对象/">ECMAScript 面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/C语言中的多进程/">C语言中的多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/基于c语言的socket编程/">基于c语言的socket编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/入门docker/">入门docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/数据库的那些事/">数据库的那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/浅谈Nodejs多进程/">浅谈Nodejs多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/浅谈数据上传/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/浅谈HTTPS、HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/数据结构之集合运算/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Cookie、Session、JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript常用设计模式/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/01/17/%E6%88%90%E9%95%BF/">成长</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/">进程、线程、协程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/16/%E6%8E%A2%E7%B4%A2webpack/">探索webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/nginx%E6%8E%A2%E7%B4%A2/">nginx探索</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/HTML5%E7%9A%84%E6%96%B0API/">HTML5的新API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/16/%E6%8E%A2%E7%B4%A2flex/">探索flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/JS%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">JS严格模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/css%E5%B8%83%E5%B1%80%E7%9B%B8%E5%85%B3/">css布局相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/17/%E6%B5%85%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/">浅谈浏览器缓存机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/Script%E6%A0%87%E7%AD%BE/">Script标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/%E6%B5%85%E8%B0%88JavaScript%E7%9A%84%E9%97%AD%E5%8C%85/">浅谈JavaScript的闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/07/JavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/">JavaScript的变量声明</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/05/%E5%86%99%E4%B8%80%E4%B8%AAPromise/">写一个Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/HTML5-%E9%80%9A%E8%AE%AFAPI/">HTML5 通讯API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/ECMAScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">ECMAScript 面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B/">C语言中的多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/%E5%9F%BA%E4%BA%8Ec%E8%AF%AD%E8%A8%80%E7%9A%84socket%E7%BC%96%E7%A8%8B/">基于c语言的socket编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/%E5%85%A5%E9%97%A8docker/">入门docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">数据库的那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/%E6%B5%85%E8%B0%88Nodejs%E5%A4%9A%E8%BF%9B%E7%A8%8B/">浅谈Nodejs多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/%E6%B5%85%E8%B0%88HTTPS%E3%80%81HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/%E6%B5%85%E8%B0%88Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/%E6%B5%85%E8%B0%88HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/%E6%B5%85%E8%B0%88curry%E5%8C%96/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/%E6%B5%85%E8%B0%88MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/%E6%96%B0%E7%9A%84hexo/">新的hexo</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
@@ -556,7 +559,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2019 覃永利
+                &copy; 2021 覃永利
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
@@ -565,8 +568,8 @@
         
             <div class="visit">
                 
-                    <span id="busuanzi_container_site_pv" style="display:none">
-                        <span id="site-visit">极客到访数: 
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -575,7 +578,7 @@
                     <span>, </span>
                 
                 
-                    <span id="busuanzi_container_page_pv" style="display:none">
+                    <span id="busuanzi_container_page_pv" style='display:none'>
                         <span id="page-visit">本页阅读量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
@@ -587,8 +590,12 @@
 </footer>
 
     </div>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 
     <script>
         $(document).ready(function() {

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
-  <meta name="msvalidate.01" content="AE604ACCCD787E5130F0B75BDC9F0231">
-  <meta name="360-site-verification" content="bd04526f64d2b1b11c8e05a60e0c0256">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  <meta name="msvalidate.01" content="AE604ACCCD787E5130F0B75BDC9F0231" />
+  <meta name="360-site-verification" content="bd04526f64d2b1b11c8e05a60e0c0256" />
   
   
   
@@ -12,21 +12,21 @@
   <title>浅谈Cookie、Session、JWTS | 覃永利的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="序言HTTP是一个无状态的协议，现实中的业务却是需要一定的状态的，否则无法区分用户之间的身份。">
-<meta name="keywords" content="NODEJS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈Cookie、Session、JWTS">
-<meta property="og:url" content="http://qinyongli.cn/2017/11/03/浅谈Cookie、Session、JWTS/index.html">
+<meta property="og:url" content="http://qinyongli.cn/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/index.html">
 <meta property="og:site_name" content="覃永利的技术博客">
 <meta property="og:description" content="序言HTTP是一个无状态的协议，现实中的业务却是需要一定的状态的，否则无法区分用户之间的身份。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="https://cdn.auth0.com/content/jwt/encoded-jwt3.png">
 <meta property="og:image" content="https://cdn.auth0.com/content/jwt/jwt-diagram.png">
 <meta property="og:image" content="http://qinyongli.cn/img/session.png">
 <meta property="og:image" content="http://qinyongli.cn/img/token.png">
-<meta property="og:updated_time" content="2017-11-17T06:07:36.000Z">
+<meta property="article:published_time" content="2017-11-03T14:35:10.000Z">
+<meta property="article:modified_time" content="2017-11-17T06:07:36.000Z">
+<meta property="article:author" content="覃永利">
+<meta property="article:tag" content="NODEJS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈Cookie、Session、JWTS">
-<meta name="twitter:description" content="序言HTTP是一个无状态的协议，现实中的业务却是需要一定的状态的，否则无法区分用户之间的身份。">
 <meta name="twitter:image" content="https://cdn.auth0.com/content/jwt/encoded-jwt3.png">
   
     <link rel="alternative" href="/atom.xml" title="覃永利的技术博客" type="application/atom+xml">
@@ -35,9 +35,13 @@
     <link rel="icon" href="/img/apple-touch-icon.png">
   
   
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
-  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
@@ -46,7 +50,7 @@
   
   <!-- 加载特效 -->
     <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
   <script>
       var yiliaConfig = {
           fancybox: true,
@@ -73,7 +77,7 @@
       s.parentNode.insertBefore(bp, s);
   })();
   </script>
-</head></html>
+<meta name="generator" content="Hexo 5.3.0"></head>
 <body>
   <div id="container">
     <div class="left-col">
@@ -87,10 +91,8 @@
             
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">覃永利</a></h1>
+          <h1 class="header-author"><a href="/"></a></h1>
         </hgroup>
-        
-        <p class="header-subtitle">Goals determine what I going to be</p>
         
         
             <form>
@@ -190,22 +192,22 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/archives/">所有文章</a></li>
+                            <li><a  href="/archives/">所有文章</a></li>
                         
-                            <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                            <li><a  href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
                         
-                            <li><a href="/categories/digital">玩转数码</a></li>
+                            <li><a  href="/categories/digital">玩转数码</a></li>
                         
-                            <li><a href="/categories/cognition">认知提升</a></li>
+                            <li><a  href="/categories/cognition">认知提升</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
+                            <li><a  href="/about/">关于我</a></li>
                         
                         </ul>
                     </nav>
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fl github" target="_blank" href="https://github.com/sceley" title="github">github</a>
+                                <a class="fl github"  target="_blank" href="https://github.com/sceley" title="github">github</a>
                             
                         </ul>
                     </nav>
@@ -213,7 +215,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/C语言/" style="font-size: 13.33px;">C语言</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 16.67px;">NODEJS</a> <a href="/tags/Web通讯/" style="font-size: 10px;">Web通讯</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/框架模式/" style="font-size: 10px;">框架模式</a>
+                        <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 13.33px;">C语言</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 16.67px;">NODEJS</a> <a href="/tags/Web%E9%80%9A%E8%AE%AF/" style="font-size: 10px;">Web通讯</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">框架模式</a> <a href="/tags/%E7%88%B1%E6%83%85/" style="font-size: 10px;">爱情</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a>
                     </div>
                 </section>
                 
@@ -221,11 +223,11 @@
                 <section class="switch-part switch-part3">
                     <div id="js-friends">
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
                     
                     </div>
                 </section>
@@ -247,7 +249,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">覃永利</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -257,17 +259,15 @@
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">覃永利</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
             </hgroup>
-            
-            <p class="header-subtitle">Goals determine what I going to be</p>
             
             <nav class="header-menu">
                 <ul>
                 
                     <li><a href="/archives/">所有文章</a></li>
                 
-                    <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                    <li><a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">玩转开发工具</a></li>
                 
                     <li><a href="/categories/digital">玩转数码</a></li>
                 
@@ -291,7 +291,7 @@
       <div class="body-wrap"><article id="post-浅谈Cookie、Session、JWTS" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/03/浅谈Cookie、Session、JWTS/" class="article-date">
+      <a  href="/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/" class="article-date">
       <time datetime="2017-11-03T14:35:10.000Z" itemprop="datePublished">2017-11-03</time>
 </a>
 
@@ -299,7 +299,7 @@
   
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -318,7 +318,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NODEJS/">NODEJS</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NODEJS/" rel="tag">NODEJS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -330,6 +330,7 @@
           
         <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>HTTP是一个无状态的协议，现实中的业务却是需要一定的状态的，否则无法区分用户之间的身份。</p>
 <a id="more"></a>
+
 <h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="初识Cookie"><a href="#初识Cookie" class="headerlink" title="初识Cookie"></a>初识Cookie</h3><p>HTTP是无状态的，如何标识和认证一个用户，最早的方案就是Cookie（曲奇饼）。它能记录服务器与客户端之间的状态，最早的用处就是用来判断用户是否第一次访问网站。在1997年形成规范RFC 2109，目前最新的规范为RFC 6065，它是一个由浏览器和服务器共同协作实现的规范。</p>
 <p>Cookie的处理分为如下几步。</p>
 <ul>
@@ -339,13 +340,13 @@
 </ul>
 <p>客户端发送的Cookie在请求报文的Cookie字段中。</p>
 <p>HTTP_Parser会将所有的报文字段解析到req.headers，那么Cookie就是req.headers.cookie。根据规范中的定义，Cookie值的格式是key-value; key2=value2形式，如果我们需要Cookie，解析它也十分容易。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> parseCookie = <span class="function"><span class="keyword">function</span> (<span class="params">cookie</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> cookies = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(!cookie) &#123;</span><br><span class="line">        <span class="keyword">return</span> cookies;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> list = cookie.split(<span class="string">';'</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; list.length; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> pair = list[i].split(<span class="string">'='</span>);</span><br><span class="line">        cookies[pair[<span class="number">0</span>].trim()] = pair[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cookies;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> parseCookie = <span class="function"><span class="keyword">function</span> (<span class="params">cookie</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> cookies = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(!cookie) &#123;</span><br><span class="line">        <span class="keyword">return</span> cookies;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> list = cookie.split(<span class="string">&#x27;;&#x27;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; list.length; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> pair = list[i].split(<span class="string">&#x27;=&#x27;</span>);</span><br><span class="line">        cookies[pair[<span class="number">0</span>].trim()] = pair[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cookies;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>在业务逻辑代码执行之前，我们将其挂载在req对象上，让业务代码可以直接访问，如下所示:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    req.cookies = parseCookie(req.headers.cookie);</span><br><span class="line">    handle(req, res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样我们的业务代码就可以进行判断处理了，如下所示:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> handle = <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>);</span><br><span class="line">    <span class="keyword">if</span>(req.cookies.isVisit) &#123;</span><br><span class="line">        res.end(<span class="string">'欢迎第一次来到动物园'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> handle = <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>);</span><br><span class="line">    <span class="keyword">if</span>(req.cookies.isVisit) &#123;</span><br><span class="line">        res.end(<span class="string">&#x27;欢迎第一次来到动物园&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>告知客户端的方式是通过响应报文实现的，响应的Cookie值在Set-Cookie字段中。它的格式与请求中的格式不太相同，规范中对它的定义如下所示:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set</span>-Cookie: name=value; Path=<span class="string">'/'</span>;Expires=Sun, <span class="number">23</span>-Apr<span class="number">-23</span> <span class="number">09</span>:<span class="number">01</span>:<span class="number">35</span> GMT; Domain=.domain.com;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set</span>-Cookie: name=value; Path=<span class="string">&#x27;/&#x27;</span>;Expires=Sun, <span class="number">23</span>-Apr-<span class="number">23</span> <span class="number">09</span>:<span class="number">01</span>:<span class="number">35</span> GMT; Domain=.domain.com;</span><br></pre></td></tr></table></figure>
 <p>其中name=value是必须包含的部分，其余部分皆是可选参数。这些可选参数将会影响浏览器在后续将Cookie发送给服务器端的行为。以下为主要的几个选项。</p>
 <ul>
 <li>path表示这个Cookie影响到的路径，当前访问的路径不满足该匹配时，浏览器则不发送这个Cookie。</li>
@@ -354,12 +355,12 @@
 <li>Secure。当Secure值为true时，在HTTP中是无效的，在HTTPS中才有效，表示创建的Cookie只能在HTTPS连接中被浏览器传递到服务器端进行通话验证，如果是HTTP连接则不会传递该消息，所以很难被窃听到。</li>
 </ul>
 <p>知道Cookie在报文头中的具体格式后，下面我们将Cookie序列化成符合规范的字符串，相关代码如下。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> serialize = <span class="function"><span class="keyword">function</span> (<span class="params">name, val, opt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> pairs = [name + <span class="string">'='</span> + encode(val)];</span><br><span class="line">    opt = opt || &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(opt.maxAge) pairs.push(<span class="string">`Max-Age=<span class="subst">$&#123;opt.maxAge&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.domain) pairs.push(<span class="string">`Domain=<span class="subst">$&#123;opt.domain&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.path) pairs.push(<span class="string">`Path=<span class="subst">$&#123;opt.path&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.expires) pairs.push(<span class="string">`Expires=<span class="subst">$&#123;opt.expires.toUTCString()&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.httpOnly) pairs.push(<span class="string">`HttpOnly`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.secure) pairs.push(<span class="string">`Secure`</span>);</span><br><span class="line">    <span class="keyword">return</span> pairs.join(<span class="string">`; `</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> serialize = <span class="function"><span class="keyword">function</span> (<span class="params">name, val, opt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> pairs = [name + <span class="string">&#x27;=&#x27;</span> + encode(val)];</span><br><span class="line">    opt = opt || &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(opt.maxAge) pairs.push(<span class="string">`Max-Age=<span class="subst">$&#123;opt.maxAge&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.domain) pairs.push(<span class="string">`Domain=<span class="subst">$&#123;opt.domain&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.path) pairs.push(<span class="string">`Path=<span class="subst">$&#123;opt.path&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.expires) pairs.push(<span class="string">`Expires=<span class="subst">$&#123;opt.expires.toUTCString()&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.httpOnly) pairs.push(<span class="string">`HttpOnly`</span>);</span><br><span class="line">    <span class="keyword">if</span>(opt.secure) pairs.push(<span class="string">`Secure`</span>);</span><br><span class="line">    <span class="keyword">return</span> pairs.join(<span class="string">`; `</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>判断用户的状态，如下所示:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> handle = <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!req.cookies.isVisit) &#123;</span><br><span class="line">        req.setHeader(<span class="string">`Set-Cookie, <span class="subst">$&#123;serialize(<span class="string">'isVisit'</span>, <span class="number">1</span>)&#125;</span>`</span>);</span><br><span class="line">        res.writeHead(<span class="number">200</span>);</span><br><span class="line">        res.end(<span class="string">'欢迎第一次来动物园'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.writeHad(<span class="number">200</span>);</span><br><span class="line">        res.end(<span class="string">`动物园再次欢迎你`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> handle = <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!req.cookies.isVisit) &#123;</span><br><span class="line">        req.setHeader(<span class="string">`Set-Cookie, <span class="subst">$&#123;serialize(<span class="string">&#x27;isVisit&#x27;</span>, <span class="number">1</span>)&#125;</span>`</span>);</span><br><span class="line">        res.writeHead(<span class="number">200</span>);</span><br><span class="line">        res.end(<span class="string">&#x27;欢迎第一次来动物园&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.writeHad(<span class="number">200</span>);</span><br><span class="line">        res.end(<span class="string">`动物园再次欢迎你`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>客户端收到这个带Set-Cookie的响应后，在之后的请求时会在Cookie字段中带上这个值。</p>
 <p>Set-Cookie是较少的，在报头中可能存在多字段。为此res.setHeader的第二个参数可以是一个数组，如下所示:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set</span>-Cookie: foo=bar; Path=<span class="regexp">/; Expires=Sun, 23-Apr-23 09:01:35 GMT; Domain=.domain.com</span></span><br><span class="line"><span class="regexp">Set-Cookie: foo=val; Path=/</span>; Expires=Sun, <span class="number">23</span>-Apr<span class="number">-23</span> <span class="number">09</span>:<span class="number">01</span>:<span class="number">35</span> GMT; Domain=.domain.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set</span>-Cookie: foo=bar; Path=/; Expires=Sun, <span class="number">23</span>-Apr-<span class="number">23</span> <span class="number">09</span>:<span class="number">01</span>:<span class="number">35</span> GMT; Domain=.domain.com</span><br><span class="line"><span class="built_in">Set</span>-Cookie: foo=val; Path=/; Expires=Sun, <span class="number">23</span>-Apr-<span class="number">23</span> <span class="number">09</span>:<span class="number">01</span>:<span class="number">35</span> GMT; Domain=.domain.com</span><br></pre></td></tr></table></figure>
 <h3 id="Cookie的性能影响"><a href="#Cookie的性能影响" class="headerlink" title="Cookie的性能影响"></a>Cookie的性能影响</h3><p>由于Cookie的实现机制，一旦服务器端向客户端发送了设置Cookie的意图，除非Cookie过期，否则客户端每次请求都会发送这些Cookie到服务器端，一旦设置的Cookie过多，将会导致报头较大。大多数的Cookie并不需要每次都用上，因为这会造成宽带的部分浪费。在YSlow的性能优化规则中有这么一条:</p>
 <ul>
 <li>减小Cookie的大小</li>
@@ -372,27 +373,27 @@
 <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>Cookie并非完美，前文提及的体积过大就是一个显著的问题，最为严重的问题是Cookie可以在前后端进行修改，因此数据就极容易被篡改和伪造。</p>
 <p>Session的数据只保留在服务器端，客户端无法修改，这样数据的安全性得到一定的保障，数据也无须在协议中每次都被传递。</p>
 <p>将每个客户端和服务器中的数据一一对应起来的两种实现方式。</p>
-<h4 id="基于Cookie来实现用户和数据的映射。-口令sessionid"><a href="#基于Cookie来实现用户和数据的映射。-口令sessionid" class="headerlink" title="基于Cookie来实现用户和数据的映射。(口令sessionid)"></a>基于Cookie来实现用户和数据的映射。(口令sessionid)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sessions = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> key = <span class="string">'session_id'</span>;</span><br><span class="line"><span class="keyword">let</span> EXPIRES = <span class="number">20</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> generate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> session = &#123;&#125;;</span><br><span class="line">    session.id = (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() + <span class="built_in">Math</span>.random();</span><br><span class="line">    session.cookie = &#123;</span><br><span class="line">        expires: (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() + EXPIRES</span><br><span class="line">    &#125;;</span><br><span class="line">    sessions[session.id] = session;</span><br><span class="line">    <span class="keyword">return</span> session;</span><br><span class="line">&#125; ;</span><br></pre></td></tr></table></figure>
+<h4 id="基于Cookie来实现用户和数据的映射。-口令sessionid"><a href="#基于Cookie来实现用户和数据的映射。-口令sessionid" class="headerlink" title="基于Cookie来实现用户和数据的映射。(口令sessionid)"></a>基于Cookie来实现用户和数据的映射。(口令sessionid)</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sessions = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> key = <span class="string">&#x27;session_id&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> EXPIRES = <span class="number">20</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> generate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> session = &#123;&#125;;</span><br><span class="line">    session.id = (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() + <span class="built_in">Math</span>.random();</span><br><span class="line">    session.cookie = &#123;</span><br><span class="line">        expires: (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() + EXPIRES</span><br><span class="line">    &#125;;</span><br><span class="line">    sessions[session.id] = session;</span><br><span class="line">    <span class="keyword">return</span> session;</span><br><span class="line">&#125; ;</span><br></pre></td></tr></table></figure>
 <p>每一次请求到来时，检查Cookie中的口令与服务器端的数据，如果过期，就重新生成，如下所示:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> id = req.cookies[key];</span><br><span class="line">    <span class="keyword">if</span>(!id) &#123;</span><br><span class="line">        req.session = generate();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> session = sessions[id];</span><br><span class="line">        <span class="keyword">if</span>(session) &#123;</span><br><span class="line">            <span class="keyword">if</span>(session.cookie.expires &gt; (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() ) &#123;</span><br><span class="line">                <span class="comment">//更新超时时间</span></span><br><span class="line">                session.cookie.expires = <span class="built_in">Date</span>.now() + EXPIRES;</span><br><span class="line">                req.session = session;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//如果超时了，删除旧数据，并重新生成。</span></span><br><span class="line">                <span class="keyword">delete</span> sessions[id];</span><br><span class="line">                req.session = gennerate();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//如果session过期或口令不对，重新生成session</span></span><br><span class="line">            res.session = generate();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    handle(req, res);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>把重新生成的Session响应给客户。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> writeHead = res.writeHead;</span><br><span class="line">res.writeHead = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> cookies = res.getHeader(<span class="string">'Set-Cookie'</span>);</span><br><span class="line">    <span class="keyword">let</span> session = serialize(key, req.session.id);</span><br><span class="line">    cookies = <span class="built_in">Array</span>.isArray(cookies) ? cookies.concat(session) : [cookies, session];</span><br><span class="line">    res.setHeader(<span class="string">'Set-Cookie'</span>, cookies);</span><br><span class="line">    <span class="keyword">return</span> writeHead.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> writeHead = res.writeHead;</span><br><span class="line">res.writeHead = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> cookies = res.getHeader(<span class="string">&#x27;Set-Cookie&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> session = serialize(key, req.session.id);</span><br><span class="line">    cookies = <span class="built_in">Array</span>.isArray(cookies) ? cookies.concat(session) : [cookies, session];</span><br><span class="line">    res.setHeader(<span class="string">&#x27;Set-Cookie&#x27;</span>, cookies);</span><br><span class="line">    <span class="keyword">return</span> writeHead.apply(<span class="built_in">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>Sesion依赖于Cookie实现，是目前大多数Web应用的方案。</p>
 <h4 id="通过查询字符串来实现浏览器和服务器端数据对应"><a href="#通过查询字符串来实现浏览器和服务器端数据对应" class="headerlink" title="通过查询字符串来实现浏览器和服务器端数据对应"></a>通过查询字符串来实现浏览器和服务器端数据对应</h4><p>略…</p>
 <h3 id="Session问题"><a href="#Session问题" class="headerlink" title="Session问题"></a>Session问题</h3><h4 id="Session与内存"><a href="#Session与内存" class="headerlink" title="Session与内存"></a>Session与内存</h4><h4 id="Session与安全"><a href="#Session与安全" class="headerlink" title="Session与安全"></a>Session与安全</h4><p>口令保存在客户端，口令可能会被盗取，口令可能会被伪造。</p>
 <p>对口令通过私钥加密进行签名。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sign = <span class="function"><span class="keyword">function</span> (<span class="params">val, secret</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val + <span class="string">'.'</span> + crypto</span><br><span class="line">        .createHmac(<span class="string">'sha256'</span>, secret)</span><br><span class="line">        .update(val)</span><br><span class="line">        .digest(<span class="string">'base64'</span>)</span><br><span class="line">        .replace(<span class="regexp">/\=+$/</span>, <span class="string">''</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sign = <span class="function"><span class="keyword">function</span> (<span class="params">val, secret</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val + <span class="string">&#x27;.&#x27;</span> + crypto</span><br><span class="line">        .createHmac(<span class="string">&#x27;sha256&#x27;</span>, secret)</span><br><span class="line">        .update(val)</span><br><span class="line">        .digest(<span class="string">&#x27;base64&#x27;</span>)</span><br><span class="line">        .replace(<span class="regexp">/\=+$/</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>在响应时，设置session值到Cookie中，如下所示:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> val = sign(req.sessionID, secret);</span><br><span class="line">res.setHeader(<span class="string">'Set-Cookie'</span>, cookie.serialize(key, val));</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> val = sign(req.sessionID, secret);</span><br><span class="line">res.setHeader(<span class="string">&#x27;Set-Cookie&#x27;</span>, cookie.serialize(key, val));</span><br></pre></td></tr></table></figure>
 <p>接收请求时，检查签名</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> unsign = <span class="function"><span class="keyword">function</span> (<span class="params">val, secret</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> str = val.slice(<span class="number">0</span>, val.lastIndex(<span class="string">'.'</span>));</span><br><span class="line">    <span class="keyword">return</span> sign(str, secret) == val ? str : <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="JSON-Web-Token-JWT"><a href="#JSON-Web-Token-JWT" class="headerlink" title="JSON Web Token (JWT)"></a>JSON Web Token (JWT)</h3><p><a href="https://jwt.io" target="_blank" rel="noopener">jwt</a>官方介绍</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> unsign = <span class="function"><span class="keyword">function</span> (<span class="params">val, secret</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> str = val.slice(<span class="number">0</span>, val.lastIndex(<span class="string">&#x27;.&#x27;</span>));</span><br><span class="line">    <span class="keyword">return</span> sign(str, secret) == val ? str : <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="JSON-Web-Token-JWT"><a href="#JSON-Web-Token-JWT" class="headerlink" title="JSON Web Token (JWT)"></a>JSON Web Token (JWT)</h3><p><a target="_blank" rel="noopener" href="https://jwt.io/">jwt</a>官方介绍</p>
 <p>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA.</p>
 <h4 id="jwt的组成"><a href="#jwt的组成" class="headerlink" title="jwt的组成"></a>jwt的组成</h4><p>一个jwt实际上就是一个字符串，它由三部分组成，头部、载荷与签名。</p>
 <h4 id="头部-Header"><a href="#头部-Header" class="headerlink" title="头部(Header)"></a>头部(Header)</h4><p>The header typically consists of two parts: the type of the token, which is JWT, and the hashing algorithm being used, such as HMAC SHA256 or RSA.</p>
 <p>用于描述关于该JWT的最基本信息，类型与签名所用的算法。</p>
 <p>for example</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"alg"</span>: <span class="string">"HS256"</span>,</span><br><span class="line">  <span class="string">"typ"</span>: <span class="string">"JWT"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>,</span><br><span class="line">  <span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Then, this JSON is Base64Url encoded to form the first part of the JWT.</p>
 <h4 id="载荷-Payload"><a href="#载荷-Payload" class="headerlink" title="载荷(Payload)"></a>载荷(Payload)</h4><p>The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional metadata. There are three types of claims: reserved, public, and private claims.</p>
 <ul>
@@ -401,18 +402,18 @@
 <li>These are the custom claims created to share information between parties that agree on using them.</li>
 </ul>
 <p>An example of payload could be:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"sub"</span>: <span class="string">"1234567890"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"John Doe"</span>,</span><br><span class="line">  <span class="string">"admin"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;sub&quot;</span>: <span class="string">&quot;1234567890&quot;</span>,</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;John Doe&quot;</span>,</span><br><span class="line">  <span class="string">&quot;admin&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The payload is then Base64Url encoded to form the second part of the JSON Web Token</p>
 <h4 id="签名-signature"><a href="#签名-signature" class="headerlink" title="签名(signature)"></a>签名(signature)</h4><p>To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.</p>
 <p>For example if you want to use the HMAC SHA256 algorithm, the signature will be created in the following way:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + <span class="string">"."</span> +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + <span class="string">&quot;.&quot;</span> +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret)</span><br></pre></td></tr></table></figure>
 <p>The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn’t changed along the way.</p>
 <h4 id="放它们到一起"><a href="#放它们到一起" class="headerlink" title="放它们到一起"></a>放它们到一起</h4><p>The output is three Base64 strings separated by dots that can be easily passed in HTML and HTTP environments.</p>
 <p>The following shows a JWT that has the previous header and payload encoded, and it is signed with a secret. </p>
-<p><img src="https://cdn.auth0.com/content/jwt/encoded-jwt3.png" alt></p>
-<h4 id="JWT是怎么样工作的"><a href="#JWT是怎么样工作的" class="headerlink" title="JWT是怎么样工作的"></a>JWT是怎么样工作的</h4><p><img src="https://cdn.auth0.com/content/jwt/jwt-diagram.png" alt></p>
-<h4 id="JWT与Session的区别"><a href="#JWT与Session的区别" class="headerlink" title="JWT与Session的区别"></a>JWT与Session的区别</h4><p><img src="/img/session.png" alt></p>
-<p><img src="/img/token.png" alt></p>
+<p><img src="https://cdn.auth0.com/content/jwt/encoded-jwt3.png"></p>
+<h4 id="JWT是怎么样工作的"><a href="#JWT是怎么样工作的" class="headerlink" title="JWT是怎么样工作的"></a>JWT是怎么样工作的</h4><p><img src="https://cdn.auth0.com/content/jwt/jwt-diagram.png"></p>
+<h4 id="JWT与Session的区别"><a href="#JWT与Session的区别" class="headerlink" title="JWT与Session的区别"></a>JWT与Session的区别</h4><p><img src="/img/session.png"></p>
+<p><img src="/img/token.png"></p>
 
       
     </div>
@@ -421,16 +422,16 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/11/03/浅谈Cookie、Session、JWTS/">浅谈Cookie、Session、JWTS</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 覃永利 的个人博客">覃永利</a></p>
+        <p><span>本文标题:</span><a  href="/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/">浅谈Cookie、Session、JWTS</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2017年11月03日 - 22时35分</p>
         <p><span>最后更新:</span>2017年11月17日 - 14时07分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/11/03/浅谈Cookie、Session、JWTS/" title="浅谈Cookie、Session、JWTS">http://qinyongli.cn/2017/11/03/浅谈Cookie、Session、JWTS/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/11/03/浅谈Cookie、Session、JWTS/　　作者: 覃永利" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/" title="浅谈Cookie、Session、JWTS">http://qinyongli.cn/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://qinyongli.cn/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/　　作者: " title=""></span>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -438,7 +439,7 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/11/07/数据结构之集合运算/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2017/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -448,7 +449,7 @@
     </a>
   
   
-    <a href="/2017/11/03/浅谈Node-WebSocket/" id="article-nav-older" class="article-nav-link-wrap">
+    <a  href="/2017/11/03/%E6%B5%85%E8%B0%88Node-WebSocket/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">浅谈Node-WebSocket</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -461,7 +462,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序言"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie"><span class="toc-number">2.</span> <span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#初识Cookie"><span class="toc-number">2.1.</span> <span class="toc-text">初识Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie的性能影响"><span class="toc-number">2.2.</span> <span class="toc-text">Cookie的性能影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">2.3.</span> <span class="toc-text">Session</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基于Cookie来实现用户和数据的映射。-口令sessionid"><span class="toc-number">2.3.1.</span> <span class="toc-text">基于Cookie来实现用户和数据的映射。(口令sessionid)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过查询字符串来实现浏览器和服务器端数据对应"><span class="toc-number">2.3.2.</span> <span class="toc-text">通过查询字符串来实现浏览器和服务器端数据对应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session问题"><span class="toc-number">2.4.</span> <span class="toc-text">Session问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Session与内存"><span class="toc-number">2.4.1.</span> <span class="toc-text">Session与内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Session与安全"><span class="toc-number">2.4.2.</span> <span class="toc-text">Session与安全</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Web-Token-JWT"><span class="toc-number">2.5.</span> <span class="toc-text">JSON Web Token (JWT)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jwt的组成"><span class="toc-number">2.5.1.</span> <span class="toc-text">jwt的组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#头部-Header"><span class="toc-number">2.5.2.</span> <span class="toc-text">头部(Header)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#载荷-Payload"><span class="toc-number">2.5.3.</span> <span class="toc-text">载荷(Payload)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#签名-signature"><span class="toc-number">2.5.4.</span> <span class="toc-text">签名(signature)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#放它们到一起"><span class="toc-number">2.5.5.</span> <span class="toc-text">放它们到一起</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JWT是怎么样工作的"><span class="toc-number">2.5.6.</span> <span class="toc-text">JWT是怎么样工作的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JWT与Session的区别"><span class="toc-number">2.5.7.</span> <span class="toc-text">JWT与Session的区别</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie"><span class="toc-number">2.</span> <span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E8%AF%86Cookie"><span class="toc-number">2.1.</span> <span class="toc-text">初识Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie%E7%9A%84%E6%80%A7%E8%83%BD%E5%BD%B1%E5%93%8D"><span class="toc-number">2.2.</span> <span class="toc-text">Cookie的性能影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">2.3.</span> <span class="toc-text">Session</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ECookie%E6%9D%A5%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E5%92%8C%E6%95%B0%E6%8D%AE%E7%9A%84%E6%98%A0%E5%B0%84%E3%80%82-%E5%8F%A3%E4%BB%A4sessionid"><span class="toc-number">2.3.1.</span> <span class="toc-text">基于Cookie来实现用户和数据的映射。(口令sessionid)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%9F%A5%E8%AF%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9D%A5%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%AF%B9%E5%BA%94"><span class="toc-number">2.3.2.</span> <span class="toc-text">通过查询字符串来实现浏览器和服务器端数据对应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session%E9%97%AE%E9%A2%98"><span class="toc-number">2.4.</span> <span class="toc-text">Session问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Session%E4%B8%8E%E5%86%85%E5%AD%98"><span class="toc-number">2.4.1.</span> <span class="toc-text">Session与内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Session%E4%B8%8E%E5%AE%89%E5%85%A8"><span class="toc-number">2.4.2.</span> <span class="toc-text">Session与安全</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Web-Token-JWT"><span class="toc-number">2.5.</span> <span class="toc-text">JSON Web Token (JWT)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jwt%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">2.5.1.</span> <span class="toc-text">jwt的组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%B4%E9%83%A8-Header"><span class="toc-number">2.5.2.</span> <span class="toc-text">头部(Header)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%BD%E8%8D%B7-Payload"><span class="toc-number">2.5.3.</span> <span class="toc-text">载荷(Payload)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D-signature"><span class="toc-number">2.5.4.</span> <span class="toc-text">签名(signature)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%BE%E5%AE%83%E4%BB%AC%E5%88%B0%E4%B8%80%E8%B5%B7"><span class="toc-number">2.5.5.</span> <span class="toc-text">放它们到一起</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JWT%E6%98%AF%E6%80%8E%E4%B9%88%E6%A0%B7%E5%B7%A5%E4%BD%9C%E7%9A%84"><span class="toc-number">2.5.6.</span> <span class="toc-text">JWT是怎么样工作的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JWT%E4%B8%8ESession%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.5.7.</span> <span class="toc-text">JWT与Session的区别</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -471,8 +472,10 @@
         display: none;
     }
 </style>
-<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
 <script>
     var valueHide = "隐藏目录";
     var valueShow = "显示目录";
@@ -520,18 +523,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/11/07/数据结构之集合运算/" title="上一篇: 数据结构之集合运算">
+            <a  href="/2017/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/" title="上一篇: 数据结构之集合运算">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/11/03/浅谈Node-WebSocket/" title="下一篇: 浅谈Node-WebSocket">
+            <a  href="/2017/11/03/%E6%B5%85%E8%B0%88Node-WebSocket/" title="下一篇: 浅谈Node-WebSocket">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/16/探索webpack/">探索webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/nginx探索/">nginx探索</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/HTML5的新API/">HTML5的新API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/16/探索flex/">探索flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/JS严格模式/">JS严格模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/css布局相关/">css布局相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/17/浅谈浏览器缓存机制/">浅谈浏览器缓存机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/Script标签/">Script标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/浅谈JavaScript的闭包/">浅谈JavaScript的闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/07/JavaScript的变量声明/">JavaScript的变量声明</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/05/写一个Promise/">写一个Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/HTML5-通讯API/">HTML5 通讯API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/ECMAScript-面向对象/">ECMAScript 面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/C语言中的多进程/">C语言中的多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/基于c语言的socket编程/">基于c语言的socket编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/入门docker/">入门docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/数据库的那些事/">数据库的那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/浅谈Nodejs多进程/">浅谈Nodejs多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/浅谈数据上传/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/浅谈HTTPS、HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/浅谈SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/数据结构之集合运算/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Cookie、Session、JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/浅谈Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/浅谈HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP、UDP、Socket总结/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript常用设计模式/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/浅谈JS内存/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/浅谈curry化/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree编程指南/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/浅谈MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/浅谈Web缓存/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/新的hexo/">新的hexo</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/01/17/%E6%88%90%E9%95%BF/">成长</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/">进程、线程、协程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/16/%E6%8E%A2%E7%B4%A2webpack/">探索webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/nginx%E6%8E%A2%E7%B4%A2/">nginx探索</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/18/HTML5%E7%9A%84%E6%96%B0API/">HTML5的新API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/16/%E6%8E%A2%E7%B4%A2flex/">探索flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/JS%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/">JS严格模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/04/css%E5%B8%83%E5%B1%80%E7%9B%B8%E5%85%B3/">css布局相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/17/%E6%B5%85%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/">浅谈浏览器缓存机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/Script%E6%A0%87%E7%AD%BE/">Script标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/%E6%B5%85%E8%B0%88JavaScript%E7%9A%84%E9%97%AD%E5%8C%85/">浅谈JavaScript的闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/07/JavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/">JavaScript的变量声明</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/05/%E5%86%99%E4%B8%80%E4%B8%AAPromise/">写一个Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/HTML5-%E9%80%9A%E8%AE%AFAPI/">HTML5 通讯API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/04/ECMAScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">ECMAScript 面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B/">C语言中的多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/02/%E5%9F%BA%E4%BA%8Ec%E8%AF%AD%E8%A8%80%E7%9A%84socket%E7%BC%96%E7%A8%8B/">基于c语言的socket编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/%E5%85%A5%E9%97%A8docker/">入门docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">数据库的那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/17/%E6%B5%85%E8%B0%88Nodejs%E5%A4%9A%E8%BF%9B%E7%A8%8B/">浅谈Nodejs多进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/13/%E6%B5%85%E8%B0%88%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/">浅谈数据上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/%E6%B5%85%E8%B0%88HTTPS%E3%80%81HTTP2/">浅谈HTTPS、HTTP2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/%E6%B5%85%E8%B0%88SSLTLS/">浅谈SSL/TLS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97/">数据结构之集合运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/%E6%B5%85%E8%B0%88Cookie%E3%80%81Session%E3%80%81JWTS/">浅谈Cookie、Session、JWTS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/03/%E6%B5%85%E8%B0%88Node-WebSocket/">浅谈Node-WebSocket</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/%E6%B5%85%E8%B0%88HTTP/">浅谈HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/TCP%E3%80%81UDP%E3%80%81Socket%E6%80%BB%E7%BB%93/">TCP、UDP、Socket总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/JavaScript%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">JavaScript常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/">浅谈JS内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/%E6%B5%85%E8%B0%88curry%E5%8C%96/">浅谈curry化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/25/FP-Pointfree%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">FP-Pointfree编程指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/%E6%B5%85%E8%B0%88TCP-IP/">浅谈TCP/IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/%E6%B5%85%E8%B0%88MVX/">浅谈MVX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/">浅谈Web缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/18/%E6%96%B0%E7%9A%84hexo/">新的hexo</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
@@ -565,7 +568,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2019 覃永利
+                &copy; 2021 覃永利
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
@@ -574,8 +577,8 @@
         
             <div class="visit">
                 
-                    <span id="busuanzi_container_site_pv" style="display:none">
-                        <span id="site-visit">极客到访数: 
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -584,7 +587,7 @@
                     <span>, </span>
                 
                 
-                    <span id="busuanzi_container_page_pv" style="display:none">
+                    <span id="busuanzi_container_page_pv" style='display:none'>
                         <span id="page-visit">本页阅读量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
@@ -596,8 +599,12 @@
 </footer>
 
     </div>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 
     <script>
         $(document).ready(function() {
