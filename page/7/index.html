@@ -210,7 +210,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 13.33px;">C语言</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 16.67px;">NODEJS</a> <a href="/tags/Web%E9%80%9A%E8%AE%AF/" style="font-size: 10px;">Web通讯</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">框架模式</a> <a href="/tags/%E7%88%B1%E6%83%85/" style="font-size: 10px;">爱情</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a>
+                        <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 13.33px;">C语言</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NODEJS/" style="font-size: 16.67px;">NODEJS</a> <a href="/tags/Web%E9%80%9A%E8%AE%AF/" style="font-size: 10px;">Web通讯</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E5%B7%A5%E4%BD%9C/" style="font-size: 10px;">工作</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 13.33px;">成长</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E6%A1%86%E6%9E%B6%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">框架模式</a> <a href="/tags/%E7%88%B1%E6%83%85/" style="font-size: 10px;">爱情</a>
                     </div>
                 </section>
                 
@@ -284,6 +284,72 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-浅谈JS内存" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/" class="article-date">
+      <time datetime="2017-10-26T11:48:34.000Z" itemprop="datePublished">2017-10-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/">浅谈JS内存</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>与前端不同，后端是直面服务器的，所以对性能的要求更高，对内存有更高的要求。如果存在内存泄漏，跟随着时间的流逝，内存泄漏越来越多，程序运行也会越来越慢，最终崩溃。所以要想深入学习node，控制内存的使用是至关重要的。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2017/10/26/%E6%B5%85%E8%B0%88JS%E5%86%85%E5%AD%98/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-浅谈curry化" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -529,72 +595,6 @@
       
         <p class="article-more-link">
           <a   href="/2017/10/21/%E6%B5%85%E8%B0%88MVX/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-浅谈Web缓存" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/" class="article-date">
-      <time datetime="2017-10-19T00:48:57.000Z" itemprop="datePublished">2017-10-19</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/">浅谈Web缓存</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在开发当中，性能至关重要，然而判断一个网站的性能最直观的就是看到网页打开的速度。其中提高网页反应速度的一个方式就是使用缓存。一个优秀的缓存策略可以缩短网页请求的距离，减少延迟，使缓存文件得到重复利用，减少冠带，降低网络负荷。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NODEJS/" rel="tag">NODEJS</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a   href="/2017/10/19/%E6%B5%85%E8%B0%88Web%E7%BC%93%E5%AD%98/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
